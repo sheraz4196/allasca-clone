@@ -275,13 +275,13 @@ const BuildingPermit = () => {
                   Book a free consultation with our permit specialists to discuss your project requirements.
                 </p>
               </div>
-              <Suspense fallback={<div className="min-h-[600px]" />}>\n  <CalendlyWidget />\n</Suspense>
+              <Suspense fallback={<div className="min-h-[600px]" />}> <CalendlyWidget /></Suspense>
             </div>
           </div>
         </section>
 
         {/* Building Permit Video Section */}
-        +        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '600px' }}>
+            <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '600px' }}>
           <div className="container max-w-4xl mx-auto px-4">
             <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy mb-4">
@@ -399,7 +399,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Permit Services Collapsible Section */}
-        +        <section id="permit-services-section" className="py-16 bg-gradient-to-br from-white to-purple-50" style={{ contentVisibility: 'auto', containIntrinsicSize: '1200px' }}>
+               <section id="permit-services-section" className="py-16 bg-gradient-to-br from-white to-purple-50" style={{ contentVisibility: 'auto', containIntrinsicSize: '1200px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy mb-8 text-center">
               Comprehensive Permit Services
@@ -603,7 +603,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Legal Basement Permits Section */}
-        +        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '1000px' }}>
+                <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '1000px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl shadow-xl p-8 md:p-12">
               <div className="mb-8">
