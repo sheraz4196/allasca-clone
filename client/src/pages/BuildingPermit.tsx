@@ -12,7 +12,7 @@ import blueprint2 from "@assets/stock_images/architectural_bluepr_378aa24e.jpg";
 import blueprint3 from "@assets/stock_images/architectural_bluepr_743ecedb.jpg";
 import permitApproved1 from "@assets/stock_images/building_permit_appr_51daa572.jpg";
 import newHouse from "@assets/stock_images/new_modern_house_ext_1b8e0a77.jpg";
-import permitBanner from "@assets/Gemini_Generated_Image_tab5zrtab5zrtab5_1764179602399.png";
+
 import basementLegalImg from "@assets/Gemini_Generated_Image_5b21c25b21c25b21_1764188421072.png";
 import allCasaLogo from "@assets/Logo (1)_1764188591729.jpg";
 
@@ -210,11 +210,12 @@ const BuildingPermit = () => {
               </div>
               
               <div className="my-6 md:my-8 rounded-xl overflow-hidden shadow-lg max-w-2xl mx-auto relative" style={{ aspectRatio: '16/9' }}>
-                <img 
-                  src={permitBanner}
+                <img
+                  src="/lovable-uploads/Gemini_Generated_Image_tab5zrtab5zrtab5_1764179602399.webp"
                   alt="Building permit services desk with architectural plans, blueprints, and AllCasa Building Permits branding"
                   className="w-full h-full object-cover"
                   loading="eager"
+                   fetchPriority="high" 
                   decoding="async"
                   width={1200}
                   height={675}
@@ -264,7 +265,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Calendly Booking Section - Above Services */}
-        <section id="permit-calendly-top" className="py-16 bg-gradient-to-br from-white to-purple-50" style={{ contentVisibility: 'auto', containIntrinsicSize: '700px' }}>
+        <section id="permit-calendly-top" className="py-16 bg-gradient-to-br from-white to-purple-50">
           <div className="container">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
@@ -281,7 +282,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Building Permit Video Section */}
-            <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '600px' }}>
+            <section className="py-16 bg-white">
           <div className="container max-w-4xl mx-auto px-4">
             <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy mb-4">
@@ -308,7 +309,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Services Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '1200px' }}>
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
               <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6 text-casa-navy">
@@ -399,7 +400,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Permit Services Collapsible Section */}
-               <section id="permit-services-section" className="py-16 bg-gradient-to-br from-white to-purple-50" style={{ contentVisibility: 'auto', containIntrinsicSize: '1200px' }}>
+               <section id="permit-services-section" className="py-16 bg-gradient-to-br from-white to-purple-50">
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy mb-8 text-center">
               Comprehensive Permit Services
@@ -603,7 +604,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Legal Basement Permits Section */}
-                <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '1000px' }}>
+                <section className="py-16 bg-white">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl shadow-xl p-8 md:p-12">
               <div className="mb-8">
@@ -692,7 +693,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Who We Help Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               🏠 Who We Help
@@ -719,7 +720,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Permit Approval Section */}
-        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
+        <section className="py-16 bg-white">
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               ✅ Approved Building Permits
@@ -752,7 +753,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Process Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               📜 Our Process — Simple & Transparent
@@ -803,7 +804,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Why Choose Us Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               ⚡ Why Choose Us?
@@ -841,7 +842,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Service Areas */}
-        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '300px' }}>
+        <section className="py-16 bg-white">
           <div className="container max-w-6xl mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6 text-casa-navy">
               📍 Service Areas
@@ -853,7 +854,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '1200px' }}>
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-12 text-casa-navy text-center">
               🧠 Frequently Asked Questions (FAQ)
@@ -977,7 +978,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Final Calendly Widget Section - Above Footer */}
-        <section id="permit-calendly" className="py-16 bg-gradient-to-br from-white to-purple-50" style={{ contentVisibility: 'auto', containIntrinsicSize: '700px' }}>
+        <section id="permit-calendly" className="py-16 bg-gradient-to-br from-white to-purple-50">
           <div className="container">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
