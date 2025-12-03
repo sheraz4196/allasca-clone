@@ -10,23 +10,23 @@ interface ImageCarouselTypes {
 
 const heroImages: ImageCarouselTypes[] = [
   {
-    src: "/lovable-uploads/090f7789-43ad-4f1f-80af-87c1fbb30439.png",
+    src: "/lovable-uploads/090f7789-43ad-4f1f-80af-87c1fbb30439.webp",
     alt: "Image 1"
   },
   {
-    src: "/lovable-uploads/ab4183af-b1cb-4ad2-9fa3-0c5d01441463.png",
+    src: "/lovable-uploads/ab4183af-b1cb-4ad2-9fa3-0c5d01441463.webp",
     alt: "Image 2"
   },
   {
-    src: "/lovable-uploads/4c980d8f-d099-467b-93c9-846ef0a340e3.png",
+    src: "/lovable-uploads/4c980d8f-d099-467b-93c9-846ef0a340e3.webp",
     alt: "Image 3"
   },
   {
-    src: "/lovable-uploads/8023b467-88c8-4498-9a14-985d92fef6de.png",
+    src: "/lovable-uploads/8023b467-88c8-4498-9a14-985d92fef6de.webp",
     alt: "Image 4"
   },
   {
-    src: "/lovable-uploads/45aeef41-fc0e-4f5a-8476-4a04d333a781.png",
+    src: "/lovable-uploads/45aeef41-fc0e-4f5a-8476-4a04d333a781.webp",
     alt: "Image 5"
   }
 ];
@@ -103,6 +103,9 @@ const Hero = () => {
                           alt={image.alt || `Hero Image ${index + 1}`}
                           loading={index === 0 ? "eager" : "lazy"}
                           decoding={index === 0 ? "sync" : "async"}
+                          width={1600}
+                          height={900}
+                          sizes="(min-width:1024px) 50vw, 100vw"
                           className="w-full h-[280px] sm:h-[320px] md:h-[380px] lg:h-[400px] object-cover rounded-xl border transition-transform duration-300 ease-in-out"
                           {...(index === 0 ? { fetchpriority: "high" } : {})}
                         />

@@ -1,12 +1,12 @@
+import { useState, Suspense, lazy } from "react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Contact from "@/components/Contact";
-import CalendlyWidget from "@/components/CalendlyWidget";
-import Testimonials from "@/components/Testimonials";
-import { ChevronRight, ChevronDown } from "lucide-react";
 import Seo from "@/components/Seo";
-import { useState } from "react";
+
+const Testimonials = lazy(() => import("@/components/Testimonials"));
+const Contact = lazy(() => import("@/components/Contact"));
+const CalendlyWidget = lazy(() => import("@/components/CalendlyWidget"));
 import blueprint1 from "@assets/stock_images/architectural_bluepr_69f8733f.jpg";
 import blueprint2 from "@assets/stock_images/architectural_bluepr_378aa24e.jpg";
 import blueprint3 from "@assets/stock_images/architectural_bluepr_743ecedb.jpg";
@@ -189,10 +189,6 @@ const BuildingPermit = () => {
         <section className="bg-gradient-to-br from-purple-50 to-white py-8 md:py-16">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-6 md:mb-8">
-              {/* Brand Name */}
-              <div className="text-2xl md:text-3xl font-poppins font-bold text-casa-purple mb-3 md:mb-4">
-                AllCasa
-              </div>
               {/* Semantic H1 for SEO */}
               <h1 className="font-poppins font-bold text-casa-navy mb-4 md:mb-6">
                 <div className="text-3xl md:text-5xl mb-2">
@@ -218,7 +214,6 @@ const BuildingPermit = () => {
                   src={permitBanner}
                   alt="Building permit services desk with architectural plans, blueprints, and AllCasa Building Permits branding"
                   className="w-full h-full object-cover"
-                  fetchPriority="high"
                   loading="eager"
                   decoding="async"
                   width={1200}
@@ -262,14 +257,14 @@ const BuildingPermit = () => {
                 data-testid="button-permit-consultation"
               >
                 Get Free Consultation
-                <ChevronRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                <ChevronRightIcon className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </Button>
             </div>
           </div>
         </section>
 
         {/* Calendly Booking Section - Above Services */}
-        <section id="permit-calendly-top" className="py-16 bg-gradient-to-br from-white to-purple-50">
+        <section id="permit-calendly-top" className="py-16 bg-gradient-to-br from-white to-purple-50" style={{ contentVisibility: 'auto', containIntrinsicSize: '700px' }}>
           <div className="container">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
@@ -280,13 +275,13 @@ const BuildingPermit = () => {
                   Book a free consultation with our permit specialists to discuss your project requirements.
                 </p>
               </div>
-              <CalendlyWidget />
+              <Suspense fallback={<div className="min-h-[600px]" />}> <CalendlyWidget /></Suspense>
             </div>
           </div>
         </section>
 
         {/* Building Permit Video Section */}
-        <section className="py-16 bg-white">
+            <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '600px' }}>
           <div className="container max-w-4xl mx-auto px-4">
             <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy mb-4">
@@ -303,7 +298,9 @@ const BuildingPermit = () => {
                 src="https://www.youtube.com/embed/D6ygF0N1XDk?autoplay=0"
                 title="Building Permit Services Overview"
                 frameBorder="0"
-                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               />
             </div>
@@ -311,7 +308,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Services Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '1200px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
               <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6 text-casa-navy">
@@ -402,7 +399,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Permit Services Collapsible Section */}
-        <section id="permit-services-section" className="py-16 bg-gradient-to-br from-white to-purple-50">
+               <section id="permit-services-section" className="py-16 bg-gradient-to-br from-white to-purple-50" style={{ contentVisibility: 'auto', containIntrinsicSize: '1200px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy mb-8 text-center">
               Comprehensive Permit Services
@@ -416,7 +413,7 @@ const BuildingPermit = () => {
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
                 >
                   <h3 className="text-xl font-bold text-casa-navy">🏠 Residential Building Permits</h3>
-                  <ChevronDown className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.residential ? 'rotate-180' : ''}`} />
+                  <ChevronDownIcon className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.residential ? 'rotate-180' : ''}`} />
                 </button>
                 {expandedSections.residential && (
                   <div className="px-6 pb-6 border-t border-gray-200 text-gray-700">
@@ -433,7 +430,7 @@ const BuildingPermit = () => {
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
                 >
                   <h3 className="text-xl font-bold text-casa-navy">🧱 Commercial & Industrial Permits</h3>
-                  <ChevronDown className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.commercial ? 'rotate-180' : ''}`} />
+                  <ChevronDownIcon className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.commercial ? 'rotate-180' : ''}`} />
                 </button>
                 {expandedSections.commercial && (
                   <div className="px-6 pb-6 border-t border-gray-200 text-gray-700">
@@ -450,7 +447,7 @@ const BuildingPermit = () => {
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
                 >
                   <h3 className="text-xl font-bold text-casa-navy">🏘️ Laneway & Garden Suites</h3>
-                  <ChevronDown className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.laneway ? 'rotate-180' : ''}`} />
+                  <ChevronDownIcon className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.laneway ? 'rotate-180' : ''}`} />
                 </button>
                 {expandedSections.laneway && (
                   <div className="px-6 pb-6 border-t border-gray-200 text-gray-700">
@@ -467,7 +464,7 @@ const BuildingPermit = () => {
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
                 >
                   <h3 className="text-xl font-bold text-casa-navy">🪜 Deck, Porch & Sunroom Permits</h3>
-                  <ChevronDown className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.deck ? 'rotate-180' : ''}`} />
+                  <ChevronDownIcon className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.deck ? 'rotate-180' : ''}`} />
                 </button>
                 {expandedSections.deck && (
                   <div className="px-6 pb-6 border-t border-gray-200 text-gray-700">
@@ -483,7 +480,7 @@ const BuildingPermit = () => {
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
                 >
                   <h3 className="text-xl font-bold text-casa-navy">🧩 Retaining Wall, Grading & Site Plans</h3>
-                  <ChevronDown className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.retaining ? 'rotate-180' : ''}`} />
+                  <ChevronDownIcon className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.retaining ? 'rotate-180' : ''}`} />
                 </button>
                 {expandedSections.retaining && (
                   <div className="px-6 pb-6 border-t border-gray-200 text-gray-700">
@@ -500,7 +497,7 @@ const BuildingPermit = () => {
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
                 >
                   <h3 className="text-xl font-bold text-casa-navy">🏠 Legal Basement & Secondary Suites</h3>
-                  <ChevronDown className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.basement ? 'rotate-180' : ''}`} />
+                  <ChevronDownIcon className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.basement ? 'rotate-180' : ''}`} />
                 </button>
                 {expandedSections.basement && (
                   <div className="px-6 pb-6 border-t border-gray-200 text-gray-700">
@@ -517,7 +514,7 @@ const BuildingPermit = () => {
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
                 >
                   <h3 className="text-xl font-bold text-casa-navy">🧾 Drafting & Architectural Design</h3>
-                  <ChevronDown className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.drafting ? 'rotate-180' : ''}`} />
+                  <ChevronDownIcon className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.drafting ? 'rotate-180' : ''}`} />
                 </button>
                 {expandedSections.drafting && (
                   <div className="px-6 pb-6 border-t border-gray-200 text-gray-700">
@@ -534,7 +531,7 @@ const BuildingPermit = () => {
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
                 >
                   <h3 className="text-xl font-bold text-casa-navy">🏗️ Demolition & Inspections</h3>
-                  <ChevronDown className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.demolition ? 'rotate-180' : ''}`} />
+                  <ChevronDownIcon className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.demolition ? 'rotate-180' : ''}`} />
                 </button>
                 {expandedSections.demolition && (
                   <div className="px-6 pb-6 border-t border-gray-200 text-gray-700">
@@ -550,7 +547,7 @@ const BuildingPermit = () => {
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
                 >
                   <h3 className="text-xl font-bold text-casa-navy">🏙️ City-Specific Permit Expertise</h3>
-                  <ChevronDown className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.citySpecific ? 'rotate-180' : ''}`} />
+                  <ChevronDownIcon className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.citySpecific ? 'rotate-180' : ''}`} />
                 </button>
                 {expandedSections.citySpecific && (
                   <div className="px-6 pb-6 border-t border-gray-200 text-gray-700">
@@ -566,7 +563,7 @@ const BuildingPermit = () => {
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
                 >
                   <h3 className="text-xl font-bold text-casa-navy">⚙️ Design-Build & Construction Support</h3>
-                  <ChevronDown className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.designBuild ? 'rotate-180' : ''}`} />
+                  <ChevronDownIcon className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.designBuild ? 'rotate-180' : ''}`} />
                 </button>
                 {expandedSections.designBuild && (
                   <div className="px-6 pb-6 border-t border-gray-200 text-gray-700">
@@ -606,7 +603,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Legal Basement Permits Section */}
-        <section className="py-16 bg-white">
+                <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '1000px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl shadow-xl p-8 md:p-12">
               <div className="mb-8">
@@ -629,7 +626,7 @@ const BuildingPermit = () => {
                     className="w-full flex items-center justify-between bg-white rounded-xl p-6 hover:bg-purple-50 transition-colors shadow-md mb-4 text-left"
                   >
                     <h3 className="text-xl font-bold text-casa-navy">Our Process & Services</h3>
-                    <ChevronDown className={`h-6 w-6 text-casa-purple flex-shrink-0 transition-transform ${expandedSections.basementPoints ? 'rotate-180' : ''}`} />
+                    <ChevronDownIcon className={`h-6 w-6 text-casa-purple flex-shrink-0 transition-transform ${expandedSections.basementPoints ? 'rotate-180' : ''}`} />
                   </button>
                   
                   {expandedSections.basementPoints && (
@@ -695,7 +692,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Who We Help Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               🏠 Who We Help
@@ -722,7 +719,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Permit Approval Section */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               ✅ Approved Building Permits
@@ -755,7 +752,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Process Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               📜 Our Process — Simple & Transparent
@@ -806,7 +803,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Why Choose Us Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               ⚡ Why Choose Us?
@@ -844,7 +841,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Service Areas */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '300px' }}>
           <div className="container max-w-6xl mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6 text-casa-navy">
               📍 Service Areas
@@ -856,7 +853,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '1200px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-12 text-casa-navy text-center">
               🧠 Frequently Asked Questions (FAQ)
@@ -920,35 +917,39 @@ const BuildingPermit = () => {
           </div>
         </section>
 
-        <Testimonials />
+        <Suspense fallback={<div className="min-h-[200px]" />}>
+          <Testimonials />
+        </Suspense>
 
         {/* Contact Form Section */}
         <section id="contact" className="py-20 bg-white">
           <div className="container max-w-2xl mx-auto">
-            <Contact 
-              formOnly={true}
-              budgetOptions={[
-                { value: "dont-know", label: "I don't know" },
-                { value: "under-3k", label: "Under $3000" },
-                { value: "3k-5k", label: "$3000-$5000" },
-                { value: "5k-7k", label: "$5000-$7000" },
-                { value: "7k-10k", label: "$7000-$10,000" },
-                { value: "10k-15k", label: "$10,000-$15000" },
-                { value: "15k-plus", label: ">$15,000" }
-              ]}
-              projectTypeOptions={[
-                { value: "custom-home", label: "Custom Home" },
-                { value: "home-addition", label: "Home Addition" },
-                { value: "legal-basement", label: "Legal Basement" },
-                { value: "basement-finish", label: "Basement Finish" },
-                { value: "deck-porch", label: "Deck / Porch" },
-                { value: "garage-laneway", label: "Garage / Laneway" },
-                { value: "interior-remodel", label: "Interior Remodel" },
-                { value: "garden-suite", label: "Garden Suite" },
-                { value: "commercial-space", label: "Commercial Space" },
-                { value: "change-of-use", label: "Change of Use" }
-              ]}
-            />
+            <Suspense fallback={<div className="min-h-[300px]" />}>
+              <Contact 
+                formOnly={true}
+                budgetOptions={[
+                  { value: "dont-know", label: "I don't know" },
+                  { value: "under-3k", label: "Under $3000" },
+                  { value: "3k-5k", label: "$3000-$5000" },
+                  { value: "5k-7k", label: "$5000-$7000" },
+                  { value: "7k-10k", label: "$7000-$10,000" },
+                  { value: "10k-15k", label: "$10,000-$15000" },
+                  { value: "15k-plus", label: ">$15,000" }
+                ]}
+                projectTypeOptions={[
+                  { value: "custom-home", label: "Custom Home" },
+                  { value: "home-addition", label: "Home Addition" },
+                  { value: "legal-basement", label: "Legal Basement" },
+                  { value: "basement-finish", label: "Basement Finish" },
+                  { value: "deck-porch", label: "Deck / Porch" },
+                  { value: "garage-laneway", label: "Garage / Laneway" },
+                  { value: "interior-remodel", label: "Interior Remodel" },
+                  { value: "garden-suite", label: "Garden Suite" },
+                  { value: "commercial-space", label: "Commercial Space" },
+                  { value: "change-of-use", label: "Change of Use" }
+                ]}
+              />
+            </Suspense>
           </div>
         </section>
 
@@ -969,14 +970,14 @@ const BuildingPermit = () => {
                 data-testid="button-permit-cta-consultation"
               >
                 Get Free Consultation
-                <ChevronRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                <ChevronRightIcon className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
               </Button>
             </div>
           </div>
         </section>
 
         {/* Final Calendly Widget Section - Above Footer */}
-        <section id="permit-calendly" className="py-16 bg-gradient-to-br from-white to-purple-50">
+        <section id="permit-calendly" className="py-16 bg-gradient-to-br from-white to-purple-50" style={{ contentVisibility: 'auto', containIntrinsicSize: '700px' }}>
           <div className="container">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
@@ -987,7 +988,9 @@ const BuildingPermit = () => {
                   Schedule your building permit consultation now and get started on your project.
                 </p>
               </div>
-              <CalendlyWidget />
+              <Suspense fallback={<div className="min-h-[600px]" />}>
+                <CalendlyWidget />
+              </Suspense>
             </div>
           </div>
         </section>
@@ -999,3 +1002,18 @@ const BuildingPermit = () => {
 };
 
 export default BuildingPermit;
+
+function ChevronDownIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="m6 9 6 6 6-6" />
+    </svg>
+  );
+}
+function ChevronRightIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M9 18l6-6-6-6" />
+    </svg>
+  );
+}

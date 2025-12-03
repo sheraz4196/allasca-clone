@@ -166,7 +166,9 @@ const Index = () => {
                   src="https://www.youtube.com/embed/_7vH6T9BgPo"
                   title="AllCasa Custom Home Construction Video 1"
                   frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 />
               </div>
@@ -177,7 +179,9 @@ const Index = () => {
                   src="https://www.youtube.com/embed/E1ki2QqNx-U"
                   title="AllCasa Custom Home Construction Video 2"
                   frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 />
               </div>
@@ -188,7 +192,9 @@ const Index = () => {
                   src="https://www.youtube.com/embed/wyP3P58oVns"
                   title="AllCasa Custom Home Construction Video 3"
                   frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 />
               </div>
@@ -199,7 +205,9 @@ const Index = () => {
                   src="https://www.youtube.com/embed/D6ygF0N1XDk"
                   title="AllCasa Custom Home Construction Video 4"
                   frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                   allowFullScreen
                 />
               </div>

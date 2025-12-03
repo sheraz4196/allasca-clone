@@ -1,18 +1,64 @@
-import { MapPin, Award, Wrench, ChevronDown } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+
+function ChevronDown(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M6 9l6 6 6-6" />
+    </svg>
+  );
+}
+function Wrench(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-3 3-3-3 3-3z" />
+    </svg>
+  );
+}
+function Award(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <circle cx="12" cy="8" r="5" />
+      <path d="M9 14l-3 7 6-3 6 3-3-7" />
+    </svg>
+  );
+}
+function MapPin(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M12 21s-7-4.5-7-10a7 7 0 1 1 14 0c0 5.5-7 10-7 10z" />
+      <circle cx="12" cy="11" r="3" />
+    </svg>
+  );
+}
 
 const SEOSection = () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const calendlyContainerRef = useRef<HTMLDivElement>(null);
+  const hasLoadedCalendly = useRef(false);
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !hasLoadedCalendly.current) {
+        hasLoadedCalendly.current = true;
+        const script = document.createElement('script');
+        script.src = 'https://assets.calendly.com/assets/external/widget.js';
+        script.async = true;
+        script.onload = () => {
+          if (window.Calendly?.initInlineWidgets) {
+            window.Calendly.initInlineWidgets();
+          }
+        };
+        document.body.appendChild(script);
+        observer.disconnect();
       }
+    }, { threshold: 0.1 });
+
+    if (calendlyContainerRef.current) {
+      observer.observe(calendlyContainerRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
     };
   }, []);
 
@@ -20,7 +66,7 @@ const SEOSection = () => {
     <section className="py-16 bg-gradient-to-br from-casa-purple/5 to-casa-blue/5">
       <div className="container">
         <div className="max-w-4xl mx-auto text-center">
-          <div id="consultation-booking" className="mb-12 bg-white rounded-xl p-8 shadow-lg" data-testid="calendly-embed">
+          <div ref={calendlyContainerRef} id="consultation-booking" className="mb-12 bg-white rounded-xl p-8 shadow-lg" data-testid="calendly-embed">
             <div 
               className="calendly-inline-widget" 
               data-url="https://calendly.com/allcasa12allcasa/schedule-your-project-consultation"
