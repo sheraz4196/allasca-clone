@@ -38,21 +38,44 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     
-    <!-- Google Tag Manager - Deferred for performance -->
+    <!-- Google Tag Manager - Lazy loader to reduce main-thread work -->
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      
-      // Defer GTM loading until after page load
-      window.addEventListener('load', function() {
-        setTimeout(function() {
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-W4LSPXSW');
-        }, 100);
-      });
+      (function() {
+        var GTM_ID = 'GTM-W4LSPXSW';
+        var loaded = false;
+        var isLocal = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+        if (isLocal) {
+          // Skip GTM in local development to avoid noisy third-party requests
+          return;
+        }
+        function loadGTM() {
+          if (loaded) return;
+          loaded = true;
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+          var s = document.createElement('script');
+          s.async = true;
+          s.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
+          var f = document.getElementsByTagName('script')[0];
+          f.parentNode.insertBefore(s, f);
+        }
+        function idleLoad() {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(function() { loadGTM(); }, { timeout: 4000 });
+          } else {
+            setTimeout(loadGTM, 4000);
+          }
+        }
+        // Load after the first meaningful user interaction
+        ['scroll','pointerdown','keydown','touchstart'].forEach(function(evt) {
+          window.addEventListener(evt, function handler() {
+            window.removeEventListener(evt, handler, { passive: true });
+            loadGTM();
+          }, { passive: true, once: true });
+        });
+        // Fallback: after load, schedule idle load
+        window.addEventListener('load', idleLoad, { once: true });
+      })();
     </script>
     <!-- End Google Tag Manager -->
     

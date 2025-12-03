@@ -264,7 +264,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Calendly Booking Section - Above Services */}
-        <section id="permit-calendly-top" className="py-16 bg-gradient-to-br from-white to-purple-50">
+        <section id="permit-calendly-top" className="py-16 bg-gradient-to-br from-white to-purple-50" style={{ contentVisibility: 'auto', containIntrinsicSize: '700px' }}>
           <div className="container">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
@@ -281,7 +281,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Building Permit Video Section */}
-        <section className="py-16 bg-white">
+        +        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '600px' }}>
           <div className="container max-w-4xl mx-auto px-4">
             <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy mb-4">
@@ -308,7 +308,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Services Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '1200px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
               <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6 text-casa-navy">
@@ -399,7 +399,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Permit Services Collapsible Section */}
-        <section id="permit-services-section" className="py-16 bg-gradient-to-br from-white to-purple-50">
+        +        <section id="permit-services-section" className="py-16 bg-gradient-to-br from-white to-purple-50" style={{ contentVisibility: 'auto', containIntrinsicSize: '1200px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy mb-8 text-center">
               Comprehensive Permit Services
@@ -603,7 +603,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Legal Basement Permits Section */}
-        <section className="py-16 bg-white">
+        +        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '1000px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl shadow-xl p-8 md:p-12">
               <div className="mb-8">
@@ -692,7 +692,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Who We Help Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               🏠 Who We Help
@@ -719,7 +719,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Permit Approval Section */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               ✅ Approved Building Permits
@@ -752,7 +752,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Process Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               📜 Our Process — Simple & Transparent
@@ -803,7 +803,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Why Choose Us Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               ⚡ Why Choose Us?
@@ -841,7 +841,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Service Areas */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '300px' }}>
           <div className="container max-w-6xl mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6 text-casa-navy">
               📍 Service Areas
@@ -853,7 +853,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '1200px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-12 text-casa-navy text-center">
               🧠 Frequently Asked Questions (FAQ)
@@ -977,7 +977,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Final Calendly Widget Section - Above Footer */}
-        <section id="permit-calendly" className="py-16 bg-gradient-to-br from-white to-purple-50">
+        <section id="permit-calendly" className="py-16 bg-gradient-to-br from-white to-purple-50" style={{ contentVisibility: 'auto', containIntrinsicSize: '700px' }}>
           <div className="container">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
