@@ -5,8 +5,27 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/components/ui/use-toast';
 import { sendFormNotification } from '@/utils/emailNotification';
 import { trackButtonClick, trackFormComplete, trackFormStart, trackFormSuccess } from '@/utils/gtmTracking';
-import { Menu, PhoneCall } from 'lucide-react';
 import { useEffect, useState } from 'react';
+
+function MenuIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <line x1="3" y1="6" x2="21" y2="6" />
+      <line x1="3" y1="12" x2="21" y2="12" />
+      <line x1="3" y1="18" x2="21" y2="18" />
+    </svg>
+  );
+}
+function PhoneCallIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M15.05 5a5 5 0 0 1 4 4" />
+      <path d="M15.05 1a9 9 0 0 1 8 8" />
+      <path d="M22 16.92V23a1 1 0 0 1-1.09 1 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 3 3.09 1 1 0 0 1 4 2h6.08a1 1 0 0 1 1 0 12.35 12.35 0 0 0 0 6.4 1 1 0 0 1-.28.94L9 11a16 16 0 0 0 6 6l1.66-1.82a1 1 0 0 1 .94-.28 12.35 12.35 0 0 0 6.4 0 1 1 0 0 1 0 1z" />
+    </svg>
+  );
+}
+
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
@@ -311,7 +330,7 @@ const Navbar = () => {
                 onClick={() => trackButtonClick('Call Secondary Number', 'nav-phone-secondary')}
                 aria-label="Call AllCasa secondary number at 647-961-4070"
               >
-                <PhoneCall className="h-4 w-4 mr-1" />
+                <PhoneCallIcon className="h-4 w-4 mr-1" />
                 <span className="font-medium text-base px-2 py-1 rounded">
                   647-961-4070
                 </span>
@@ -347,7 +366,7 @@ const Navbar = () => {
                 onClick={() => trackButtonClick('Call Secondary Number', 'nav-phone-secondary-mobile')}
               >
                 <div className="flex items-center px-1 py-1 rounded">
-                  <PhoneCall className="h-2 w-2 mr-1" />
+                  <PhoneCallIcon className="h-2 w-2 mr-1" />
                   <span className="font-medium text-xs whitespace-nowrap">647-961-4070</span>
                 </div>
               </a>
@@ -363,7 +382,7 @@ const Navbar = () => {
               aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
               data-testid="button-mobile-menu"
             >
-              <Menu className="h-5 w-5" aria-hidden="true" />
+              <MenuIcon className="h-5 w-5" aria-hidden="true" />
             </Button>
           </div>
         </div>

@@ -1,4 +1,3 @@
-import { CheckCircle2 } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import consultationImg from '@assets/Gemini_Generated_Image_5b21c25b21c25b21_1764188347334.png';
 import planningImg from '@assets/generated_images/Site_planning_and_preparation_257f5e8d.png';
