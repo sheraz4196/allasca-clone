@@ -1,0 +1,77 @@
+You are a senior frontend performance + SEO engineer.
+
+I have a service business site hosted on Replit for a local company called AllCasa. The main domain allcasa.ca is about home renovation and construction, and there is a specific landing page at /building-permit for “Building Permit Services in Toronto”. I am running Google Ads to this landing page, and Google is giving it a “Below average” Landing Page Experience and a low Quality Score (1–3/10), even though the text content is relevant.
+
+Your job is to optimize the technical and UX aspects of this page and its surrounding layout to improve:
+
+- Google Ads Landing Page Experience
+- Core Web Vitals (especially on mobile)
+- Overall performance and trust signals
+
+VERY IMPORTANT CONSTRAINTS:
+- Do NOT change the core marketing copy or overall messaging (it is already aligned to building permits).
+- You may rearrange sections slightly and adjust HTML structure, but do not radically change the visual design.
+- Keep all existing forms, buttons, and CTAs, but you may move/duplicate them to better positions.
+- Keep the URL structure the same.
+
+Please do ALL of the following, directly in the code:
+
+1. **Page speed + Core Web Vitals**
+   - Optimize for mobile first.
+   - Minimize render-blocking JS and CSS.
+   - Defer or async non-critical scripts.
+   - Compress and properly size images; use modern formats if possible (WebP/AVIF) and `loading="lazy"` on below-the-fold images.
+   - Reduce unnecessary libraries; remove unused CSS and JS.
+   - Ensure good LCP (Largest Contentful Paint) by making the main hero section fast and not dependent on heavy JS.
+   - Improve CLS (Cumulative Layout Shift) – avoid layout jumping by setting explicit width/height for images and main layout containers.
+
+2. **Mobile responsiveness & usability**
+   - Ensure the layout works perfectly on small screens (320–414px width).
+   - Text must be easily readable without zoom.
+   - Buttons and tap targets must be at least 44x44px with sufficient spacing.
+   - Avoid horizontal scrolling, overflow, or overlapping elements.
+   - Make the top hero section show a very clear headline + CTA + contact option ABOVE THE FOLD on mobile.
+
+3. **Semantic HTML & structure**
+   - Use a clear `<h1>` for the building permit page, like: “Building Permit Services in Toronto”.
+   - Use logical `<h2>` and `<h3>` sections for: services, benefits, process, FAQs, areas served, etc.
+   - Replace generic `<div>` soup with more semantic elements where reasonable: `<section>`, `<header>`, `<main>`, `<footer>`, `<nav>`, etc.
+   - Ensure there is only one `<h1>` on the page.
+
+4. **Trust & business signals (very important for Google Ads)**
+   - Make sure the page clearly shows:
+     - Business name: AllCasa
+     - Service area: Toronto / GTA
+     - Phone number (click-to-call on mobile)
+     - Contact form or “Request a Free Consultation” CTA above the fold
+     - Link(s) to About/Company info, Privacy Policy, and Terms (in header or footer)
+   - If there are any reviews/testimonials, format them in a neat, trustworthy section.
+   - Ensure that contact details and company information are easy to discover and consistent.
+
+5. **Schema markup (structured data)**
+   - Add JSON-LD schema for:
+     - `LocalBusiness` (AllCasa, with address/phone/URL, service area = Toronto)
+     - `Service` for “Building Permit Services in Toronto”
+   - If there is an FAQ section, add `FAQPage` schema for the questions and answers.
+   - Insert the JSON-LD in the `<head>` or just before `</body>`.
+
+6. **Accessibility basics**
+   - Ensure sufficient color contrast for text vs background.
+   - Add `alt` text for images that describes them meaningfully.
+   - Make sure links and buttons have accessible labels.
+
+7. **Internal linking**
+   - From the main navigation or appropriate section, link clearly to the /building-permit page as “Building Permit Services” or similar.
+   - On the building permit page, optionally add a subtle link back to the main renovation services page, but keep the primary focus on permits.
+
+8. **Final clean-up**
+   - Remove any obviously unnecessary console logs or debug code.
+   - Ensure there are no blocking network requests that can be deferred.
+   - Keep the codebase as simple and clean as possible so it’s easy to maintain.
+
+When you’re done, explain briefly:
+- What performance/technical changes you made
+- What you improved specifically for Core Web Vitals and Google Ads landing page experience
+- Any TODOs you recommend (e.g. moving to a faster hosting/CDN later)
+
+Do NOT just describe changes; actually modify the code now.
