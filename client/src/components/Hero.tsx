@@ -103,6 +103,9 @@ const Hero = () => {
                           alt={image.alt || `Hero Image ${index + 1}`}
                           loading={index === 0 ? "eager" : "lazy"}
                           decoding={index === 0 ? "sync" : "async"}
+                          width={1600}
+                          height={900}
+                          sizes="(min-width:1024px) 50vw, 100vw"
                           className="w-full h-[280px] sm:h-[320px] md:h-[380px] lg:h-[400px] object-cover rounded-xl border transition-transform duration-300 ease-in-out"
                           {...(index === 0 ? { fetchpriority: "high" } : {})}
                         />

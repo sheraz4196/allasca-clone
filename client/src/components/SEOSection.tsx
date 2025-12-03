@@ -1,18 +1,34 @@
 import { MapPin, Award, Wrench, ChevronDown } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const SEOSection = () => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const calendlyContainerRef = useRef<HTMLDivElement>(null);
+  const hasLoadedCalendly = useRef(false);
 
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://assets.calendly.com/assets/external/widget.js';
-    script.async = true;
-    document.body.appendChild(script);
-    return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
+    const observer = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && !hasLoadedCalendly.current) {
+        hasLoadedCalendly.current = true;
+        const script = document.createElement('script');
+        script.src = 'https://assets.calendly.com/assets/external/widget.js';
+        script.async = true;
+        script.onload = () => {
+          if (window.Calendly?.initInlineWidgets) {
+            window.Calendly.initInlineWidgets();
+          }
+        };
+        document.body.appendChild(script);
+        observer.disconnect();
       }
+    }, { threshold: 0.1 });
+
+    if (calendlyContainerRef.current) {
+      observer.observe(calendlyContainerRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
     };
   }, []);
 
@@ -20,7 +36,7 @@ const SEOSection = () => {
     <section className="py-16 bg-gradient-to-br from-casa-purple/5 to-casa-blue/5">
       <div className="container">
         <div className="max-w-4xl mx-auto text-center">
-          <div id="consultation-booking" className="mb-12 bg-white rounded-xl p-8 shadow-lg" data-testid="calendly-embed">
+          <div ref={calendlyContainerRef} id="consultation-booking" className="mb-12 bg-white rounded-xl p-8 shadow-lg" data-testid="calendly-embed">
             <div 
               className="calendly-inline-widget" 
               data-url="https://calendly.com/allcasa12allcasa/schedule-your-project-consultation"
