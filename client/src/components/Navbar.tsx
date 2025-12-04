@@ -25,7 +25,6 @@ function PhoneCallIcon(props: React.SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
-
 import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
