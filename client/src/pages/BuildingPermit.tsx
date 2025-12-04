@@ -6,7 +6,7 @@ import Seo from "@/components/Seo";
 import LiteYouTube from "@/components/LiteYouTube";
 const Testimonials = lazy(() => import("@/components/Testimonials"));
 const Contact = lazy(() => import("@/components/Contact"));
-const CalendlyWidget = lazy(() => import("@/components/CalendlyWidget"));
+import CalendlyWidget from "@/components/CalendlyWidget";
 import blueprint1 from "@assets/stock_images/architectural_bluepr_69f8733f.jpg";
 import blueprint2 from "@assets/stock_images/architectural_bluepr_378aa24e.jpg";
 import blueprint3 from "@assets/stock_images/architectural_bluepr_743ecedb.jpg";
@@ -276,7 +276,7 @@ const BuildingPermit = () => {
                   Book a free consultation with our permit specialists to discuss your project requirements.
                 </p>
               </div>
-              <Suspense fallback={<div className="min-h-[600px] flex items-center justify-center"><div className="animate-pulse text-gray-400">Loading calendar...</div></div>}> <CalendlyWidget /></Suspense>
+              <CalendlyWidget />
             </div>
           </div>
         </section>
