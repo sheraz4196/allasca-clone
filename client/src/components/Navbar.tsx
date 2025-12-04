@@ -315,7 +315,7 @@ const Navbar = () => {
               aria-label="Go to AllCasa homepage"
             >
               <img
-                src="/lovable-uploads/1217ade2-9799-4eb9-afb7-52cd425cd153.png"
+                src="/lovable-uploads/1217ade2-9799-4eb9-afb7-52cd425cd153.webp"
                 alt="AllCasa Logo - Home Renovations and Construction"
                 className="h-16 w-16 md:h-20 md:w-20"
                 loading="eager"

@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Seo from "@/components/Seo";
-import LiteYouTube from "@/components/LiteYouTube";
+const LiteYouTube = lazy(() => import("@/components/LiteYouTube"));
 const Testimonials = lazy(() => import("@/components/Testimonials"));
 const Contact = lazy(() => import("@/components/Contact"));
-import CalendlyWidget from "@/components/CalendlyWidget";
+const CalendlyWidget = lazy(() => import("@/components/CalendlyWidget"));
 import blueprint2 from "@assets/stock_images/architectural_bluepr_378aa24e.jpg";
 import blueprint3 from "@assets/stock_images/architectural_bluepr_743ecedb.jpg";
 import permitApproved1 from "@assets/stock_images/building_permit_appr_51daa572.jpg";
@@ -229,7 +229,7 @@ const BuildingPermit = () => {
                 style={{ aspectRatio: "16/9" }}
               >
                 <img
-                  src="/lovable-uploads/Gemini_Generated_Image_tab5zrtab5zrtab5_1764179602399.webp"
+                  src="/lovable-uploads/Gemini_Generated_Image_tab5zrtab5zrtab5_1764179602399 (1).webp"
                   alt="Building permit services desk with architectural plans, blueprints, and AllCasa Building Permits branding"
                   className="w-full h-full object-cover"
                   loading="eager"
@@ -320,7 +320,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Building Permit Video Section */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-4xl mx-auto px-4">
             <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy mb-4">
@@ -330,18 +330,20 @@ const BuildingPermit = () => {
                 Watch a quick overview of our building permit process
               </p>
             </div>
-            <LiteYouTube
-              videoId="D6ygF0N1XDk"
-              title="Building Permit Services Overview"
-              aspectRatio="9/16"
-              className="max-w-2xl mx-auto"
-              posterSrc="/lovable-uploads/Gemini_Generated_Image_tab5zrtab5zrtab5_1764179602399.webp"
-            />
+            <Suspense fallback={<div className="min-h-[560px] rounded-xl bg-gray-100" />}> 
+              <LiteYouTube
+                videoId="D6ygF0N1XDk"
+                title="Building Permit Services Overview"
+                aspectRatio="9/16"
+                className="max-w-2xl mx-auto"
+                posterSrc="/lovable-uploads/Gemini_Generated_Image_tab5zrtab5zrtab5_1764179602399.webp"
+              />
+            </Suspense>
           </div>
         </section>
 
         {/* Services Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
               <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6 text-casa-navy">
@@ -792,7 +794,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Legal Basement Permits Section */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl shadow-xl p-8 md:p-12">
               <div className="mb-8">
@@ -945,7 +947,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Who We Help Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               🏠 Who We Help
@@ -985,7 +987,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Permit Approval Section */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               ✅ Approved Building Permits
@@ -1024,7 +1026,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Process Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               📜 Our Process — Simple & Transparent
@@ -1105,7 +1107,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Why Choose Us Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               ⚡ Why Choose Us?
@@ -1146,7 +1148,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Service Areas */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6 text-casa-navy">
               📍 Service Areas
@@ -1159,7 +1161,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-12 text-casa-navy text-center">
               🧠 Frequently Asked Questions (FAQ)
