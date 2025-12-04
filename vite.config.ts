@@ -15,13 +15,6 @@ export default defineConfig({
           ),
         ]
       : []),
-    ...(process.env.BUNDLE_ANALYZE === "true"
-      ? [
-          await import("rollup-plugin-visualizer")
-            .then((m) => m.visualizer({ open: true }))
-            .catch(() => undefined),
-        ].filter(Boolean)
-      : []),
   ],
   resolve: {
     alias: {
@@ -34,20 +27,5 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
-    minify: "terser",
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true,
-      },
-    },
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          "react-vendor": ["react", "react-dom"],
-          "ui": [path.resolve(import.meta.dirname, "client", "src", "components", "ui", "button.tsx")],
-        },
-      },
-    },
   },
 });
