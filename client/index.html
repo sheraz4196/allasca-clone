@@ -1,88 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AllCasa - Toronto Custom Home Construction & Full Home Renovation Services</title>
-        <meta name="description" content="Toronto's premier custom home builders specializing in new luxury custom house design and build, full home renovation, and full basement renovation. Expert design-build services throughout the GTA. Get your free consultation today.">
-        
-        <!-- Preconnect to critical origins FIRST -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        
-        <!-- Preload LCP image (hero carousel first image) -->
-        <link 
-            rel="preload" 
-            as="image" 
-            href="/lovable-uploads/090f7789-43ad-4f1f-80af-87c1fbb30439.webp" 
-            fetchpriority="high"
-        >
-        
-        <!-- Preload logo (above-the-fold) -->
-        <link
-            rel="preload"
-            as="image"
-            href="/lovable-uploads/1217ade2-9799-4eb9-afb7-52cd425cd153.webp"
-            fetchpriority="high"
-        >
-     
-        <!-- Preload critical font (Inter 400) -->
-        <link 
-            rel="preload" 
-            href="https://fonts.gstatic.com/s/inter/v18/UcC73FwrK3iLTeHuS_fvQtMwCp50KnMa1ZL7W0Q5nw.woff2"
-            as="font" 
-            type="font/woff2" 
-            crossorigin
-        >
-        
-        <!-- Load Google Fonts asynchronously (non-blocking) -->
-        <link 
-            rel="stylesheet" 
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;600;700;800&display=swap" 
-            media="print" 
-            onload="this.media='all'"
-        >
-        <noscript>
-            <link 
-                rel="stylesheet" 
-                href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;600;700;800&display=swap"
-            >
-        </noscript>
-        
-        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
-        <meta name="googlebot" content="index, follow">
-        
-        <!-- Open Graph / Social Media Tags -->
-        <meta property="og:type" content="website">
-        <meta property="og:title" content="AllCasa - Full Home Renovation & Luxury Custom House Design Build Toronto">
-        <meta property="og:description" content="Toronto's premier custom home builders specializing in new luxury custom house design and build, full home renovation, and full basement renovation throughout the GTA.">
-        <meta property="og:site_name" content="AllCasa">
-        
-        <!-- Additional SEO Keywords -->
-        <meta name="keywords" content="full home renovation Toronto, full basement renovation, new luxury custom house design and build, custom home builders Toronto, design build Toronto, luxury home renovation, basement renovation GTA, custom house construction">
-        
-        <!-- DNS prefetch for non-critical third parties -->
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com">
-        <link rel="dns-prefetch" href="https://images.unsplash.com">
-        <link rel="dns-prefetch" href="https://assets.calendly.com">
-        
-        <link rel="modulepreload" href="/src/main.tsx">
-    </head>
-    <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript>
-            <iframe
-                src="https://www.googletagmanager.com/ns.html?id=GTM-W4LSPXSW"
-                height="0"
-                width="0"
-                style="display:none;visibility:hidden"
-            ></iframe>
-        </noscript>
-        <!-- End Google Tag Manager (noscript) -->
-        <div id="root"></div>
-        <script type="module" src="/src/main.tsx"></script>
-        <!-- Google Tag Manager - Lazy loader to reduce main-thread work -->
-        <script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AllCasa - Toronto Custom Home Construction & Full Home Renovation Services</title>
+    <meta name="description" content="Toronto's premier custom home builders specializing in new luxury custom house design and build, full home renovation, and full basement renovation. Expert design-build services throughout the GTA. Get your free consultation today." />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+    
+    <!-- Open Graph / Social Media Tags -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="AllCasa - Full Home Renovation & Luxury Custom House Design Build Toronto" />
+    <meta property="og:description" content="Toronto's premier custom home builders specializing in new luxury custom house design and build, full home renovation, and full basement renovation throughout the GTA." />
+    <meta property="og:site_name" content="AllCasa" />
+    
+    <!-- Additional SEO Keywords -->
+    <meta name="keywords" content="full home renovation Toronto, full basement renovation, new luxury custom house design and build, custom home builders Toronto, design build Toronto, luxury home renovation, basement renovation GTA, custom house construction" />
+    
+    <!-- Preconnect to improve performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Non-blocking Google Fonts -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=optional">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=optional" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=optional"></noscript>
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <link rel="prefetch" href="https://assets.calendly.com" />
+    <link rel="dns-prefetch" href="https://www.youtube.com" />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" as="image" href="/lovable-uploads/090f7789-43ad-4f1f-80af-87c1fbb30439.png" fetchpriority="high" />
+    <link rel="preload" as="image" href="/lovable-uploads/1217ade2-9799-4eb9-afb7-52cd425cd153.png" fetchpriority="high" />
+    <link rel="modulepreload" href="/src/main.tsx" />
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W4LSPXSW"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Google Tag Manager - Lazy loader to reduce main-thread work -->
+    <script>
       (function() {
         var GTM_ID = 'GTM-W4LSPXSW';
         var loaded = false;

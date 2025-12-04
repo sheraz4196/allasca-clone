@@ -15,6 +15,13 @@ export default defineConfig({
           ),
         ]
       : []),
+    ...(process.env.BUNDLE_ANALYZE === "true"
+      ? [
+          await import("rollup-plugin-visualizer")
+            .then((m) => m.visualizer({ open: true }))
+            .catch(() => undefined),
+        ].filter(Boolean)
+      : []),
   ],
   resolve: {
     alias: {
@@ -27,14 +34,18 @@ export default defineConfig({
   build: {
     outDir: path.resolve(import.meta.dirname, "dist/public"),
     emptyOutDir: true,
-    target: "es2020",
-    cssCodeSplit: true,
-    sourcemap: false,
-    chunkSizeWarningLimit: 600,
+    minify: "terser",
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ["react", "react-dom", "react-router-dom"],
+          "react-vendor": ["react", "react-dom"],
+          "ui": [path.resolve(import.meta.dirname, "client", "src", "components", "ui", "button.tsx")],
         },
       },
     },
