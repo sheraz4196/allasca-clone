@@ -7,7 +7,6 @@ import LiteYouTube from "@/components/LiteYouTube";
 const Testimonials = lazy(() => import("@/components/Testimonials"));
 const Contact = lazy(() => import("@/components/Contact"));
 import CalendlyWidget from "@/components/CalendlyWidget";
-import blueprint1 from "@assets/stock_images/architectural_bluepr_69f8733f.jpg";
 import blueprint2 from "@assets/stock_images/architectural_bluepr_378aa24e.jpg";
 import blueprint3 from "@assets/stock_images/architectural_bluepr_743ecedb.jpg";
 import permitApproved1 from "@assets/stock_images/building_permit_appr_51daa572.jpg";
@@ -230,7 +229,7 @@ const BuildingPermit = () => {
                 style={{ aspectRatio: "16/9" }}
               >
                 <img
-                  src="/lovable-uploads/Gemini_Generated_Image_tab5zrtab5zrtab5_1764179602399.png"
+                  src="/lovable-uploads/Gemini_Generated_Image_tab5zrtab5zrtab5_1764179602399.webp"
                   alt="Building permit services desk with architectural plans, blueprints, and AllCasa Building Permits branding"
                   className="w-full h-full object-cover"
                   loading="eager"
@@ -336,6 +335,7 @@ const BuildingPermit = () => {
               title="Building Permit Services Overview"
               aspectRatio="9/16"
               className="max-w-2xl mx-auto"
+              posterSrc="/lovable-uploads/Gemini_Generated_Image_tab5zrtab5zrtab5_1764179602399.webp"
             />
           </div>
         </section>
@@ -400,7 +400,7 @@ const BuildingPermit = () => {
                   style={{ aspectRatio: "1/1" }}
                 >
                   <img
-                    src={blueprint1}
+                    src="/lovable-uploads/architectural_bluepr_743ecedb.webp"
                     alt="Professional architectural drawings for building permit"
                     className="w-full h-full object-cover"
                     loading="lazy"
