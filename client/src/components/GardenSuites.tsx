@@ -5,23 +5,23 @@ import ImageCarousel from './ImageCarousel';
 const GardenSuites = () => {
   const images = [
     {
-      src: "/lovable-uploads/5259f38c-837f-4729-b3ad-649e590f3c73.png",
+      src: "/lovable-uploads/5259f38c-837f-4729-b3ad-649e590f3c73.webp",
       alt: "Beautiful backyard with green lawn, wooden fence and glass pool barrier"
     },
     {
-      src: "/lovable-uploads/d43d08d9-3429-4948-b3bd-1dbe6bb4cb13.png",
+      src: "/lovable-uploads/d43d08d9-3429-4948-b3bd-1dbe6bb4cb13.webp",
       alt: "Modern garden suite entrance with concrete steps and handrail"
     },
     {
-      src: "/lovable-uploads/6eeab214-cf36-4d78-9fe8-27938ceda71c.png",
+      src: "/lovable-uploads/6eeab214-cf36-4d78-9fe8-27938ceda71c.webp",
       alt: "Contemporary garden suite with pool and outdoor living space"
     },
     {
-      src: "/lovable-uploads/5a1bb314-41ef-4133-abdf-e5d8f60d0583.png",
+      src: "/lovable-uploads/5a1bb314-41ef-4133-abdf-e5d8f60d0583.webp",
       alt: "Custom garden suite with interlocked pathway and landscaping"
     },
     {
-      src: "/lovable-uploads/8be807a4-71d2-46e8-9a8f-9eb9e256e924.png",
+      src: "/lovable-uploads/8be807a4-71d2-46e8-9a8f-9eb9e256e924.webp",
       alt: "Elegant home with interlocked driveway and front entrance"
     }
   ];

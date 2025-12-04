@@ -1,12 +1,11 @@
-
 export const setupScrollAnimations = () => {
   const animatedElements = document.querySelectorAll('.animate-on-scroll');
   
-  // Use a single observer for all animated elements
   const mainObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('animated');
+        mainObserver.unobserve(entry.target as Element);
       }
     });
   }, {
