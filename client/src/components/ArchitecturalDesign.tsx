@@ -1,3 +1,4 @@
+
 import { CheckCircle2 } from 'lucide-react';
 
 const ArchitecturalDesign = () => {
@@ -17,38 +18,23 @@ const ArchitecturalDesign = () => {
         <div className="grid md:grid-cols-3 gap-8 mb-12">
           <div className="animate-on-scroll">
             <img 
-              src="/lovable-uploads/f7a33d25-e846-4171-a685-9028d17cc8ce.webp" 
+              src="/lovable-uploads/f7a33d25-e846-4171-a685-9028d17cc8ce.png" 
               alt="City of Toronto permit with approved stamp on architectural drawings" 
               className="w-full h-64 object-cover rounded-lg shadow-lg"
-              loading="lazy"
-              decoding="async"
-              width={1024}
-              height={576}
-              style={{ aspectRatio: '16/9' }}
             />
           </div>
           <div className="animate-on-scroll">
             <img 
-              src="/lovable-uploads/6d2f7975-eed7-4a54-9952-92b00cdfb77d.webp" 
+              src="/lovable-uploads/6d2f7975-eed7-4a54-9952-92b00cdfb77d.png" 
               alt="Rolled architectural blueprints showing detailed floor plans" 
               className="w-full h-64 object-cover rounded-lg shadow-lg"
-              loading="lazy"
-              decoding="async"
-              width={1024}
-              height={576}
-              style={{ aspectRatio: '16/9' }}
             />
           </div>
           <div className="animate-on-scroll">
             <img 
-              src="/lovable-uploads/9de8db6e-a85a-48f9-86f3-336fead17f0f.webp" 
+              src="/lovable-uploads/9de8db6e-a85a-48f9-86f3-336fead17f0f.png" 
               alt="Detailed house floor plan with room dimensions and layout" 
               className="w-full h-64 object-cover rounded-lg shadow-lg"
-              loading="lazy"
-              decoding="async"
-              width={1024}
-              height={576}
-              style={{ aspectRatio: '16/9' }}
             />
           </div>
         </div>

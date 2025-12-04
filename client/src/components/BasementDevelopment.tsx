@@ -4,7 +4,7 @@ import ImageCarousel from './ImageCarousel';
 const BasementDevelopment = () => {
   const images = [
     {
-      src: "/lovable-uploads/afd741c1-aeb3-4149-aa2f-9ae7593d8727.webp",
+      src: "/lovable-uploads/afd741c1-aeb3-4149-aa2f-9ae7593d8727.png",
       alt: "Modern finished basement with kitchen and living area"
     },
     {
