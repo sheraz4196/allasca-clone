@@ -230,7 +230,7 @@ const BuildingPermit = () => {
                 style={{ aspectRatio: "16/9" }}
               >
                 <img
-                  src="/lovable-uploads/Gemini_Generated_Image_tab5zrtab5zrtab5_1764179602399.webp"
+                  src="/lovable-uploads/Gemini_Generated_Image_tab5zrtab5zrtab5_1764179602399.png"
                   alt="Building permit services desk with architectural plans, blueprints, and AllCasa Building Permits branding"
                   className="w-full h-full object-cover"
                   loading="eager"
