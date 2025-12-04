@@ -8,6 +8,7 @@ import { Building2, Mail, Phone } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { trackFormStart, trackFormComplete, trackFormSuccess, trackButtonClick } from '@/utils/gtmTracking';
 import { sendFormNotification } from '@/utils/emailNotification';
+import { grantAnalyticsConsent } from '@/utils/analyticsConsent';
 
 interface BudgetOption {
   value: string;
@@ -64,6 +65,7 @@ const Contact = ({ budgetOptions, projectTypeOptions, formOnly = false }: Contac
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    grantAnalyticsConsent();
     console.log('=== CONTACT FORM SUBMISSION START ===');
     console.log('Form data:', formData);
 
