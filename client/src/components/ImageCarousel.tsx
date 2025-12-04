@@ -37,7 +37,7 @@ const ImageCarousel = ({ images, variant = 'default', prioritizeFirst = false }:
                       alt={image.alt}
                       loading={prioritizeFirst && index === 0 ? "eager" : "lazy"}
                       decoding={prioritizeFirst && index === 0 ? "sync" : "async"}  
-                      fetchpriority={prioritizeFirst && index === 0 ? "high" : "low"}
+                      fetchPriority={prioritizeFirst && index === 0 ? "high" : "low"}
                       width={800}
                       height={600}
                       className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
@@ -83,7 +83,7 @@ const ImageCarousel = ({ images, variant = 'default', prioritizeFirst = false }:
                     alt={image.alt}
                     loading={prioritizeFirst && index === 0 ? "eager" : "lazy"}
                     decoding={prioritizeFirst && index === 0 ? "sync" : "async"}
-                    fetchpriority={prioritizeFirst && index === 0 ? "high" : "low"}
+                    fetchPriority={prioritizeFirst && index === 0 ? "high" : "low"}
                     width={800}
                     height={600}
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
