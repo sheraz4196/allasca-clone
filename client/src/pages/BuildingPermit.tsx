@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Seo from "@/components/Seo";
-
+import LiteYouTube from "@/components/LiteYouTube";
 const Testimonials = lazy(() => import("@/components/Testimonials"));
 const Contact = lazy(() => import("@/components/Contact"));
 const CalendlyWidget = lazy(() => import("@/components/CalendlyWidget"));
@@ -292,19 +292,12 @@ const BuildingPermit = () => {
                 Watch a quick overview of our building permit process
               </p>
             </div>
-            <div className="rounded-xl overflow-hidden shadow-lg max-w-2xl mx-auto bg-black" style={{ aspectRatio: '9/16' }}>
-              <iframe
-                width="100%"
-                height="100%"
-                src="https://www.youtube.com/embed/D6ygF0N1XDk?autoplay=0"
-                title="Building Permit Services Overview"
-                frameBorder="0"
-                loading="lazy"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              />
-            </div>
+            <LiteYouTube
+              videoId="D6ygF0N1XDk"
+              title="Building Permit Services Overview"
+              aspectRatio="9/16"
+              className="max-w-2xl mx-auto"
+             />
           </div>
         </section>
 
