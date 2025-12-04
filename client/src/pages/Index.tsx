@@ -3,7 +3,6 @@ import ArchitecturalDesign from '@/components/ArchitecturalDesign';
 import BasementDevelopment from '@/components/BasementDevelopment';
 import CalendlyWidget from '@/components/CalendlyWidget';
 import Contact from '@/components/Contact';
-import EstimatesTable from '@/components/EstimatesTable';
 import Footer from '@/components/Footer';
 import GardenSuites from '@/components/GardenSuites';
 import Hero from '@/components/Hero';
@@ -25,7 +24,6 @@ import { useNavigate } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 
 const Index = () => {
-  const navigate = useNavigate();
   const [expandTransform, setExpandTransform] = useState(false);
   const [expandedQuestions, setExpandedQuestions] = useState<{ [key: number]: boolean }>({});
 
@@ -116,16 +114,6 @@ const Index = () => {
       observer.disconnect();
     };
   }, []);
-
-  const scrollToContact = () => {
-    const bookingSection = document.getElementById('consultation-booking');
-    if (bookingSection) {
-      bookingSection.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  };
 
   const toggleQuestion = (index: number) => {
     setExpandedQuestions(prev => ({
