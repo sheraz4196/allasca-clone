@@ -3,16 +3,16 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Seo from "@/components/Seo";
-import LiteYouTube from "@/components/LiteYouTube";
+
 const Testimonials = lazy(() => import("@/components/Testimonials"));
 const Contact = lazy(() => import("@/components/Contact"));
-import CalendlyWidget from "@/components/CalendlyWidget";
+const CalendlyWidget = lazy(() => import("@/components/CalendlyWidget"));
 import blueprint1 from "@assets/stock_images/architectural_bluepr_69f8733f.jpg";
 import blueprint2 from "@assets/stock_images/architectural_bluepr_378aa24e.jpg";
 import blueprint3 from "@assets/stock_images/architectural_bluepr_743ecedb.jpg";
 import permitApproved1 from "@assets/stock_images/building_permit_appr_51daa572.jpg";
 import newHouse from "@assets/stock_images/new_modern_house_ext_1b8e0a77.jpg";
-
+import permitBanner from "@assets/Gemini_Generated_Image_tab5zrtab5zrtab5_1764179602399.png";
 import basementLegalImg from "@assets/Gemini_Generated_Image_5b21c25b21c25b21_1764188421072.png";
 import allCasaLogo from "@assets/Logo (1)_1764188591729.jpg";
 
@@ -210,12 +210,11 @@ const BuildingPermit = () => {
               </div>
               
               <div className="my-6 md:my-8 rounded-xl overflow-hidden shadow-lg max-w-2xl mx-auto relative" style={{ aspectRatio: '16/9' }}>
-                <img
-                  src="/lovable-uploads/Gemini_Generated_Image_tab5zrtab5zrtab5_1764179602399.webp"
+                <img 
+                  src={permitBanner}
                   alt="Building permit services desk with architectural plans, blueprints, and AllCasa Building Permits branding"
                   className="w-full h-full object-cover"
                   loading="eager"
-                  fetchPriority="high"
                   decoding="async"
                   width={1200}
                   height={675}
@@ -265,7 +264,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Calendly Booking Section - Above Services */}
-        <section id="permit-calendly-top" className="py-16 bg-gradient-to-br from-white to-purple-50">
+        <section id="permit-calendly-top" className="py-16 bg-gradient-to-br from-white to-purple-50" style={{ contentVisibility: 'auto', containIntrinsicSize: '700px' }}>
           <div className="container">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
@@ -276,13 +275,13 @@ const BuildingPermit = () => {
                   Book a free consultation with our permit specialists to discuss your project requirements.
                 </p>
               </div>
-              <CalendlyWidget />
+              <Suspense fallback={<div className="min-h-[600px]" />}> <CalendlyWidget /></Suspense>
             </div>
           </div>
         </section>
 
         {/* Building Permit Video Section */}
-            <section className="py-16 bg-white">
+            <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '600px' }}>
           <div className="container max-w-4xl mx-auto px-4">
             <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy mb-4">
@@ -292,17 +291,24 @@ const BuildingPermit = () => {
                 Watch a quick overview of our building permit process
               </p>
             </div>
-            <LiteYouTube
-              videoId="D6ygF0N1XDk"
-              title="Building Permit Services Overview"
-              aspectRatio="9/16"
-              className="max-w-2xl mx-auto"
-             />
+            <div className="rounded-xl overflow-hidden shadow-lg max-w-2xl mx-auto bg-black" style={{ aspectRatio: '9/16' }}>
+              <iframe
+                width="100%"
+                height="100%"
+                src="https://www.youtube.com/embed/D6ygF0N1XDk?autoplay=0"
+                title="Building Permit Services Overview"
+                frameBorder="0"
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            </div>
           </div>
         </section>
 
         {/* Services Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '1200px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
               <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6 text-casa-navy">
@@ -393,7 +399,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Permit Services Collapsible Section */}
-               <section id="permit-services-section" className="py-16 bg-gradient-to-br from-white to-purple-50">
+               <section id="permit-services-section" className="py-16 bg-gradient-to-br from-white to-purple-50" style={{ contentVisibility: 'auto', containIntrinsicSize: '1200px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy mb-8 text-center">
               Comprehensive Permit Services
@@ -405,14 +411,12 @@ const BuildingPermit = () => {
                 <button
                   onClick={() => toggleSection('residential')}
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
-                  aria-expanded={expandedSections.residential}
-                  aria-controls="residential-content"
                 >
                   <h3 className="text-xl font-bold text-casa-navy">🏠 Residential Building Permits</h3>
                   <ChevronDownIcon className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.residential ? 'rotate-180' : ''}`} />
                 </button>
                 {expandedSections.residential && (
-                  <div id="residential-content" className="px-6 pb-6 border-t border-gray-200 text-gray-700">
+                  <div className="px-6 pb-6 border-t border-gray-200 text-gray-700">
                     <p className="mb-4">If you're planning home construction, an addition, or a renovation, AllCasa simplifies the entire building permit process. We prepare building drawings, housing drawings, and permit drawings for all types of residential buildings — from new homes to basement apartments, secondary suites, and legal basement permits in Ontario.</p>
                     <p>We also handle deck permits, porch enclosures, sunroom additions, and sunroom on deck designs — ensuring every project meets city regulations. Need to remove a load-bearing wall or apply for a structural wall removal permit? Our engineers prepare support wall removal and bearing wall removal drawings for safe approvals.</p>
                   </div>
@@ -424,14 +428,12 @@ const BuildingPermit = () => {
                 <button
                   onClick={() => toggleSection('commercial')}
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
-                  aria-expanded={expandedSections.commercial}
-                  aria-controls="commercial-content"
                 >
                   <h3 className="text-xl font-bold text-casa-navy">🧱 Commercial & Industrial Permits</h3>
                   <ChevronDownIcon className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.commercial ? 'rotate-180' : ''}`} />
                 </button>
                 {expandedSections.commercial && (
-                  <div id="commercial-content" className="px-6 pb-6 border-t border-gray-200 text-gray-700">
+                  <div className="px-6 pb-6 border-t border-gray-200 text-gray-700">
                     <p className="mb-4">For developers and builders, AllCasa offers complete commercial building permit and industrial construction permit services. Our team manages construction permits Toronto, commercial construction, build commercial, and industrial building approvals — including occupancy permits, demolition permits, and builders permits.</p>
                     <p>From design-build projects to standard building and construction & building services, we ensure every plan meets city inspection requirements.</p>
                   </div>
@@ -443,14 +445,12 @@ const BuildingPermit = () => {
                 <button
                   onClick={() => toggleSection('laneway')}
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
-                  aria-expanded={expandedSections.laneway}
-                  aria-controls="laneway-content"
                 >
                   <h3 className="text-xl font-bold text-casa-navy">🏘️ Laneway & Garden Suites</h3>
                   <ChevronDownIcon className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.laneway ? 'rotate-180' : ''}`} />
                 </button>
                 {expandedSections.laneway && (
-                  <div id="laneway-content" className="px-6 pb-6 border-t border-gray-200 text-gray-700">
+                  <div className="px-6 pb-6 border-t border-gray-200 text-gray-700">
                     <p className="mb-4">Interested in a laneway house Toronto or laneway suite project? AllCasa's designers create laneway house designs, design housing build drawings, and drawing for building construction that comply with city of Toronto building permit application standards.</p>
                     <p>These projects are a great way to add space or rental income to your property.</p>
                   </div>
@@ -462,14 +462,12 @@ const BuildingPermit = () => {
                 <button
                   onClick={() => toggleSection('deck')}
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
-                  aria-expanded={expandedSections.deck}
-                  aria-controls="deck-content"
                 >
                   <h3 className="text-xl font-bold text-casa-navy">🪜 Deck, Porch & Sunroom Permits</h3>
                   <ChevronDownIcon className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.deck ? 'rotate-180' : ''}`} />
                 </button>
                 {expandedSections.deck && (
-                  <div id="deck-content" className="px-6 pb-6 border-t border-gray-200 text-gray-700">
+                  <div className="px-6 pb-6 border-t border-gray-200 text-gray-700">
                     <p>We prepare deck permit drawings, permits for decks, and permit for deck building. Our team also handles porch enclosure, sun porch addition, deck and sunroom, and sunroom Toronto projects — ensuring full compliance and fast approvals.</p>
                   </div>
                 )}
@@ -480,14 +478,12 @@ const BuildingPermit = () => {
                 <button
                   onClick={() => toggleSection('retaining')}
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
-                  aria-expanded={expandedSections.retaining}
-                  aria-controls="retaining-content"
                 >
                   <h3 className="text-xl font-bold text-casa-navy">🧩 Retaining Wall, Grading & Site Plans</h3>
                   <ChevronDownIcon className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.retaining ? 'rotate-180' : ''}`} />
                 </button>
                 {expandedSections.retaining && (
-                  <div id="retaining-content" className="px-6 pb-6 border-t border-gray-200 text-gray-700">
+                  <div className="px-6 pb-6 border-t border-gray-200 text-gray-700">
                     <p className="mb-4">AllCasa specializes in retaining wall permits, retaining wall construction, and drainage for retaining walls. We design retaining wall for building, retaining wall for drainage, and landscape retaining wall plans with grading plans and property grading services.</p>
                     <p>Our experts use AutoCAD Civil 3D to draw site plans and manage land development approvals efficiently.</p>
                   </div>
@@ -499,14 +495,12 @@ const BuildingPermit = () => {
                 <button
                   onClick={() => toggleSection('basement')}
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
-                  aria-expanded={expandedSections.basement}
-                  aria-controls="basement-content"
                 >
                   <h3 className="text-xl font-bold text-casa-navy">🏠 Legal Basement & Secondary Suites</h3>
                   <ChevronDownIcon className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.basement ? 'rotate-180' : ''}`} />
                 </button>
                 {expandedSections.basement && (
-                  <div id="basement-content" className="px-6 pb-6 border-t border-gray-200 text-gray-700">
+                  <div className="px-6 pb-6 border-t border-gray-200 text-gray-700">
                     <p className="mb-4">AllCasa helps homeowners legalize basements in Brampton, Vaughan, and Toronto. We prepare basement permit drawings, legal basement requirements Ontario, and basement renovation permit documentation.</p>
                     <p>Adding a secondary suite or basement apartment? We ensure your plans meet all city of Toronto building permit and Ontario Building Code requirements.</p>
                   </div>
@@ -518,14 +512,12 @@ const BuildingPermit = () => {
                 <button
                   onClick={() => toggleSection('drafting')}
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
-                  aria-expanded={expandedSections.drafting}
-                  aria-controls="drafting-content"
                 >
                   <h3 className="text-xl font-bold text-casa-navy">🧾 Drafting & Architectural Design</h3>
                   <ChevronDownIcon className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.drafting ? 'rotate-180' : ''}`} />
                 </button>
                 {expandedSections.drafting && (
-                  <div id="drafting-content" className="px-6 pb-6 border-t border-gray-200 text-gray-700">
+                  <div className="px-6 pb-6 border-t border-gray-200 text-gray-700">
                     <p className="mb-4">Our architectural drafting and drafting services near you are ideal for any permit application. From draftsman near me to drafters near me, AllCasa provides building permit drawings and plans for buildings that pass inspection the first time.</p>
                     <p>We deliver accurate architectural building and building drawings tailored to your specific needs.</p>
                   </div>
@@ -537,14 +529,12 @@ const BuildingPermit = () => {
                 <button
                   onClick={() => toggleSection('demolition')}
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
-                  aria-expanded={expandedSections.demolition}
-                  aria-controls="demolition-content"
                 >
                   <h3 className="text-xl font-bold text-casa-navy">🏗️ Demolition & Inspections</h3>
                   <ChevronDownIcon className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.demolition ? 'rotate-180' : ''}`} />
                 </button>
                 {expandedSections.demolition && (
-                  <div id="demolition-content" className="px-6 pb-6 border-t border-gray-200 text-gray-700">
+                  <div className="px-6 pb-6 border-t border-gray-200 text-gray-700">
                     <p className="mb-4">We assist with demolition permit Toronto and permit to demolish applications, ensuring safe removal and compliance. Our team also manages Toronto building inspection, building inspections, and occupancy permits, helping you close your project confidently.</p>
                   </div>
                 )}
@@ -555,14 +545,12 @@ const BuildingPermit = () => {
                 <button
                   onClick={() => toggleSection('citySpecific')}
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
-                  aria-expanded={expandedSections.citySpecific}
-                  aria-controls="citySpecific-content"
                 >
                   <h3 className="text-xl font-bold text-casa-navy">🏙️ City-Specific Permit Expertise</h3>
                   <ChevronDownIcon className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.citySpecific ? 'rotate-180' : ''}`} />
                 </button>
                 {expandedSections.citySpecific && (
-                  <div id="citySpecific-content" className="px-6 pb-6 border-t border-gray-200 text-gray-700">
+                  <div className="px-6 pb-6 border-t border-gray-200 text-gray-700">
                     <p>AllCasa is fully experienced with city of Toronto permits, city of Vaughan building permit, city of Toronto construction permits, and city permits Toronto. We handle every step — from Toronto building permit application to building permit fees Toronto, ensuring your permit Toronto process runs smoothly.</p>
                   </div>
                 )}
@@ -615,7 +603,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Legal Basement Permits Section */}
-                <section className="py-16 bg-white">
+                <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '1000px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl shadow-xl p-8 md:p-12">
               <div className="mb-8">
@@ -704,7 +692,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Who We Help Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               🏠 Who We Help
@@ -731,7 +719,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Permit Approval Section */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               ✅ Approved Building Permits
@@ -764,7 +752,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Process Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               📜 Our Process — Simple & Transparent
@@ -815,7 +803,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Why Choose Us Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               ⚡ Why Choose Us?
@@ -853,7 +841,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Service Areas */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '300px' }}>
           <div className="container max-w-6xl mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6 text-casa-navy">
               📍 Service Areas
@@ -865,7 +853,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '1200px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-12 text-casa-navy text-center">
               🧠 Frequently Asked Questions (FAQ)
@@ -929,14 +917,14 @@ const BuildingPermit = () => {
           </div>
         </section>
 
-        <Suspense fallback={<div className="min-h-[200px] flex items-center justify-center"><div className="animate-pulse text-gray-400">Loading testimonials...</div></div>}>
+        <Suspense fallback={<div className="min-h-[200px]" />}>
           <Testimonials />
         </Suspense>
 
         {/* Contact Form Section */}
         <section id="contact" className="py-20 bg-white">
           <div className="container max-w-2xl mx-auto">
-            <Suspense fallback={<div className="min-h-[300px] flex items-center justify-center"><div className="animate-pulse text-gray-400">Loading contact form...</div></div>}>
+            <Suspense fallback={<div className="min-h-[300px]" />}>
               <Contact 
                 formOnly={true}
                 budgetOptions={[
@@ -989,7 +977,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Final Calendly Widget Section - Above Footer */}
-        <section id="permit-calendly" className="py-16 bg-gradient-to-br from-white to-purple-50">
+        <section id="permit-calendly" className="py-16 bg-gradient-to-br from-white to-purple-50" style={{ contentVisibility: 'auto', containIntrinsicSize: '700px' }}>
           <div className="container">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
@@ -1000,7 +988,7 @@ const BuildingPermit = () => {
                   Schedule your building permit consultation now and get started on your project.
                 </p>
               </div>
-              <Suspense fallback={<div className="min-h-[600px] flex items-center justify-center"><div className="animate-pulse text-gray-400">Loading calendar...</div></div>}>
+              <Suspense fallback={<div className="min-h-[600px]" />}>
                 <CalendlyWidget />
               </Suspense>
             </div>

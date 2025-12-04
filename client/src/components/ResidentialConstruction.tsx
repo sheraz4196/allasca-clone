@@ -5,11 +5,11 @@ import ImageCarousel from './ImageCarousel';
 const ResidentialConstruction = () => {
   const images = [
     {
-      src: "/lovable-uploads/c1e20eb7-c31f-46f1-8f47-5c31394a6a22.webp",
+      src: "/lovable-uploads/c1e20eb7-c31f-46f1-8f47-5c31394a6a22.png",
       alt: "Modern luxury home with pool and landscaping"
     },
     {
-      src: "/lovable-uploads/19576d91-f263-4896-b39a-4fe578089e9e.webp",
+      src: "/lovable-uploads/19576d91-f263-4896-b39a-4fe578089e9e.png",
       alt: "Contemporary custom home exterior design"
     },
     {

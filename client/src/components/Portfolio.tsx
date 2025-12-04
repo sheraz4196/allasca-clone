@@ -2,18 +2,6 @@ import { useState, memo } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 
-// Helper: detect Unsplash
-const isUnsplash = (url: string) => url.startsWith('https://images.unsplash.com/');
-// Helper: build responsive srcset for Unsplash
-const buildUnsplashSrcSet = (url: string) => {
-  const make = (w: number) => {
-    const u = new URL(url);
-    u.searchParams.set('w', String(w));
-    return u.toString();
-  };
-  return `${make(400)} 400w, ${make(800)} 800w, ${make(1200)} 1200w`;
-};
-
 const portfolioItems = [
   {
     category: "renovation",
@@ -165,8 +153,6 @@ const Portfolio = () => {
 };
 
 const PortfolioCard = memo(({ item, index }: { item: any, index: number }) => {
-  const unsplash = isUnsplash(item.image);
-  const sizes = '(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw';
   return (
     <Card className="animate-on-scroll overflow-hidden group transition-all duration-300 hover:shadow-xl border-none w-full">
       <div className="relative overflow-hidden h-48 sm:h-56 lg:h-64">
@@ -176,8 +162,6 @@ const PortfolioCard = memo(({ item, index }: { item: any, index: number }) => {
           className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
           decoding="async"
-          style={{ aspectRatio: '4/3' }}
-          {...(unsplash ? { srcSet: buildUnsplashSrcSet(item.image), sizes } : {})}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-casa-navy/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
           <div className="p-4 sm:p-6">

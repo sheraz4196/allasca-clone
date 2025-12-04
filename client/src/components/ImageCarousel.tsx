@@ -1,3 +1,4 @@
+
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 
 interface ImageCarouselProps {
@@ -6,10 +7,9 @@ interface ImageCarouselProps {
     alt: string;
   }[];
   variant?: 'default' | 'section' | 'compact';
-  prioritizeFirst?: boolean; // Add this for Hero carousel
 }
 
-const ImageCarousel = ({ images, variant = 'default', prioritizeFirst = false }: ImageCarouselProps) => {
+const ImageCarousel = ({ images, variant = 'default' }: ImageCarouselProps) => {
   const isSection = variant === 'section';
   const isCompact = variant === 'compact';
   
@@ -35,11 +35,7 @@ const ImageCarousel = ({ images, variant = 'default', prioritizeFirst = false }:
                     <img
                       src={image.src}
                       alt={image.alt}
-                      loading={prioritizeFirst && index === 0 ? "eager" : "lazy"}
-                      decoding={prioritizeFirst && index === 0 ? "sync" : "async"}  
-                      fetchPriority={prioritizeFirst && index === 0 ? "high" : "low"}
-                      width={800}
-                      height={600}
+                      loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                     />
                   </div>
@@ -81,11 +77,7 @@ const ImageCarousel = ({ images, variant = 'default', prioritizeFirst = false }:
                   <img
                     src={image.src}
                     alt={image.alt}
-                    loading={prioritizeFirst && index === 0 ? "eager" : "lazy"}
-                    decoding={prioritizeFirst && index === 0 ? "sync" : "async"}
-                    fetchPriority={prioritizeFirst && index === 0 ? "high" : "low"}
-                    width={800}
-                    height={600}
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                   />
                 </div>
