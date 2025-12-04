@@ -29,6 +29,50 @@
     <link rel="preload" as="image" href="/lovable-uploads/1217ade2-9799-4eb9-afb7-52cd425cd153.png" fetchpriority="high" />
     <link rel="preload" as="image" href="/lovable-uploads/Gemini_Generated_Image_tab5zrtab5zrtab5_1764179602399.png" fetchpriority="high" />
     <link rel="modulepreload" href="/src/main.tsx" />
+    <!-- Route-aware lazy Google Fonts loader to avoid critical chain on heavy route -->
+    <script>
+      (function() {
+        var href = 'https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=swap';
+        var loaded = false;
+        var path = location.pathname || '/';
+        var isHeavyRoute = path === '/building-permit';
+        var IDLE_TIMEOUT = isHeavyRoute ? 8000 : 2000;
+
+        function loadFonts() {
+          if (loaded) return; loaded = true;
+          if (document.getElementById('google-fonts-styles')) return;
+          var l = document.createElement('link');
+          l.rel = 'stylesheet';
+          l.href = href;
+          l.id = 'google-fonts-styles';
+          l.media = 'all';
+          document.head.appendChild(l);
+        }
+
+        // Expose manual trigger for important interactions
+        window.loadFontsNow = loadFonts;
+
+        function idleLoadWithTimeout() {
+          if ('requestIdleCallback' in window) {
+            requestIdleCallback(function() { loadFonts(); }, { timeout: IDLE_TIMEOUT });
+          } else {
+            setTimeout(loadFonts, IDLE_TIMEOUT);
+          }
+        }
+
+        // On heavy route, defer to idle only; elsewhere allow first interaction
+        if (!isHeavyRoute) {
+          ['scroll','pointerdown','keydown','touchstart'].forEach(function(evt) {
+            window.addEventListener(evt, function handler() {
+              window.removeEventListener(evt, handler, { passive: true });
+              loadFonts();
+            }, { passive: true, once: true });
+          });
+        }
+
+        window.addEventListener('load', idleLoadWithTimeout, { once: true });
+      })();
+    </script>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -39,16 +83,33 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     
-    <!-- Google Tag Manager - Lazy loader to reduce main-thread work -->
+    <!-- Google Tag Manager - Route-aware lazy loader with Consent Mode defaults -->
     <script>
       (function() {
         var GTM_ID = 'GTM-W4LSPXSW';
         var loaded = false;
         var isLocal = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+        var path = location.pathname || '/';
+        var isHeavyRoute = path === '/building-permit';
+        var IDLE_TIMEOUT = isHeavyRoute ? 12000 : 4000;
+
         if (isLocal) {
           // Skip GTM in local development to avoid noisy third-party requests
           return;
         }
+
+        // Default consent: deny analytics/ads until user interacts (reduces third-party work)
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'default_consent',
+          'gtm.consentDefault': {
+            ad_storage: 'denied',
+            analytics_storage: 'denied',
+            functionality_storage: 'granted',
+            security_storage: 'granted'
+          }
+        });
+
         function loadGTM() {
           if (loaded) return;
           loaded = true;
@@ -60,22 +121,30 @@
           var f = document.getElementsByTagName('script')[0];
           f.parentNode.insertBefore(s, f);
         }
-        function idleLoad() {
+
+        // Expose manual trigger for consent-driven load
+        window.loadGTMNow = loadGTM;
+
+        function idleLoadWithTimeout() {
           if ('requestIdleCallback' in window) {
-            requestIdleCallback(function() { loadGTM(); }, { timeout: 4000 });
+            requestIdleCallback(function() { loadGTM(); }, { timeout: IDLE_TIMEOUT });
           } else {
-            setTimeout(loadGTM, 4000);
+            setTimeout(loadGTM, IDLE_TIMEOUT);
           }
         }
-        // Load after the first meaningful user interaction
-        ['scroll','pointerdown','keydown','touchstart'].forEach(function(evt) {
-          window.addEventListener(evt, function handler() {
-            window.removeEventListener(evt, handler, { passive: true });
-            loadGTM();
-          }, { passive: true, once: true });
-        });
+
+        // Interaction triggers (disabled on heavy route to avoid early load)
+        if (!isHeavyRoute) {
+          ['scroll','pointerdown','keydown','touchstart'].forEach(function(evt) {
+            window.addEventListener(evt, function handler() {
+              window.removeEventListener(evt, handler, { passive: true });
+              loadGTM();
+            }, { passive: true, once: true });
+          });
+        }
+
         // Fallback: after load, schedule idle load
-        window.addEventListener('load', idleLoad, { once: true });
+        window.addEventListener('load', idleLoadWithTimeout, { once: true });
       })();
     </script>
     <!-- End Google Tag Manager -->

@@ -1,4 +1,4 @@
-import { useState, Suspense, lazy } from "react";
+import { useState, Suspense, lazy, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -14,6 +14,7 @@ import newHouse from "@assets/stock_images/new_modern_house_ext_1b8e0a77.jpg";
 
 import basementLegalImg from "@assets/Gemini_Generated_Image_5b21c25b21c25b21_1764188421072.png";
 import allCasaLogo from "@assets/Logo (1)_1764188591729.jpg";
+import { onImportantInteraction } from "@/utils/analyticsConsent";
 
 const BuildingPermit = () => {
   const [expandedSections, setExpandedSections] = useState<{
@@ -40,6 +41,7 @@ const BuildingPermit = () => {
   };
 
   const scrollToFirstConsultation = () => {
+    onImportantInteraction();
     const consultationSection = document.getElementById("permit-calendly-top");
     if (consultationSection) {
       consultationSection.scrollIntoView({
@@ -50,6 +52,7 @@ const BuildingPermit = () => {
   };
 
   const scrollToLastConsultation = () => {
+    onImportantInteraction();
     const consultationSection = document.getElementById("permit-calendly");
     if (consultationSection) {
       consultationSection.scrollIntoView({
@@ -59,7 +62,7 @@ const BuildingPermit = () => {
     }
   };
 
-  const schemaMarkup = {
+  const schemaMarkup = useMemo(() => ({
     "@context": "https://schema.org",
     "@graph": [
       {
@@ -80,26 +83,11 @@ const BuildingPermit = () => {
           addressCountry: "CA",
         },
         areaServed: [
-          {
-            "@type": "City",
-            name: "Toronto",
-          },
-          {
-            "@type": "City",
-            name: "North York",
-          },
-          {
-            "@type": "City",
-            name: "Vaughan",
-          },
-          {
-            "@type": "City",
-            name: "Mississauga",
-          },
-          {
-            "@type": "City",
-            name: "Brampton",
-          },
+          { "@type": "City", name: "Toronto" },
+          { "@type": "City", name: "North York" },
+          { "@type": "City", name: "Vaughan" },
+          { "@type": "City", name: "Mississauga" },
+          { "@type": "City", name: "Brampton" },
         ],
         priceRange: "$$",
         aggregateRating: {
@@ -114,17 +102,10 @@ const BuildingPermit = () => {
         name: "Building Permit Services in Toronto",
         description:
           "Professional building permit application, drawings, and City of Toronto approvals for renovations, basements, and custom homes",
-        provider: {
-          "@id": "https://allcasa.ca/#organization",
-        },
+        provider: { "@id": "https://allcasa.ca/#organization" },
         areaServed: "Toronto, GTA",
         serviceType: "Building Permit Services",
-        offers: {
-          "@type": "Offer",
-          priceCurrency: "CAD",
-          price: "500",
-          priceRange: "$500-$5000",
-        },
+        offers: { "@type": "Offer", priceCurrency: "CAD", price: "500", priceRange: "$500-$5000" },
       },
       {
         "@type": "FAQPage",
@@ -179,8 +160,8 @@ const BuildingPermit = () => {
           },
         ],
       },
-    ],
-  };
+    ]
+  }), []);
 
   return (
     <div className="min-h-screen bg-white">
@@ -199,7 +180,7 @@ const BuildingPermit = () => {
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-6 md:mb-8">
               {/* Semantic H1 for SEO */}
-              <h1 className="font-poppins font-bold text-casa-navy mb-4 md:mb-6">
+              <h1 className="font-sans font-bold text-casa-navy mb-4 md:mb-6">
                 <div className="text-3xl md:text-5xl mb-2">
                   Building Permit Services in Toronto
                 </div>
