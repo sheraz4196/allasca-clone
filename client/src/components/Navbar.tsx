@@ -322,7 +322,7 @@ const Navbar = () => {
                 height={80}
                 decoding="async"
                 loading="eager"
-                fetchpriority="high" // React expects lowercase attribute
+                fetchPriority="high" // React expects lowercase attribute
                 className="h-16 w-16 md:h-20 md:w-20 object-contain"
               />
             </Link>
