@@ -154,7 +154,6 @@ const Navbar = () => {
   const scrollToSection = (sectionId: string) => {
     trackButtonClick(`Navigate to ${sectionId}`, `nav-${sectionId}`);
 
-    // Special handling for testimonials - stay on current page
     if (sectionId === 'testimonials') {
       const section = document.getElementById('testimonials');
       if (section) {
@@ -175,11 +174,6 @@ const Navbar = () => {
       // If on another page, navigate to home with section hash
       window.location.href = `/#${sectionId}`;
     }
-  };
-
-  const handleGetQuoteClick = () => {
-    trackButtonClick('Get a Quote', 'nav-get-quote');
-    setShowQuoteForm(!showQuoteForm);
   };
 
   return (
@@ -315,7 +309,7 @@ const Navbar = () => {
               aria-label="Go to AllCasa homepage"
             >
               <img
-                src="/lovable-uploads/1217ade2-9799-4eb9-afb7-52cd425cd153.png"
+                src="/lovable-uploads/1217ade2-9799-4eb9-afb7-52cd425cd153.webp"
                 alt="AllCasa Logo - Home Renovations and Construction"
                 className="h-16 w-16 md:h-20 md:w-20"
                 loading="eager"
@@ -401,7 +395,7 @@ const Navbar = () => {
                 <Link to="/" onClick={() => setMobileMenuOpen(false)} className="text-casa-navy hover:text-casa-purple font-medium transition-colors py-2 text-left" data-testid="link-mobile-home">Home</Link>
               )}
               <Link to="/building-permit" onClick={() => setMobileMenuOpen(false)} className="text-casa-navy hover:text-casa-purple font-medium transition-colors py-2 text-left" data-testid="link-mobile-building-permit">Building Permit</Link>
-              <button onClick={() => { 
+              <button onClick={() => {
                 trackButtonClick('Navigate to Permit Services', 'nav-permit-services-mobile');
                 setMobileMenuOpen(false);
                 window.location.href = '/building-permit#permit-services-section';

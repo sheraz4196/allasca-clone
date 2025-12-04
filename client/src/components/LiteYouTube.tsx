@@ -6,9 +6,10 @@ type LiteYouTubeProps = {
   aspectRatio?: string; // e.g. "16/9" or "9/16"
   className?: string; // optional extra classes for wrapper
   wrapperClassName?: string; // backward-compat alias
+  posterSrc?: string; // optional local poster image to show before play
 };
 
-export default function LiteYouTube({ videoId, title, aspectRatio = "16/9", className, wrapperClassName }: LiteYouTubeProps) {
+export default function LiteYouTube({ videoId, title, aspectRatio = "16/9", className, wrapperClassName, posterSrc }: LiteYouTubeProps) {
   const [isLoaded, setIsLoaded] = useState(false);
   const combinedWrapperClass = [
     "rounded-xl overflow-hidden shadow-lg mx-auto bg-black",
@@ -25,7 +26,21 @@ export default function LiteYouTube({ videoId, title, aspectRatio = "16/9", clas
           onClick={() => setIsLoaded(true)}
           style={{ cursor: "pointer" }}
         >
-          {/* Lightweight placeholder without external requests */}
+          {/* Poster image if provided */}
+          {posterSrc ? (
+            <img
+              src={posterSrc}
+              alt={title}
+              className="absolute inset-0 w-full h-full object-cover"
+              decoding="async"
+              loading="eager"
+            />
+          ) : (
+            // Lightweight placeholder without external requests
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-black" />
+          )}
+
+          {/* Play button overlay */}
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="flex flex-col items-center text-white">
               <div className="w-16 h-16 rounded-full bg-white/80 text-black flex items-center justify-center shadow-lg group-hover:bg-white transition-colors">
@@ -36,7 +51,9 @@ export default function LiteYouTube({ videoId, title, aspectRatio = "16/9", clas
               <span className="mt-3 text-sm opacity-80">Play Video</span>
             </div>
           </div>
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-black" />
+
+          {/* Subtle dark overlay only when no poster exists */}
+          {!posterSrc && <div className="absolute inset-0 bg-black/20" />}
         </button>
       ) : (
         <iframe

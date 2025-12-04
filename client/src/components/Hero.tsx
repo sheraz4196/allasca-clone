@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Star } from "lucide-react";
-import { memo } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
 
 interface ImageCarouselTypes {

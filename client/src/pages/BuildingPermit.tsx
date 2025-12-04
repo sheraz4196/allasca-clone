@@ -3,11 +3,10 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Seo from "@/components/Seo";
-import LiteYouTube from "@/components/LiteYouTube";
+const LiteYouTube = lazy(() => import("@/components/LiteYouTube"));
 const Testimonials = lazy(() => import("@/components/Testimonials"));
 const Contact = lazy(() => import("@/components/Contact"));
-import CalendlyWidget from "@/components/CalendlyWidget";
-import blueprint1 from "@assets/stock_images/architectural_bluepr_69f8733f.jpg";
+const CalendlyWidget = lazy(() => import("@/components/CalendlyWidget"));
 import blueprint2 from "@assets/stock_images/architectural_bluepr_378aa24e.jpg";
 import blueprint3 from "@assets/stock_images/architectural_bluepr_743ecedb.jpg";
 import permitApproved1 from "@assets/stock_images/building_permit_appr_51daa572.jpg";
@@ -230,7 +229,7 @@ const BuildingPermit = () => {
                 style={{ aspectRatio: "16/9" }}
               >
                 <img
-                  src="/lovable-uploads/Gemini_Generated_Image_tab5zrtab5zrtab5_1764179602399.png"
+                  src="/lovable-uploads/Gemini_Generated_Image_tab5zrtab5zrtab5_1764179602399 (1).webp"
                   alt="Building permit services desk with architectural plans, blueprints, and AllCasa Building Permits branding"
                   className="w-full h-full object-cover"
                   loading="eager"
@@ -296,7 +295,6 @@ const BuildingPermit = () => {
           </div>
         </section>
 
-        {/* Calendly Booking Section - Above Services */}
         <section
           id="permit-calendly-top"
           className="py-16 bg-gradient-to-br from-white to-purple-50"
@@ -320,8 +318,7 @@ const BuildingPermit = () => {
           </div>
         </section>
 
-        {/* Building Permit Video Section */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-4xl mx-auto px-4">
             <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy mb-4">
@@ -331,17 +328,19 @@ const BuildingPermit = () => {
                 Watch a quick overview of our building permit process
               </p>
             </div>
-            <LiteYouTube
-              videoId="D6ygF0N1XDk"
-              title="Building Permit Services Overview"
-              aspectRatio="9/16"
-              className="max-w-2xl mx-auto"
-            />
+            <Suspense fallback={<div className="min-h-[560px] rounded-xl bg-gray-100" />}>
+              <LiteYouTube
+                videoId="D6ygF0N1XDk"
+                title="Building Permit Services Overview"
+                aspectRatio="9/16"
+                className="max-w-2xl mx-auto"
+                posterSrc="/lovable-uploads/Gemini_Generated_Image_tab5zrtab5zrtab5_1764179602399.webp"
+              />
+            </Suspense>
           </div>
         </section>
 
-        {/* Services Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
               <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6 text-casa-navy">
@@ -393,50 +392,28 @@ const BuildingPermit = () => {
                 smooth, fast, and stress-free.
               </p>
 
-              {/* Architectural Drawings Gallery */}
               <div className="grid md:grid-cols-3 gap-6 mt-8">
-                <div
-                  className="rounded-lg overflow-hidden border-2 border-purple-100"
-                  style={{ aspectRatio: "1/1" }}
-                >
-                  <img
-                    src={blueprint1}
-                    alt="Professional architectural drawings for building permit"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                    width={400}
-                    height={400}
-                  />
-                </div>
-                <div
-                  className="rounded-lg overflow-hidden border-2 border-purple-100"
-                  style={{ aspectRatio: "1/1" }}
-                >
-                  <img
-                    src={blueprint2}
-                    alt="Detailed floor plans for permit application"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                    width={400}
-                    height={400}
-                  />
-                </div>
-                <div
-                  className="rounded-lg overflow-hidden border-2 border-purple-100"
-                  style={{ aspectRatio: "1/1" }}
-                >
-                  <img
-                    src={blueprint3}
-                    alt="Construction blueprints for city approval"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                    decoding="async"
-                    width={400}
-                    height={400}
-                  />
-                </div>
+                {[
+                  { src: "/lovable-uploads/architectural_bluepr_743ecedb.webp", alt: "Professional architectural drawings for building permit" },
+                  { src: blueprint2, alt: "Detailed floor plans for permit application" },
+                  { src: blueprint3, alt: "Construction blueprints for city approval" }
+                ].map(({ src, alt }, idx) => (
+                  <div
+                    key={idx}
+                    className="rounded-lg overflow-hidden border-2 border-purple-100"
+                    style={{ aspectRatio: "1/1" }}
+                  >
+                    <img
+                      src={src}
+                      alt={alt}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
+                      width={400}
+                      height={400}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -792,7 +769,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Legal Basement Permits Section */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl shadow-xl p-8 md:p-12">
               <div className="mb-8">
@@ -945,7 +922,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Who We Help Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               🏠 Who We Help
@@ -985,7 +962,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* Permit Approval Section */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               ✅ Approved Building Permits
@@ -1024,88 +1001,38 @@ const BuildingPermit = () => {
         </section>
 
         {/* Process Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               📜 Our Process — Simple & Transparent
             </h2>
 
             <div className="space-y-6 max-w-4xl mx-auto">
-              <div className="flex items-start bg-gradient-to-r from-purple-50 to-white rounded-xl p-6 shadow-md">
-                <div className="bg-purple-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
-                  1
+              {[
+                { num: 1, title: "Free Consultation", desc: "Tell us about your project and goals." },
+                { num: 2, title: "Site Review & Design", desc: "We assess zoning and create compliant drawings." },
+                { num: 3, title: "Permit Application", desc: "We prepare all documents and submit to the City." },
+                { num: 4, title: "City Review & Response", desc: "We handle all communication with City officials." },
+                { num: 5, title: "Approval & Construction", desc: "Once approved, you can start building legally." }
+              ].map(({ num, title, desc }) => (
+                <div key={num} className="flex items-start bg-gradient-to-r from-purple-50 to-white rounded-xl p-6 shadow-md">
+                  <div className="bg-purple-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
+                    {num}
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-casa-navy mb-2">{title}</h3>
+                    <p className="text-gray-700">{desc}</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-casa-navy mb-2">
-                    Free Consultation
-                  </h3>
-                  <p className="text-gray-700">
-                    Tell us about your project and goals.
-                  </p>
-                </div>
-              </div>
+              ))}
 
-              <div className="flex items-start bg-gradient-to-r from-purple-50 to-white rounded-xl p-6 shadow-md">
-                <div className="bg-purple-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
-                  2
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-casa-navy mb-2">
-                    Site Review & Design
-                  </h3>
-                  <p className="text-gray-700">
-                    We assess zoning and create compliant drawings.
-                  </p>
-                </div>
-              </div>
 
-              <div className="flex items-start bg-gradient-to-r from-purple-50 to-white rounded-xl p-6 shadow-md">
-                <div className="bg-purple-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
-                  3
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-casa-navy mb-2">
-                    Permit Application
-                  </h3>
-                  <p className="text-gray-700">
-                    We prepare all documents and submit to the City.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start bg-gradient-to-r from-purple-50 to-white rounded-xl p-6 shadow-md">
-                <div className="bg-purple-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
-                  4
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-casa-navy mb-2">
-                    City Review & Response
-                  </h3>
-                  <p className="text-gray-700">
-                    We handle all communication with City officials.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start bg-gradient-to-r from-purple-50 to-white rounded-xl p-6 shadow-md">
-                <div className="bg-purple-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
-                  5
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold text-casa-navy mb-2">
-                    Approval & Construction
-                  </h3>
-                  <p className="text-gray-700">
-                    Once approved, you can start building legally.
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </section>
 
         {/* Why Choose Us Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
               ⚡ Why Choose Us?
@@ -1113,40 +1040,26 @@ const BuildingPermit = () => {
 
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
               <ul className="space-y-4 text-gray-700 text-lg">
-                <li className="flex items-start">
-                  <span className="text-purple-600 mr-3 text-2xl">✓</span>
-                  Over 15 years of experience in design, construction &
-                  permitting
-                </li>
-                <li className="flex items-start">
-                  <span className="text-purple-600 mr-3 text-2xl">✓</span>
-                  Licensed Architectural Technologists and Engineers
-                </li>
-                <li className="flex items-start">
-                  <span className="text-purple-600 mr-3 text-2xl">✓</span>
-                  Fast turnaround on drawings and approvals
-                </li>
-                <li className="flex items-start">
-                  <span className="text-purple-600 mr-3 text-2xl">✓</span>
-                  Expertise with Toronto Zoning By-law 569-2013 and Ontario
-                  Building Code
-                </li>
-                <li className="flex items-start">
-                  <span className="text-purple-600 mr-3 text-2xl">✓</span>
-                  Transparent pricing and no hidden fees
-                </li>
-                <li className="flex items-start">
-                  <span className="text-purple-600 mr-3 text-2xl">✓</span>
-                  Full-service Design-Build & Permit team — everything under one
-                  roof
-                </li>
+                {[
+                  "Over 15 years of experience in design, construction & permitting",
+                  "Licensed Architectural Technologists and Engineers",
+                  "Fast turnaround on drawings and approvals",
+                  "Expertise with Toronto Zoning By-law 569-2013 and Ontario Building Code",
+                  "Transparent pricing and no hidden fees",
+                  "Full-service Design-Build & Permit team — everything under one roof",
+                ].map((text, idx) => (
+                  <li key={idx} className="flex items-start">
+                    <span className="text-purple-600 mr-3 text-2xl">✓</span>
+                    {text}
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
         </section>
 
         {/* Service Areas */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6 text-casa-navy">
               📍 Service Areas
@@ -1159,7 +1072,7 @@ const BuildingPermit = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
+        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-6xl mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-12 text-casa-navy text-center">
               🧠 Frequently Asked Questions (FAQ)

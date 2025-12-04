@@ -1,6 +1,5 @@
 
 import { Link } from 'react-router-dom';
-
 function FacebookIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
@@ -36,14 +35,14 @@ function LinkedinIcon(props: React.SVGProps<SVGSVGElement>) {
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
-  
+
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
     }
   };
-  
+
   return (
     <footer className="bg-gradient-to-br from-casa-oxford to-casa-oxford text-white pt-16 pb-8">
       <div className="container">
@@ -70,7 +69,7 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-bold mb-4">Services</h3>
             <ul className="space-y-2">
@@ -81,7 +80,7 @@ const Footer = () => {
               <li><button onClick={() => scrollToSection('estimates')} className="text-gray-200 hover:text-white transition-colors" data-testid="button-footer-estimates">Price Estimates</button></li>
             </ul>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-bold mb-4">Company</h3>
             <ul className="space-y-2">
@@ -90,7 +89,7 @@ const Footer = () => {
               <li><button onClick={() => scrollToSection('testimonials')} className="text-gray-200 hover:text-white transition-colors" data-testid="button-footer-testimonials">Testimonials</button></li>
             </ul>
           </div>
-          
+
           <div>
             <h3 className="text-lg font-bold mb-4">Contact</h3>
             <ul className="space-y-2">
@@ -100,7 +99,7 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        
+
         <div className="border-t border-casa-oxford/30 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-200 text-sm">
