@@ -5,7 +5,7 @@ import ImageCarousel from './ImageCarousel';
 const HomeRenovation = () => {
   const images = [
     {
-      src: "/lovable-uploads/d8bb675f-ada2-4305-8c3b-3fa91e3162ce.png",
+      src: "/lovable-uploads/d8bb675f-ada2-4305-8c3b-3fa91e3162ce.webp",
       alt: "Modern kitchen with island and pendant lighting"
     },
     {
@@ -17,7 +17,7 @@ const HomeRenovation = () => {
       alt: "Contemporary kitchen with island"
     },
     {
-      src: "/lovable-uploads/b1e75ca2-fbfd-4753-a133-df65dc76361f.png",
+      src: "/lovable-uploads/b1e75ca2-fbfd-4753-a133-df65dc76361f.webp",
       alt: "Open concept living space with kitchen and living room"
     }
   ];

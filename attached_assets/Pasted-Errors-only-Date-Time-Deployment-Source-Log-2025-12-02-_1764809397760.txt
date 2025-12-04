@@ -1,0 +1,107 @@
+Errors only
+
+Date
+Time
+Deployment
+Source
+Log
+2025-12-02 13:55:56.43
+5b8e141e
+User
+8:55:56 AM [express] GET /apikeys.json 200 in 3ms
+2025-12-04 05:46:04.52
+f44c6e5b
+System
+starting up user application
+2025-12-04 05:46:04.52
+f44c6e5b
+System
+metasidecar: loaded enterprise status from environment is_enterprise=false
+2025-12-04 05:46:04.52
+f44c6e5b
+System
+forwarding local port 5000 to external port 80 (mapped as 1104)
+2025-12-04 05:46:04.54
+f44c6e5b
+System
+command finished with error [sh -c npm run build && npm run start]: exit status 127
+2025-12-04 05:46:04.54
+f44c6e5b
+User
+sh: 1: npm: not found
+2025-12-04 05:46:04.60
+f44c6e5b
+User
+sh: 1: npm: not found
+2025-12-04 05:46:04.60
+f44c6e5b
+System
+command finished with error [sh -c npm run build && npm run start]: exit status 127
+2025-12-04 05:46:04.61
+f44c6e5b
+System
+command finished with error [sh -c npm run build && npm run start]: exit status 127
+2025-12-04 05:46:04.61
+f44c6e5b
+User
+sh: 1: npm: not found
+2025-12-04 05:46:04.65
+f44c6e5b
+User
+sh: 1: npm: not found
+2025-12-04 05:46:04.65
+f44c6e5b
+System
+command finished with error [sh -c npm run build && npm run start]: exit status 127
+2025-12-04 05:46:04.95
+f44c6e5b
+User
+sh: 1: npm: not found
+2025-12-04 05:46:04.95
+f44c6e5b
+System
+command finished with error [sh -c npm run build && npm run start]: exit status 127
+2025-12-04 05:46:05.01
+f44c6e5b
+User
+sh: 1: npm: not found
+2025-12-04 05:46:05.01
+f44c6e5b
+System
+command finished with error [sh -c npm run build && npm run start]: exit status 127
+2025-12-04 05:46:06.74
+f44c6e5b
+System
+command finished with error [sh -c npm run build && npm run start]: exit status 127
+2025-12-04 05:46:06.74
+f44c6e5b
+User
+sh: 1: npm: not found
+2025-12-04 05:46:09.91
+f44c6e5b
+System
+command finished with error [sh -c npm run build && npm run start]: exit status 127
+2025-12-04 05:46:09.91
+f44c6e5b
+User
+sh: 1: npm: not found
+2025-12-04 05:46:11.02
+f44c6e5b
+User
+sh: 1: npm: not found
+2025-12-04 05:46:11.02
+f44c6e5b
+System
+command finished with error [sh -c npm run build && npm run start]: exit status 127
+2025-12-04 05:46:12.68
+f44c6e5b
+User
+sh: 1: npm: not found
+2025-12-04 05:46:12.68
+f44c6e5b
+System
+command finished with error [sh -c npm run build && npm run start]: exit status 127
+2025-12-04 05:46:17.08
+f44c6e5b
+System
+crash loop detected

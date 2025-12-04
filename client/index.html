@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b2545" />
     <title>AllCasa - Toronto Custom Home Construction & Full Home Renovation Services</title>
     <meta name="description" content="Toronto's premier custom home builders specializing in new luxury custom house design and build, full home renovation, and full basement renovation. Expert design-build services throughout the GTA. Get your free consultation today." />
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
@@ -20,7 +21,19 @@
     <!-- Preconnect to improve performance -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Non-blocking Google Fonts -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=optional">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=optional" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&display=optional"></noscript>
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+    <!-- Calendly performance hints -->
+    <link rel="preconnect" href="https://assets.calendly.com" crossorigin />
+    <link rel="preconnect" href="https://calendly.com" crossorigin />
+    <link rel="dns-prefetch" href="https://assets.calendly.com" />
+    <link rel="dns-prefetch" href="https://calendly.com" />
+    <link rel="preload" href="https://assets.calendly.com/assets/external/widget.js" as="script" />
+    <link rel="preload" href="https://assets.calendly.com/assets/external/widget.css" as="style" />
+    <link rel="stylesheet" href="https://assets.calendly.com/assets/external/widget.css" />
     <link rel="prefetch" href="https://assets.calendly.com" />
     <link rel="dns-prefetch" href="https://www.youtube.com" />
     
@@ -76,10 +89,7 @@
         // Fallback: after load, schedule idle load
         window.addEventListener('load', idleLoad, { once: true });
       })();
-    </script>
-    <!-- End Google Tag Manager -->
-    
-    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
-    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js" defer></script>
-  </body>
+        </script>
+        <!-- End Google Tag Manager -->
+    </body>
 </html>
