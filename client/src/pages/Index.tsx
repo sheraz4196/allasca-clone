@@ -20,7 +20,6 @@ import UniqueApproach from '@/components/UniqueApproach';
 import SEOSection from '@/components/SEOSection';
 import { setupScrollAnimations } from '@/utils/animations';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 
 const Index = () => {
