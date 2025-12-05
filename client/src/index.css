@@ -146,70 +146,15 @@
 }
 
 @layer components {
-  .scale-102 {
-    transform: scale(1.02);
-  }
-
-  .scale-105 {
-    transform: scale(1.05);
-  }
 
   .heading-gradient {
     @apply bg-gradient-to-r from-purple-600 via-violet-500 to-fuchsia-500 bg-clip-text text-transparent;
   }
 
-  .tech-card {
-    @apply bg-white shadow-lg rounded-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-purple-100;
-  }
 
-  .tech-gradient-bg {
-    @apply bg-gradient-to-r from-purple-600 via-violet-500 to-fuchsia-500;
-  }
-  
-  .btn-gradient {
-    @apply bg-gradient-to-r from-purple-600 to-fuchsia-500 hover:from-fuchsia-500 hover:to-purple-600 text-white transition-all duration-300;
-  }
-
-  .hover-animate {
-    @apply transition-all duration-300 hover:scale-105;
-  }
-
-  .hover-animate.hover-active {
-    @apply scale-105;
-  }
-  
-  .floating {
-    animation: floating 3s ease-in-out infinite;
-  }
-  
-  .glass-effect {
-    @apply bg-white/80 backdrop-blur-lg border border-white/20 rounded-xl;
-  }
-  
-  .card-gradient {
-    @apply bg-gradient-to-br from-white to-purple-50;
-  }
-  
-  .feature-card {
-    @apply bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-100;
-  }
 }
 
 @layer utilities {
-  @keyframes bounce {
-    0%, 100% {
-      transform: translateY(-5%);
-      animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-    }
-    50% {
-      transform: translateY(0);
-      animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-    }
-  }
-  
-  .animate-bounce {
-    animation: bounce 2s infinite;
-  }
   
   @keyframes floating {
     0% {
@@ -227,21 +172,6 @@
     animation: floating 3s ease-in-out infinite;
   }
 
-  @keyframes zoom {
-    0% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.05);
-    }
-    100% {
-      transform: scale(1);
-    }
-  }
-
-  .animate-zoom {
-    animation: zoom 4s infinite;
-  }
 
   @keyframes pulse {
     0%, 100% {
@@ -305,6 +235,10 @@
 
   .hover:shadow-tech:hover {
     box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+  }
+
+  .contain-layout-paint {
+    contain: layout paint;
   }
 }
 

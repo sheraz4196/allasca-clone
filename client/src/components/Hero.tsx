@@ -86,12 +86,12 @@ const Hero = () => {
           </div>
 
           {/* Right Image Carousel */}
-          <div className="relative block animate-on-scroll mt-8 lg:mt-0">
+          <div className="relative block mt-8 lg:mt-0">
             {/* Background Gradient */}
             <div className="absolute -top-4 -left-4 w-full h-full bg-gradient-to-r from-casa-oxford to-casa-purple rounded-xl animate-floating z-0" />
 
             {/* Carousel */}
-            <div className="relative z-10 w-full overflow-hidden rounded-xl shadow-2xl">
+            <div className="relative z-10 w-full overflow-hidden rounded-xl shadow-2xl contain-layout-paint">
               <Carousel>
                 <CarouselContent>
                   {heroImages.map((image, index) => (
@@ -101,7 +101,7 @@ const Hero = () => {
                           src={image.src}
                           alt={image.alt || `Hero Image ${index + 1}`}
                           loading={index === 0 ? "eager" : "lazy"}
-                          decoding={index === 0 ? "sync" : "async"}
+                          decoding="async"
                           width={1600}
                           height={900}
                           sizes="(min-width:1024px) 50vw, 100vw"
