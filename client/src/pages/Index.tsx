@@ -389,9 +389,9 @@ const Index = () => {
               </div>
             </div>
           </section>
+          <Footer />
         </Suspense>
       </main>
-      <Footer />
       <Toaster />
     </div>
   );
