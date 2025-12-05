@@ -274,26 +274,6 @@ const BuildingPermit = () => {
             </div>
           </div>
         </section>
-
-        <section
-          id="permit-calendly-top"
-          className="py-16 bg-gradient-to-br from-white to-purple-50"
-        >
-          <div className="container">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-8">
-                <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy mb-4">
-                  Schedule Your Permit Consultation
-                </h2>
-                <p className="text-lg text-gray-600">
-                  Book a free consultation with our permit specialists to
-                  discuss your project requirements.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
           <div className="container max-w-4xl mx-auto px-4">
             <div className="text-center mb-8">
@@ -1163,33 +1143,6 @@ const BuildingPermit = () => {
                 ]}
               />
             </Suspense>
-          </div>
-        </section>
-
-        {/* CTA Section */}
-        <section className="py-16 bg-white">
-          <div className="container max-w-4xl mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6 text-casa-navy">
-              Ready to Get Your Building Permit?
-            </h2>
-            <p className="text-lg text-gray-700 mb-8">
-              Contact us today for a free consultation and let our experts
-              handle your permit application from start to finish.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-casa-navy to-casa-purple hover:from-casa-purple hover:to-casa-navy text-white px-8 py-4 font-semibold font-poppins text-lg transform transition-all duration-300 hover:scale-105 hover:shadow-lg rounded-full group"
-                onClick={scrollToLastConsultation}
-                data-testid="button-permit-cta-consultation"
-              >
-                Get Free Consultation
-                <ChevronRightIcon
-                  className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform"
-                  aria-hidden="true"
-                />
-              </Button>
-            </div>
           </div>
         </section>
 
