@@ -1,14 +1,19 @@
-import bannerImg from '@assets/generated_images/Modern_luxury_custom_home_66c4e86d.png';
+import ResponsiveImage from '@/components/ResponsiveImage';
+
+const bannerImage = 'https://images.unsplash.com/photo-1505691938895-1758d7feb511';
 
 const InspirationalBanner = () => {
   return (
     <section className="relative h-[70vh] md:h-[80vh] flex items-center justify-center overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <img
-          src={bannerImg}
+        <ResponsiveImage
+          src={`${bannerImage}?auto=format`}
           alt="Beautiful modern custom home"
           className="w-full h-full object-cover"
+          responsiveWidths={[640, 1024, 1440, 1920]}
+          sizes="100vw"
+          loading="lazy"
         />
         {/* Overlay */}
         <div className="absolute inset-0 bg-black/40"></div>

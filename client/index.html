@@ -9,23 +9,18 @@
         <!-- Preconnect to critical origins FIRST -->
         <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
         
         <!-- Preload LCP image (hero carousel first image) -->
         <link 
-            rel="preload" 
-            as="image" 
-            href="/lovable-uploads/090f7789-43ad-4f1f-80af-87c1fbb30439.webp" 
-            fetchpriority="high"
+          rel="preload" 
+          as="image" 
+          href="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&w=1600&q=70" 
+          fetchpriority="high"
+          imagesrcset="https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&w=800&q=70 800w, https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&w=1200&q=70 1200w, https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&w=1600&q=70 1600w"
+          imagesizes="(min-width:1024px) 50vw, 100vw"
         >
-        
-        <!-- Preload logo (above-the-fold) -->
-        <link
-            rel="preload"
-            as="image"
-            href="/lovable-uploads/1217ade2-9799-4eb9-afb7-52cd425cd153.webp"
-            fetchpriority="high"
-        >
-     
+             
         <!-- Preload critical font (Inter 400) -->
         <link 
             rel="preload" 
@@ -37,16 +32,16 @@
         
         <!-- Load Google Fonts asynchronously (non-blocking) -->
         <link 
-            rel="stylesheet" 
-            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;600;700;800&display=swap" 
-            media="print" 
-            onload="this.media='all'"
+          rel="stylesheet" 
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;600;700;800&display=swap" 
+          media="print" 
+          onload="this.media='all'"
         >
         <noscript>
-            <link 
-                rel="stylesheet" 
-                href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;600;700;800&display=swap"
-            >
+          <link 
+            rel="stylesheet" 
+            href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;600;700;800&display=swap"
+          >
         </noscript>
         
         <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">

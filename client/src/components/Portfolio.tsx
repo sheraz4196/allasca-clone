@@ -1,35 +1,23 @@
-import { useState, memo } from 'react';
-import { Button } from '@/components/ui/button';
+import { memo } from 'react';
 import { Card } from '@/components/ui/card';
-
-// Helper: detect Unsplash
-const isUnsplash = (url: string) => url.startsWith('https://images.unsplash.com/');
-// Helper: build responsive srcset for Unsplash
-const buildUnsplashSrcSet = (url: string) => {
-  const make = (w: number) => {
-    const u = new URL(url);
-    u.searchParams.set('w', String(w));
-    return u.toString();
-  };
-  return `${make(400)} 400w, ${make(800)} 800w, ${make(1200)} 1200w`;
-};
+import ResponsiveImage from '@/components/ResponsiveImage';
 
 const portfolioItems = [
   {
     category: "renovation",
-    image: "/lovable-uploads/16051882-1b6d-4108-a198-e531cb46fe64.png",
+    image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511",
     title: "Toronto Home Renovation",
     description: "Complete interior overhaul of a century home in Rosedale with custom details"
   },
   {
     category: "renovation",
-    image: "/lovable-uploads/c0cf08c5-bea2-4ff9-ac3a-d1f1950fa924.png",
+    image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb",
     title: "Modern Garden Suites",
     description: "Contemporary garden suite design with modern finishes and outdoor integration"
   },
   {
     category: "renovation",
-    image: "/lovable-uploads/209af4b6-7941-409b-a775-48a0db141af1.png",
+    image: "https://images.unsplash.com/photo-1505692794400-0ed0c5c08bc5",
     title: "Luxury Bathroom renovation",
     description: "Complete living space renovation with custom built-ins and modern finishes"
   },
@@ -71,7 +59,7 @@ const portfolioItems = [
   },
   {
     category: "construction",
-    image: "/lovable-uploads/76db0838-3bdb-4e28-8405-90f1931896ca.png",
+    image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688",
     title: "Architectural Custom Home",
     description: "Designer home with unique architectural features and premium materials"
   },
@@ -83,7 +71,7 @@ const portfolioItems = [
   },
   {
     category: "construction",
-    image: "/lovable-uploads/7b973a26-3cf5-4cb9-be9b-d0db8dd7b91b.png",
+    image: "https://images.unsplash.com/photo-1505691723518-36a5ac3be353",
     title: "Modern Basement Suites",
     description: "Complete basement renovation with family room and home theater"
   },
@@ -125,13 +113,13 @@ const portfolioItems = [
   },
   {
     category: "construction",
-    image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511?fm=webp&fit=crop&w=800&q=75",
+    image: "https://images.unsplash.com/photo-1505691938895-1758d7feb511",
     title: "Comfy Family Rooms",
     description: "Contemporary staircase with floating steps and modern railings"
   },
   {
     category: "construction",
-    image: "/lovable-uploads/f37845b8-6672-49bf-9507-f5404d4122d8.png",
+    image: "https://images.unsplash.com/photo-1497366216548-37526070297c",
     title: "Contemporary Living Room",
     description: "Modern living space with designer furniture and premium finishes"
   },
@@ -164,20 +152,16 @@ const Portfolio = () => {
   );
 };
 
-const PortfolioCard = memo(({ item, index }: { item: any, index: number }) => {
-  const unsplash = isUnsplash(item.image);
-  const sizes = '(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw';
+const PortfolioCard = memo(({ item }: { item: (typeof portfolioItems)[number] }) => {
   return (
     <Card className="animate-on-scroll overflow-hidden group transition-all duration-300 hover:shadow-xl border-none w-full">
       <div className="relative overflow-hidden h-48 sm:h-56 lg:h-64">
-        <img 
-          src={item.image} 
-          alt={item.title} 
+        <ResponsiveImage
+          src={`${item.image}?auto=format`}
+          alt={item.title}
           className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
-          loading="lazy"
-          decoding="async"
-          style={{ aspectRatio: '4/3' }}
-          {...(unsplash ? { srcSet: buildUnsplashSrcSet(item.image), sizes } : {})}
+          responsiveWidths={[400, 640, 900, 1200]}
+          sizes="(min-width:1024px) 33vw, (min-width:640px) 50vw, 100vw"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-casa-navy/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
           <div className="p-4 sm:p-6">

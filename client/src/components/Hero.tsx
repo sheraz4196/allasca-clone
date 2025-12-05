@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { ChevronRight, Star } from "lucide-react";
 import { memo } from "react";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
+import ResponsiveImage from "@/components/ResponsiveImage";
 
 interface ImageCarouselTypes {
   src: string;
@@ -10,23 +11,23 @@ interface ImageCarouselTypes {
 
 const heroImages: ImageCarouselTypes[] = [
   {
-    src: "/lovable-uploads/090f7789-43ad-4f1f-80af-87c1fbb30439.webp",
+    src: "https://images.unsplash.com/photo-1505691938895-1758d7feb511",
     alt: "Modern luxury custom home exterior with contemporary design"
   },
   {
-    src: "/lovable-uploads/ab4183af-b1cb-4ad2-9fa3-0c5d01441463.webp",
+    src: "https://images.unsplash.com/photo-1505692794400-0ed0c5c08bc5",
     alt: "Elegant full home renovation interior with open concept"
   },
   {
-    src: "/lovable-uploads/4c980d8f-d099-467b-93c9-846ef0a340e3.webp",
+    src: "https://images.unsplash.com/photo-1505691723518-36a5ac3be353",
     alt: "Premium basement development with modern finishes"
   },
   {
-    src: "/lovable-uploads/8023b467-88c8-4498-9a14-985d92fef6de.webp",
-    alt: "Custom house design with architectural details"
+    src: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a",
+    alt: "Custom house design consultation with architectural details"
   },
   {
-    src: "/lovable-uploads/45aeef41-fc0e-4f5a-8476-4a04d333a781.webp",
+    src: "https://images.unsplash.com/photo-1497366216548-37526070297c",
     alt: "Toronto luxury home construction project"
   }
 ];
@@ -98,14 +99,12 @@ const Hero = () => {
                   {heroImages.map((image, index) => (
                     <CarouselItem key={index}>
                       <div className="p-2">
-                        <img
-                          src={image.src}
+                        <ResponsiveImage
+                          src={`${image.src}?auto=format`}
                           alt={image.alt}
-                          loading={index === 0 ? "eager" : "lazy"}
-                          decoding={index === 0 ? "sync" : "async"}
-                          fetchpriority={index === 0 ? "high" : "low"}
-                          width={800}
-                          height={450}
+                          priority={index === 0}
+                          responsiveWidths={[480, 768, 1080, 1440]}
+                          sizes="(min-width:1024px) 50vw, 100vw"
                           className="w-full h-[280px] sm:h-[320px] md:h-[380px] lg:h-[400px] object-cover rounded-xl border transition-transform duration-300 ease-in-out"
                         />
                       </div>

@@ -1,9 +1,22 @@
 
 import { Shield, BadgeDollarSign, Timer } from "lucide-react";
 import { useEffect, useRef } from "react";
-import workConfidenceImg from '@assets/generated_images/Construction_workers_with_confidence_017a5439.png';
-import transparentPricingImg from '@assets/generated_images/Transparent_pricing_documentation_d31953e1.png';
-import projectTimelineImg from '@assets/generated_images/Project_timeline_and_permits_8ebd98d0.png';
+import ResponsiveImage from '@/components/ResponsiveImage';
+
+const cardImages = {
+  workConfidence: {
+    src: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e',
+    alt: 'Skilled construction workers showing work confidence'
+  },
+  transparentPricing: {
+    src: 'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a',
+    alt: 'Transparent pricing documentation and blueprints'
+  },
+  projectTimeline: {
+    src: 'https://images.unsplash.com/photo-1497366216548-37526070297c',
+    alt: 'Project timeline planning and permit documents'
+  }
+};
 
 const UniqueApproach = () => {
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -57,7 +70,13 @@ const UniqueApproach = () => {
             ref={(el) => (cardRefs.current[0] = el)}
             className="animate-on-scroll bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-xl hover:transform hover:-translate-y-1 transition-all duration-300"
           >
-            <img src={workConfidenceImg} alt="Skilled construction workers showing work confidence" className="w-full h-32 object-cover rounded-lg mb-4" />
+            <ResponsiveImage
+              src={`${cardImages.workConfidence.src}?auto=format`}
+              alt={cardImages.workConfidence.alt}
+              className="w-full h-32 object-cover rounded-lg mb-4"
+              responsiveWidths={[360, 640, 900]}
+              sizes="(min-width: 768px) 33vw, 100vw"
+            />
             <div className="flex items-center justify-center mb-4">
               <div className="w-16 h-16 rounded-full bg-casa-purple/20 flex items-center justify-center">
                 <Shield className="h-8 w-8 text-casa-purple" />
@@ -76,7 +95,13 @@ const UniqueApproach = () => {
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-casa-purple text-white px-4 py-1 rounded-full font-bold text-sm font-poppins">
               Our Promise
             </div>
-            <img src={transparentPricingImg} alt="Transparent pricing documentation and blueprints" className="w-full h-32 object-cover rounded-lg mb-4" />
+            <ResponsiveImage
+              src={`${cardImages.transparentPricing.src}?auto=format`}
+              alt={cardImages.transparentPricing.alt}
+              className="w-full h-32 object-cover rounded-lg mb-4"
+              responsiveWidths={[360, 640, 900]}
+              sizes="(min-width: 768px) 33vw, 100vw"
+            />
             <div className="flex items-center justify-center mb-4">
               <div className="w-16 h-16 rounded-full bg-casa-purple/20 flex items-center justify-center">
                 <BadgeDollarSign className="h-8 w-8 text-casa-purple" />
@@ -92,7 +117,13 @@ const UniqueApproach = () => {
             ref={(el) => (cardRefs.current[2] = el)}
             className="animate-on-scroll bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-xl hover:transform hover:-translate-y-1 transition-all duration-300"
           >
-            <img src={projectTimelineImg} alt="Project timeline planning and permit documents" className="w-full h-32 object-cover rounded-lg mb-4" />
+            <ResponsiveImage
+              src={`${cardImages.projectTimeline.src}?auto=format`}
+              alt={cardImages.projectTimeline.alt}
+              className="w-full h-32 object-cover rounded-lg mb-4"
+              responsiveWidths={[360, 640, 900]}
+              sizes="(min-width: 768px) 33vw, 100vw"
+            />
             <div className="flex items-center justify-center mb-4">
               <div className="w-16 h-16 rounded-full bg-casa-purple/20 flex items-center justify-center">
                 <Timer className="h-8 w-8 text-casa-purple" />

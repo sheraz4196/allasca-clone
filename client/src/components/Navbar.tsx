@@ -318,12 +318,12 @@ const Navbar = () => {
               <img
                 src="/lovable-uploads/1217ade2-9799-4eb9-afb7-52cd425cd153.webp"
                 alt="Logo"
-                width={80}
-                height={80}
+                width={64}
+                height={64}
                 decoding="async"
-                loading="eager"
-                fetchpriority="high" // React expects lowercase attribute
+                loading="lazy"
                 className="h-16 w-16 md:h-20 md:w-20 object-contain"
+                fetchPriority='high'
               />
             </Link>
 

@@ -1,41 +1,56 @@
 import { useEffect, useRef } from 'react';
-import consultationImg from '@assets/Gemini_Generated_Image_5b21c25b21c25b21_1764188347334.png';
-import planningImg from '@assets/generated_images/Site_planning_and_preparation_257f5e8d.png';
-import materialImg from '@assets/generated_images/Construction_material_selection_display_91121052.png';
-import constructionImg from '@assets/generated_images/Construction_execution_phase_91c13c3f.png';
-import qualityImg from '@assets/generated_images/Quality_control_inspection_d9f38511.png';
-import completionImg from '@assets/generated_images/Project_completion_handover_edb5e2d5.png';
+import ResponsiveImage from '@/components/ResponsiveImage';
 
 const steps = [
   {
     number: "01",
     title: "Consultation",
     description: "Understanding your vision and budget.",
-    image: consultationImg
+    image: {
+      src: 'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a',
+      alt: 'Consultation meeting between homeowners and architect',
+      widths: [480, 768, 1080]
+    }
   },
   {
     number: "02",
     title: "Design & Planning",
     description: "Detailed designs and planning.",
-    image: planningImg
+    image: {
+      src: 'https://images.unsplash.com/photo-1497366216548-37526070297c',
+      alt: 'Architect reviewing building plans',
+      widths: [480, 900, 1280]
+    }
   },
   {
     number: "03",
     title: "Material Selection",
     description: "Premium materials and finishes.",
-    image: materialImg
+    image: {
+      src: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e',
+      alt: 'Construction materials neatly arranged',
+      widths: [480, 900, 1280]
+    }
   },
   {
     number: "04",
     title: "Construction",
     description: "Skilled craftsmanship in action.",
-    image: constructionImg
+    image: {
+      src: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd',
+      alt: 'Construction crew working on site',
+      widths: [480, 900, 1280]
+    }
   },
   {
     number: "05",
     title: "Final Walkthrough",
     description: "Quality inspection and handover.",
-    image: completionImg
+    image: {
+      src: 'https://images.unsplash.com/photo-1507089947368-19c1da9775ae',
+      alt: 'Homeowners receiving completed project keys',
+      widths: [480, 900, 1280]
+    }
   }
 ];
 
@@ -95,10 +110,13 @@ const Process = () => {
               }`}
             >
               <div className="flex-1 relative">
-                <img 
-                  src={step.image} 
-                  alt={`${step.title} process step`} 
-                  className="w-full h-64 md:h-80 object-cover rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500" 
+                <ResponsiveImage
+                  src={`${step.image.src}?auto=format`}
+                  alt={step.image.alt}
+                  className="w-full h-64 md:h-80 object-cover rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500"
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  responsiveWidths={step.image.widths}
+                  priority={index === 0}
                 />
                 <div className="absolute -top-4 -left-4 bg-gradient-to-r from-purple-500 to-fuchsia-500 text-white rounded-full w-16 h-16 flex items-center justify-center text-2xl font-bold shadow-lg">
                   {step.number}
