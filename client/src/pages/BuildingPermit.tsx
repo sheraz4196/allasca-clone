@@ -6,7 +6,6 @@ import Seo from "@/components/Seo";
 const LiteYouTube = lazy(() => import("@/components/LiteYouTube"));
 const Testimonials = lazy(() => import("@/components/Testimonials"));
 const Contact = lazy(() => import("@/components/Contact"));
-const CalendlyWidget = lazy(() => import("@/components/CalendlyWidget"));
 import blueprint2 from "@assets/stock_images/architectural_bluepr_378aa24e.jpg";
 import blueprint3 from "@assets/stock_images/architectural_bluepr_743ecedb.jpg";
 import permitApproved1 from "@assets/stock_images/building_permit_appr_51daa572.jpg";
@@ -291,10 +290,6 @@ const BuildingPermit = () => {
                   discuss your project requirements.
                 </p>
               </div>
-              <Suspense fallback={<div className="min-h-[600px]" />}>
-                {" "}
-                <CalendlyWidget />
-              </Suspense>
             </div>
           </div>
         </section>
@@ -1214,9 +1209,6 @@ const BuildingPermit = () => {
                   on your project.
                 </p>
               </div>
-              <Suspense fallback={<div className="min-h-[600px]" />}>
-                <CalendlyWidget />
-              </Suspense>
             </div>
           </div>
         </section>
