@@ -3,6 +3,7 @@ import react from "@vitejs/plugin-react";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 import { cartographer } from "@replit/vite-plugin-cartographer";
+import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 
 export default defineConfig(({ mode }) => {
   const isDevOnReplit = mode !== "production" && process.env.REPL_ID;
@@ -14,6 +15,11 @@ export default defineConfig(({ mode }) => {
       react(),
       runtimeErrorOverlay(),
       ...(isDevOnReplit ? [cartographer()] : []),
+      ViteImageOptimizer({
+        webp: {
+          quality: 75,
+        },
+      }),
     ],
 
     resolve: {
