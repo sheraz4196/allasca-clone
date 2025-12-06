@@ -18,12 +18,6 @@ const ImageCarousel = ({ images, variant = "default" }: ImageCarouselProps) => {
   const isSection = variant === "section";
   const isCompact = variant === "compact";
 
-  const getSizes = () => {
-    if (isCompact) return "(max-width: 768px) 100vw, 55vw";
-    if (isSection) return "(max-width: 768px) 100vw, 33vw";
-    return "(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw";
-  };
-
   if (isCompact) {
     return (
       <div className="w-full">
@@ -46,18 +40,7 @@ const ImageCarousel = ({ images, variant = "default" }: ImageCarouselProps) => {
                     <img
                       src={image.src}
                       alt={image.alt}
-                      width={800}
-                      height={600}
-                      sizes={getSizes()}
-                      srcSet={`
-                        ${image.src}?w=320 320w,
-                        ${image.src}?w=640 640w,
-                        ${image.src}?w=1024 1024w
-                      `}
-                      loading={index === 0 ? "eager" : "lazy"}
-                      decoding="async"
-                      fetchPriority={index === 0 ? "high" : "auto"}
-                      draggable={false}
+                      loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                     />
                   </div>
@@ -65,7 +48,6 @@ const ImageCarousel = ({ images, variant = "default" }: ImageCarouselProps) => {
               </CarouselItem>
             ))}
           </CarouselContent>
-
           <div className="flex justify-center items-center mt-4 space-x-2">
             <CarouselPrevious className="relative translate-y-0 h-8 w-8 bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 shadow-sm rounded-full" />
             <CarouselNext className="relative translate-y-0 h-8 w-8 bg-white border border-gray-200 hover:bg-gray-50 hover:border-gray-300 shadow-sm rounded-full" />
@@ -100,22 +82,15 @@ const ImageCarousel = ({ images, variant = "default" }: ImageCarouselProps) => {
               }
             >
               <div className="h-full">
-                <div className="aspect-[4/3] w-full overflow-hidden rounded-lg shadow-lg bg-gray-100">
+                <div
+                  className={`${
+                    isSection ? "aspect-[4/3]" : "aspect-[4/3]"
+                  } w-full overflow-hidden rounded-lg shadow-lg bg-gray-100`}
+                >
                   <img
                     src={image.src}
                     alt={image.alt}
-                    width={800}
-                    height={600}
-                    sizes={getSizes()}
-                    srcSet={`
-                      ${image.src}?w=320 320w,
-                      ${image.src}?w=640 640w,
-                      ${image.src}?w=1024 1024w
-                    `}
-                    loading={index < 2 ? "eager" : "lazy"}
-                    decoding="async"
-                    fetchPriority={index < 2 ? "high" : "auto"}
-                    draggable={false}
+                    loading="lazy"
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                   />
                 </div>
@@ -123,7 +98,6 @@ const ImageCarousel = ({ images, variant = "default" }: ImageCarouselProps) => {
             </CarouselItem>
           ))}
         </CarouselContent>
-
         <div
           className={`flex justify-center items-center ${
             isSection ? "mt-4" : "mt-6"
