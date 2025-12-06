@@ -8,7 +8,7 @@ export default defineConfig(({ mode }) => {
   const isDevOnReplit = mode !== "production" && process.env.REPL_ID;
 
   return {
-    root: path.resolve(import.meta.dirname, "client"),
+    root: path.resolve(__dirname, "client"), // point to client folder
 
     plugins: [
       react(),
@@ -18,20 +18,15 @@ export default defineConfig(({ mode }) => {
 
     resolve: {
       alias: {
-        "@": path.resolve(import.meta.dirname, "client", "src"),
-        "@shared": path.resolve(import.meta.dirname, "shared"),
-        "@assets": path.resolve(import.meta.dirname, "attached_assets"),
+        "@": path.resolve(__dirname, "client/src"),
+        "@shared": path.resolve(__dirname, "shared"),
+        "@assets": path.resolve(__dirname, "attached_assets"),
       },
     },
 
     build: {
-      outDir: path.resolve(import.meta.dirname, "dist/public"),
+      outDir: path.resolve(__dirname, "dist"), // output directly to dist
       emptyOutDir: true,
-    },
-
-    // Dev-only — Vercel ignores this completely
-    server: {
-      allowedHosts: ["myological-lynwood-overpainfully.ngrok-free.dev"],
     },
   };
 });
