@@ -131,7 +131,7 @@ const Hero = () => {
                           src={image.src}
                           alt={image.alt || `Hero Image ${index + 1}`}
                           loading={index === 0 ? "eager" : "lazy"}
-                          decoding="async"
+                          fetchPriority={index === 0 ? "high" : "auto"}
                           width={1600}
                           height={900}
                           sizes="(min-width:1024px) 50vw, 100vw"
