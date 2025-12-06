@@ -11,11 +11,11 @@ const ResidentialConstruction = () => {
       alt: "Contemporary custom home exterior design",
     },
     {
-      src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?fm=webp&fit=crop&w=800&q=75",
+      src: "/lovable-uploads/house_3.webp",
       alt: "Beautiful modern house exterior",
     },
     {
-      src: "https://images.unsplash.com/photo-1613977257363-707ba9348227?fm=webp&fit=crop&w=800&q=75",
+      src: "/lovable-uploads/house_4.webp",
       alt: "Luxury custom built home exterior",
     },
   ];
