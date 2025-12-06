@@ -182,7 +182,7 @@ const PortfolioCard = memo(({ item, index }: { item: any; index: number }) => {
     <Card className="animate-on-scroll overflow-hidden group transition-all duration-300 hover:shadow-xl border-none w-full">
       <div className="relative overflow-hidden h-48 sm:h-56 lg:h-64">
         <img
-          src={item.image}
+          src="/loveable-uploads/home_19.webp"
           alt={item.title}
           className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
