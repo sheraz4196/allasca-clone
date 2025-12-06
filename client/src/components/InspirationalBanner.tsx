@@ -1,4 +1,4 @@
-import bannerImg from '@assets/generated_images/Modern_luxury_custom_home_66c4e86d.png';
+import bannerImg from "@assets/generated_images/Modern_luxury_custom_home_66c4e86d.png";
 
 const InspirationalBanner = () => {
   return (
@@ -21,7 +21,10 @@ const InspirationalBanner = () => {
             Building Homes, Crafting Memories.
           </h2>
           <p className="text-xl md:text-2xl font-poppins leading-relaxed">
-            AllCasa makes sure your home is built with care, precision, and a deep understanding of what makes a house truly yours. From the first consultation to the final walkthrough, we transform your vision into reality with craftsmanship that stands the test of time.
+            AllCasa makes sure your home is built with care, precision, and a
+            deep understanding of what makes a house truly yours. From the first
+            consultation to the final walkthrough, we transform your vision into
+            reality with craftsmanship that stands the test of time.
           </p>
         </div>
       </div>

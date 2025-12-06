@@ -4,145 +4,145 @@ import { Card } from "@/components/ui/card";
 const portfolioItems = [
   {
     category: "renovation",
-    image: "/lovable-uploads/home_19.webp",
+    image: "/lovable-uploads/house_19.webp",
     title: "Toronto Home Renovation",
     description:
       "Complete interior overhaul of a century home in Rosedale with custom details",
   },
   {
     category: "renovation",
-    image: "/lovable-uploads/home_20.webp",
+    image: "/lovable-uploads/house_20.webp",
     title: "Modern Garden Suites",
     description:
       "Contemporary garden suite design with modern finishes and outdoor integration",
   },
   {
     category: "renovation",
-    image: "/lovable-uploads/home_21.webp",
+    image: "/lovable-uploads/house_21.webp",
     title: "Luxury Bathroom renovation",
     description:
       "Complete living space renovation with custom built-ins and modern finishes",
   },
   {
     category: "renovation",
-    image: "/lovable-uploads/home_22.webp",
+    image: "/lovable-uploads/house_22.webp",
     title: "Luxury Bathroom Renovation",
     description:
       "Master bedroom renovation with walk-in closet and luxury finishes",
   },
   {
     category: "renovation",
-    image: "/lovable-uploads/home_23.webp",
+    image: "/lovable-uploads/house_23.webp",
     title: "Modern Living Room Design",
     description:
       "Contemporary living room with sleek furniture and ambient lighting",
   },
   {
     category: "renovation",
-    image: "/lovable-uploads/home_24.webp",
+    image: "/lovable-uploads/house_24.webp",
     title: "Modern Hardwood Flooring",
     description:
       "Premium hardwood floor installation with contemporary patterns",
   },
   {
     category: "renovation",
-    image: "/lovable-uploads/home_25.webp",
+    image: "/lovable-uploads/house_25.webp",
     title: "Vintage Bathroom Design",
     description: "Luxury bathroom with modern fixtures and spa-like amenities",
   },
   {
     category: "construction",
-    image: "/lovable-uploads/home_26.webp",
+    image: "/lovable-uploads/house_26.webp",
     title: "Modern Toronto Build",
     description:
       "2,800 sq ft custom build in Forest Hill with premium finishes and smart home features",
   },
   {
     category: "construction",
-    image: "/lovable-uploads/home_27.webp",
+    image: "/lovable-uploads/house_27.webp",
     title: "Contemporary Toronto Build",
     description:
       "Modern architectural design in The Beaches with eco-friendly features",
   },
   {
     category: "construction",
-    image: "/lovable-uploads/home_28.webp",
+    image: "/lovable-uploads/house_28.webp",
     title: "Architectural Custom Home",
     description:
       "Designer home with unique architectural features and premium materials",
   },
   {
     category: "construction",
-    image: "/lovable-uploads/home_29.webp",
+    image: "/lovable-uploads/house_29.webp",
     title: "Modern Family Home",
     description:
       "Contemporary family home with open concept design and modern amenities",
   },
   {
     category: "construction",
-    image: "/lovable-uploads/home_30.webp",
+    image: "/lovable-uploads/house_30.webp",
     title: "Modern Basement Suites",
     description:
       "Complete basement renovation with family room and home theater",
   },
   {
     category: "basement",
-    image: "/lovable-uploads/home_31.webp",
+    image: "/lovable-uploads/house_31.webp",
     title: "Basement Bar Installation",
     description: "Custom wet bar and entertainment space in finished basement",
   },
   {
     category: "basement",
-    image: "/lovable-uploads/home_32.webp",
+    image: "/lovable-uploads/house_32.webp",
     title: "Basement Home Office",
     description:
       "Professional basement office space with built-in storage and lighting",
   },
   {
     category: "basement",
-    image: "/lovable-uploads/home_34.webp",
+    image: "/lovable-uploads/house_34.webp",
     title: "Basement Modern Bathroom",
     description:
       "Complete basement apartment with kitchen, bedroom, and living area",
   },
   {
     category: "basement",
-    image: "/lovable-uploads/home_35.webp",
+    image: "/lovable-uploads/house_35.webp",
     title: "Basement Living Room",
     description:
       "Elegant basement bathroom with premium tiles and modern fixtures",
   },
   {
     category: "landscaping",
-    image: "/lovable-uploads/home_36.webp",
+    image: "/lovable-uploads/house_36.webp",
     title: "Toronto Backyard Oasis",
     description:
       "Complete backyard renovation with pool and sustainable landscaping in North York",
   },
   {
     category: "landscaping",
-    image: "/lovable-uploads/home_37.webp",
+    image: "/lovable-uploads/house_37.webp",
     title: "Luxury Garden Design",
     description:
       "Premium garden installation with custom planters and irrigation systems",
   },
   {
     category: "construction",
-    image: "/lovable-uploads/home_38.webp",
+    image: "/lovable-uploads/house_38.webp",
     title: "Comfy Family Rooms",
     description:
       "Contemporary staircase with floating steps and modern railings",
   },
   {
     category: "construction",
-    image: "/lovable-uploads/home_39.webp",
+    image: "/lovable-uploads/house_39.webp",
     title: "Contemporary Living Room",
     description:
       "Modern living space with designer furniture and premium finishes",
   },
   {
     category: "basement",
-    image: "/lovable-uploads/home_40.webp",
+    image: "/lovable-uploads/house_40.webp",
     title: "Basement Modern Kitchen",
     description:
       "Sleek basement kitchen design with modern appliances and storage",
@@ -182,7 +182,7 @@ const PortfolioCard = memo(({ item, index }: { item: any; index: number }) => {
     <Card className="animate-on-scroll overflow-hidden group transition-all duration-300 hover:shadow-xl border-none w-full">
       <div className="relative overflow-hidden h-48 sm:h-56 lg:h-64">
         <img
-          src="/loveable-uploads/home_19.webp"
+          src={item.image}
           alt={item.title}
           className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
           loading="lazy"

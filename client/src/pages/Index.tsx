@@ -6,7 +6,6 @@ import Footer from "@/components/Footer";
 import GardenSuites from "@/components/GardenSuites";
 import Hero from "@/components/Hero";
 import HomeRenovation from "@/components/HomeRenovation";
-import InspirationalBanner from "@/components/InspirationalBanner";
 import Navbar from "@/components/Navbar";
 import Portfolio from "@/components/Portfolio";
 import Process from "@/components/Process";
@@ -23,6 +22,10 @@ import { ChevronDown } from "lucide-react";
 import YoutubeVideosSection from "@/components/YoutubeVideosSection";
 import OurProjects from "@/components/OurProjects";
 import FaqSection from "@/components/Faq";
+import React, { lazy, Suspense } from "react";
+const InspirationalBanner = lazy(
+  () => import("@/components/InspirationalBanner")
+);
 
 const Index = () => {
   const [expandTransform, setExpandTransform] = useState(false);
@@ -183,7 +186,9 @@ const Index = () => {
           </div>
         </div>
 
-        <InspirationalBanner />
+        <Suspense fallback={<div>Loading Lazy Component...</div>}>
+          <InspirationalBanner />
+        </Suspense>
 
         {/* FAQ Section */}
         <FaqSection />
