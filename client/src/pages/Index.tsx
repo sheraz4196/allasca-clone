@@ -1,30 +1,53 @@
-import ArchitecturalDesign from "@/components/ArchitecturalDesign";
-import BasementDevelopment from "@/components/BasementDevelopment";
-import CalendlyWidget from "@/components/CalendlyWidget";
-import Contact from "@/components/Contact";
-import Footer from "@/components/Footer";
-import GardenSuites from "@/components/GardenSuites";
-import Hero from "@/components/Hero";
-import HomeRenovation from "@/components/HomeRenovation";
-import Navbar from "@/components/Navbar";
-import Portfolio from "@/components/Portfolio";
-import Process from "@/components/Process";
-import ResidentialConstruction from "@/components/ResidentialConstruction";
-import Services from "@/components/Services";
-import Seo from "@/components/Seo";
-import Testimonials from "@/components/Testimonials";
-import { Toaster } from "@/components/ui/sonner";
-import UniqueApproach from "@/components/UniqueApproach";
-import SEOSection from "@/components/SEOSection";
 import { setupScrollAnimations } from "@/utils/animations";
 import { useEffect, useState } from "react";
 import { ChevronDown } from "lucide-react";
-import YoutubeVideosSection from "@/components/YoutubeVideosSection";
-import OurProjects from "@/components/OurProjects";
-import FaqSection from "@/components/Faq";
 import React, { lazy, Suspense } from "react";
+import LazyLoadInView from "@/components/LazyLoadInView";
+
+// Keep these non-lazy as they're critical for initial render
+import Seo from "@/components/Seo";
+import Navbar from "@/components/Navbar";
+import Hero from "@/components/Hero";
+import { Toaster } from "@/components/ui/sonner";
+
+// Lazy load ALL other components
+const SEOSection = lazy(() => import("@/components/SEOSection"));
+const YoutubeVideosSection = lazy(
+  () => import("@/components/YoutubeVideosSection")
+);
+const Services = lazy(() => import("@/components/Services"));
+const UniqueApproach = lazy(() => import("@/components/UniqueApproach"));
+const ResidentialConstruction = lazy(
+  () => import("@/components/ResidentialConstruction")
+);
+const HomeRenovation = lazy(() => import("@/components/HomeRenovation"));
+const BasementDevelopment = lazy(
+  () => import("@/components/BasementDevelopment")
+);
+const GardenSuites = lazy(() => import("@/components/GardenSuites"));
+const Portfolio = lazy(() => import("@/components/Portfolio"));
+const ArchitecturalDesign = lazy(
+  () => import("@/components/ArchitecturalDesign")
+);
+const Process = lazy(() => import("@/components/Process"));
+const OurProjects = lazy(() => import("@/components/OurProjects"));
 const InspirationalBanner = lazy(
   () => import("@/components/InspirationalBanner")
+);
+const FaqSection = lazy(() => import("@/components/Faq"));
+const Testimonials = lazy(() => import("@/components/Testimonials"));
+const Contact = lazy(() => import("@/components/Contact"));
+const CalendlyWidget = lazy(() => import("@/components/CalendlyWidget"));
+const Footer = lazy(() => import("@/components/Footer"));
+
+// Create a reusable fallback component
+const LoadingFallback = () => (
+  <div className="h-64 bg-gradient-to-br from-gray-50 to-gray-100 animate-pulse rounded-xl my-8" />
+);
+
+// For section fallbacks
+const SectionLoadingFallback = () => (
+  <div className="h-96 bg-gradient-to-br from-gray-50 to-gray-100 animate-pulse rounded-xl my-16" />
 );
 
 const Index = () => {
@@ -44,31 +67,136 @@ const Index = () => {
       />
       <Navbar />
       <main>
-        <Hero />
-        <SEOSection />
-
-        <YoutubeVideosSection />
-        <Services />
-        <UniqueApproach />
-
-        <div id="residential-construction">
-          <ResidentialConstruction />
-        </div>
-        <div id="home-renovation">
-          <HomeRenovation />
-        </div>
-        <div id="basement-development">
-          <BasementDevelopment />
-        </div>
-        <div id="garden-suites">
-          <GardenSuites />
-        </div>
-        <Portfolio />
-        <ArchitecturalDesign />
-        <Process />
-
-        <OurProjects />
-
+        <Hero /> {/* Keep Hero non-lazy for immediate visibility */}
+        {/* Lazy load SEO Section */}
+        <LazyLoadInView
+          fallback={<LoadingFallback />}
+          threshold={0.05}
+          rootMargin="100px"
+        >
+          <Suspense fallback={<LoadingFallback />}>
+            <SEOSection />
+          </Suspense>
+        </LazyLoadInView>
+        {/* Lazy load YouTube Videos */}
+        <LazyLoadInView
+          fallback={<SectionLoadingFallback />}
+          threshold={0.05}
+          rootMargin="150px"
+        >
+          <Suspense fallback={<SectionLoadingFallback />}>
+            <YoutubeVideosSection />
+          </Suspense>
+        </LazyLoadInView>
+        {/* Lazy load Services */}
+        <LazyLoadInView
+          fallback={<SectionLoadingFallback />}
+          threshold={0.05}
+          rootMargin="150px"
+        >
+          <Suspense fallback={<SectionLoadingFallback />}>
+            <Services />
+          </Suspense>
+        </LazyLoadInView>
+        {/* Lazy load Unique Approach */}
+        <LazyLoadInView
+          fallback={<LoadingFallback />}
+          threshold={0.05}
+          rootMargin="100px"
+        >
+          <Suspense fallback={<LoadingFallback />}>
+            <UniqueApproach />
+          </Suspense>
+        </LazyLoadInView>
+        {/* Lazy load Residential Construction */}
+        <LazyLoadInView
+          fallback={<SectionLoadingFallback />}
+          threshold={0.05}
+          rootMargin="150px"
+        >
+          <Suspense fallback={<SectionLoadingFallback />}>
+            <div id="residential-construction">
+              <ResidentialConstruction />
+            </div>
+          </Suspense>
+        </LazyLoadInView>
+        {/* Lazy load Home Renovation */}
+        <LazyLoadInView
+          fallback={<SectionLoadingFallback />}
+          threshold={0.05}
+          rootMargin="150px"
+        >
+          <Suspense fallback={<SectionLoadingFallback />}>
+            <div id="home-renovation">
+              <HomeRenovation />
+            </div>
+          </Suspense>
+        </LazyLoadInView>
+        {/* Lazy load Basement Development */}
+        <LazyLoadInView
+          fallback={<SectionLoadingFallback />}
+          threshold={0.05}
+          rootMargin="150px"
+        >
+          <Suspense fallback={<SectionLoadingFallback />}>
+            <div id="basement-development">
+              <BasementDevelopment />
+            </div>
+          </Suspense>
+        </LazyLoadInView>
+        {/* Lazy load Garden Suites */}
+        <LazyLoadInView
+          fallback={<SectionLoadingFallback />}
+          threshold={0.05}
+          rootMargin="150px"
+        >
+          <Suspense fallback={<SectionLoadingFallback />}>
+            <div id="garden-suites">
+              <GardenSuites />
+            </div>
+          </Suspense>
+        </LazyLoadInView>
+        {/* Lazy load Portfolio */}
+        <LazyLoadInView
+          fallback={<SectionLoadingFallback />}
+          threshold={0.05}
+          rootMargin="200px"
+        >
+          <Suspense fallback={<SectionLoadingFallback />}>
+            <Portfolio />
+          </Suspense>
+        </LazyLoadInView>
+        {/* Lazy load Architectural Design */}
+        <LazyLoadInView
+          fallback={<SectionLoadingFallback />}
+          threshold={0.05}
+          rootMargin="150px"
+        >
+          <Suspense fallback={<SectionLoadingFallback />}>
+            <ArchitecturalDesign />
+          </Suspense>
+        </LazyLoadInView>
+        {/* Lazy load Process */}
+        <LazyLoadInView
+          fallback={<SectionLoadingFallback />}
+          threshold={0.05}
+          rootMargin="150px"
+        >
+          <Suspense fallback={<SectionLoadingFallback />}>
+            <Process />
+          </Suspense>
+        </LazyLoadInView>
+        {/* Lazy load Our Projects */}
+        <LazyLoadInView
+          fallback={<SectionLoadingFallback />}
+          threshold={0.05}
+          rootMargin="150px"
+        >
+          <Suspense fallback={<SectionLoadingFallback />}>
+            <OurProjects />
+          </Suspense>
+        </LazyLoadInView>
+        {/* Keep the expandable section inline (it's small) */}
         <div
           className="bg-gradient-to-br from-purple-50 to-white py-16"
           id="services-info"
@@ -185,34 +313,84 @@ const Index = () => {
             </div>
           </div>
         </div>
-
-        <Suspense fallback={<div>Loading Lazy Component...</div>}>
-          <InspirationalBanner />
-        </Suspense>
-
-        {/* FAQ Section */}
-        <FaqSection />
-        <Testimonials />
-        <Contact />
-
-        <section className="py-16 bg-gradient-to-br from-white to-purple-50">
-          <div className="container">
-            <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-8">
-                <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy mb-4">
-                  Ready to Start Your Project?
-                </h2>
-                <p className="text-lg text-gray-600">
-                  Schedule a free consultation with our experts to discuss your
-                  renovation or construction needs.
-                </p>
+        {/* Lazy load Inspirational Banner */}
+        <LazyLoadInView
+          fallback={<LoadingFallback />}
+          threshold={0.05}
+          rootMargin="200px"
+        >
+          <Suspense fallback={<LoadingFallback />}>
+            <InspirationalBanner />
+          </Suspense>
+        </LazyLoadInView>
+        {/* Lazy load FAQ Section */}
+        <LazyLoadInView
+          fallback={<SectionLoadingFallback />}
+          threshold={0.05}
+          rootMargin="150px"
+        >
+          <Suspense fallback={<SectionLoadingFallback />}>
+            <FaqSection />
+          </Suspense>
+        </LazyLoadInView>
+        {/* Lazy load Testimonials */}
+        <LazyLoadInView
+          fallback={<SectionLoadingFallback />}
+          threshold={0.05}
+          rootMargin="150px"
+        >
+          <Suspense fallback={<SectionLoadingFallback />}>
+            <Testimonials />
+          </Suspense>
+        </LazyLoadInView>
+        {/* Lazy load Contact */}
+        <LazyLoadInView
+          fallback={<SectionLoadingFallback />}
+          threshold={0.05}
+          rootMargin="150px"
+        >
+          <Suspense fallback={<SectionLoadingFallback />}>
+            <Contact />
+          </Suspense>
+        </LazyLoadInView>
+        {/* Lazy load Calendly Section */}
+        <LazyLoadInView
+          fallback={<SectionLoadingFallback />}
+          threshold={0.05}
+          rootMargin="150px"
+        >
+          <Suspense fallback={<SectionLoadingFallback />}>
+            <section className="py-16 bg-gradient-to-br from-white to-purple-50">
+              <div className="container">
+                <div className="max-w-4xl mx-auto">
+                  <div className="text-center mb-8">
+                    <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy mb-4">
+                      Ready to Start Your Project?
+                    </h2>
+                    <p className="text-lg text-gray-600">
+                      Schedule a free consultation with our experts to discuss
+                      your renovation or construction needs.
+                    </p>
+                  </div>
+                  <CalendlyWidget />
+                </div>
               </div>
-              <CalendlyWidget />
-            </div>
-          </div>
-        </section>
+            </section>
+          </Suspense>
+        </LazyLoadInView>
       </main>
-      <Footer />
+
+      {/* Lazy load Footer */}
+      <LazyLoadInView
+        fallback={<div className="h-64 bg-gray-50" />}
+        threshold={0}
+        rootMargin="500px" // Load footer earlier since it's at bottom
+      >
+        <Suspense fallback={<div className="h-64 bg-gray-50" />}>
+          <Footer />
+        </Suspense>
+      </LazyLoadInView>
+
       <Toaster />
     </div>
   );
