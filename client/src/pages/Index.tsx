@@ -9,6 +9,7 @@ import Seo from "@/components/Seo";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import { Toaster } from "@/components/ui/sonner";
+import CommonNavbar from "@/components/CommonNavbar";
 
 // Lazy load ALL other components
 const SEOSection = lazy(() => import("@/components/SEOSection"));
@@ -65,10 +66,9 @@ const Index = () => {
         canonical="https://allcasa.ca/"
         keywords="custom home construction Toronto, full home renovation Toronto, basement renovation GTA, luxury custom house builder, home builders Toronto, custom homes North York, house renovation Mississauga"
       />
-      <Navbar />
+      <CommonNavbar />
       <main>
-        <Hero /> {/* Keep Hero non-lazy for immediate visibility */}
-        {/* Lazy load SEO Section */}
+        <Hero />
         <LazyLoadInView
           fallback={<LoadingFallback />}
           threshold={0.05}
@@ -78,7 +78,6 @@ const Index = () => {
             <SEOSection />
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load YouTube Videos */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -88,7 +87,6 @@ const Index = () => {
             <YoutubeVideosSection />
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load Services */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -98,7 +96,6 @@ const Index = () => {
             <Services />
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load Unique Approach */}
         <LazyLoadInView
           fallback={<LoadingFallback />}
           threshold={0.05}
@@ -108,7 +105,6 @@ const Index = () => {
             <UniqueApproach />
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load Residential Construction */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -120,7 +116,6 @@ const Index = () => {
             </div>
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load Home Renovation */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -132,7 +127,6 @@ const Index = () => {
             </div>
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load Basement Development */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -144,7 +138,6 @@ const Index = () => {
             </div>
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load Garden Suites */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -156,7 +149,6 @@ const Index = () => {
             </div>
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load Portfolio */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -166,7 +158,6 @@ const Index = () => {
             <Portfolio />
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load Architectural Design */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -176,7 +167,6 @@ const Index = () => {
             <ArchitecturalDesign />
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load Process */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -186,7 +176,6 @@ const Index = () => {
             <Process />
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load Our Projects */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -196,7 +185,6 @@ const Index = () => {
             <OurProjects />
           </Suspense>
         </LazyLoadInView>
-        {/* Keep the expandable section inline (it's small) */}
         <div
           className="bg-gradient-to-br from-purple-50 to-white py-16"
           id="services-info"
