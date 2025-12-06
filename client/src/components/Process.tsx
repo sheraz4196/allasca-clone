@@ -1,9 +1,9 @@
 import { useEffect, useRef } from "react";
-import consultationImg from "@assets/Gemini_Generated_Image_5b21c25b21c25b21_1764188347334.png";
-import planningImg from "@assets/generated_images/Site_planning_and_preparation_257f5e8d.png";
-import materialImg from "@assets/generated_images/Construction_material_selection_display_91121052.png";
-import constructionImg from "@assets/generated_images/Construction_execution_phase_91c13c3f.png";
-import completionImg from "@assets/generated_images/Project_completion_handover_edb5e2d5.png";
+import consultationImg from "@assets/process_1.webp";
+import planningImg from "@assets/generated_images/process_2.webp";
+import materialImg from "@assets/generated_images/process_3.webp";
+import constructionImg from "@assets/generated_images/process_4.webp";
+import completionImg from "@assets/generated_images/process_5.webp";
 
 const steps = [
   {
