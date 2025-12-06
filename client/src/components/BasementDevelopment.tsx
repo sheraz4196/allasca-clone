@@ -1,28 +1,28 @@
-import { Button } from '@/components/ui/button';
-import ImageCarousel from './ImageCarousel';
+import { Button } from "@/components/ui/button";
+import ImageCarousel from "./ImageCarousel";
 
 const BasementDevelopment = () => {
   const images = [
     {
-      src: "/lovable-uploads/afd741c1-aeb3-4149-aa2f-9ae7593d8727.png",
-      alt: "Modern finished basement with kitchen and living area"
+      src: "/lovable-uploads/house_9.webp",
+      alt: "Modern finished basement with kitchen and living area",
     },
     {
-      src: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?fm=webp&fit=crop&w=800&q=75",
-      alt: "Modern basement entertainment room"
+      src: "/lovable-uploads/house_10.webp",
+      alt: "Modern basement entertainment room",
     },
     {
-      src: "https://images.unsplash.com/photo-1600566752355-35792bedcfea?fm=webp&fit=crop&w=800&q=75",
-      alt: "Contemporary basement suite design"
+      src: "/lovable-uploads/house_11.webp",
+      alt: "Contemporary basement suite design",
     },
     {
-      src: "https://images.unsplash.com/photo-1600607688969-a5bfcd646154?fm=webp&fit=crop&w=800&q=75",
-      alt: "Modern basement family room"
+      src: "/lovable-uploads/house_12.webp",
+      alt: "Modern basement family room",
     },
     {
-      src: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?fm=webp&fit=crop&w=800&q=75",
-      alt: "Finished basement with bar area"
-    }
+      src: "/lovable-uploads/house_13.webp",
+      alt: "Finished basement with bar area",
+    },
   ];
 
   return (
@@ -36,7 +36,7 @@ const BasementDevelopment = () => {
             Basement renovation, walkout installation, staircase construction.
           </p>
         </div>
-        
+
         <div className="animate-on-scroll">
           <ImageCarousel images={images} variant="section" />
         </div>

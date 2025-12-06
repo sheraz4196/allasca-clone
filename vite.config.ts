@@ -11,11 +11,15 @@ export default defineConfig({
     process.env.REPL_ID !== undefined
       ? [
           await import("@replit/vite-plugin-cartographer").then((m) =>
-            m.cartographer(),
+            m.cartographer()
           ),
         ]
       : []),
   ],
+  server: {
+    allowedHosts: ["myological-lynwood-overpainfully.ngrok-free.dev"],
+  },
+
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),

@@ -1,6 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Star } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "./ui/carousel";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "./ui/carousel";
 
 interface ImageCarouselTypes {
   src: string;
@@ -10,41 +16,40 @@ interface ImageCarouselTypes {
 const heroImages: ImageCarouselTypes[] = [
   {
     src: "/lovable-uploads/090f7789-43ad-4f1f-80af-87c1fbb30439.webp",
-    alt: "Image 1"
+    alt: "Image 1",
   },
   {
     src: "/lovable-uploads/ab4183af-b1cb-4ad2-9fa3-0c5d01441463.webp",
-    alt: "Image 2"
+    alt: "Image 2",
   },
   {
     src: "/lovable-uploads/4c980d8f-d099-467b-93c9-846ef0a340e3.webp",
-    alt: "Image 3"
+    alt: "Image 3",
   },
   {
     src: "/lovable-uploads/8023b467-88c8-4498-9a14-985d92fef6de.webp",
-    alt: "Image 4"
+    alt: "Image 4",
   },
   {
     src: "/lovable-uploads/45aeef41-fc0e-4f5a-8476-4a04d333a781.webp",
-    alt: "Image 5"
-  }
+    alt: "Image 5",
+  },
 ];
 
 const Hero = () => {
-
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-white">
       <div className="container relative z-10 pt-20 md:pt-16 mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-
           {/* Left Text Block */}
           <div className="animate-on-scroll">
             <div className="flex items-center justify-start md:pt-14 lg:pt-0 pt-6 mb-6 animate-slide-in">
               <div className="bg-slate-800 text-white px-4 py-2 rounded-full flex items-center shadow-lg text-sm font-medium font-poppins">
-                <Star className="w-4 h-4 mr-2 text-yellow-300" aria-hidden="true" />
-                <span>
-                  Toronto's #1 Home Design and Build Company
-                </span>
+                <Star
+                  className="w-4 h-4 mr-2 text-yellow-300"
+                  aria-hidden="true"
+                />
+                <span>Toronto's #1 Home Design and Build Company</span>
               </div>
             </div>
 
@@ -52,7 +57,13 @@ const Hero = () => {
               Building Your{" "}
               <span className="text-purple-600 relative inline-block">
                 Dream Home
-                <svg className="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 100 12" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="none">
+                <svg
+                  className="absolute -bottom-2 left-0 w-full h-3"
+                  viewBox="0 0 100 12"
+                  xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
+                  preserveAspectRatio="none"
+                >
                   <path
                     d="M1 5.5C10 2.5 20 2.5 30 5.5C40 8.5 50 8.5 60 5.5C70 2.5 80 2.5 90 5.5C95 6.5 98 7.5 99 8.5"
                     stroke="#9333ea"
@@ -64,23 +75,42 @@ const Hero = () => {
               </span>
             </h1>
 
-            <p className="text-lg md:text-xl mb-4 text-black font-normal font-poppins animate-fade-in text-left" style={{ animationDelay: "0.2s" }}>
+            <p
+              className="text-lg md:text-xl mb-4 text-black font-normal font-poppins animate-fade-in text-left"
+              style={{ animationDelay: "0.2s" }}
+            >
               From Permit to Design to Build to Finish
             </p>
 
-            <p className="text-base md:text-lg mb-8 text-gray-600 font-poppins animate-fade-in text-left leading-relaxed" style={{ animationDelay: "0.4s" }}>
-              Specializing in new luxury custom house design and build, full home renovation, and full basement renovation services throughout Toronto and the GTA. Transform your space into the home you've always imagined.
+            <p
+              className="text-base md:text-lg mb-8 text-gray-600 font-poppins animate-fade-in text-left leading-relaxed"
+              style={{ animationDelay: "0.4s" }}
+            >
+              Specializing in new luxury custom house design and build, full
+              home renovation, and full basement renovation services throughout
+              Toronto and the GTA. Transform your space into the home you've
+              always imagined.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in justify-start" style={{ animationDelay: "0.4s" }}>
+            <div
+              className="flex flex-col sm:flex-row gap-4 animate-fade-in justify-start"
+              style={{ animationDelay: "0.4s" }}
+            >
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-casa-navy to-casa-purple hover:from-casa-purple hover:to-casa-navy text-white px-8 py-4 font-semibold font-poppins text-lg transform transition-all duration-300 hover:scale-105 hover:shadow-lg rounded-full group w-full sm:w-auto"
-                onClick={() => document.getElementById('consultation-booking')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() =>
+                  document
+                    .getElementById("consultation-booking")
+                    ?.scrollIntoView({ behavior: "smooth" })
+                }
                 data-testid="button-hero-consultation"
               >
                 Get Free Consultation
-                <ChevronRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" aria-hidden="true" />
+                <ChevronRight
+                  className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform"
+                  aria-hidden="true"
+                />
               </Button>
             </div>
           </div>
@@ -123,7 +153,9 @@ const Hero = () => {
               className="absolute -bottom-4 sm:-bottom-6 md:-bottom-8 -right-4 sm:-right-6 md:-right-8 z-20 bg-white rounded-xl p-3 sm:p-4 shadow-xl animate-floating flex items-center gap-2 sm:gap-3"
               style={{ animationDelay: "1s" }}
             >
-              <span className="text-casa-navy text-2xl sm:text-3xl md:text-4xl font-bold font-poppins">4.9</span>
+              <span className="text-casa-navy text-2xl sm:text-3xl md:text-4xl font-bold font-poppins">
+                4.9
+              </span>
               <div className="flex flex-col">
                 <div className="flex" aria-label="5 star rating">
                   {[...Array(5)].map((_, i) => (
@@ -138,15 +170,15 @@ const Hero = () => {
                     </svg>
                   ))}
                 </div>
-                <span className="text-xs sm:text-sm text-gray-600 font-poppins">1,000+ reviews</span>
+                <span className="text-xs sm:text-sm text-gray-600 font-poppins">
+                  1,000+ reviews
+                </span>
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
-
   );
 };
 
