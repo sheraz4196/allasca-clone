@@ -7,32 +7,57 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "./ui/carousel";
+import { generateSrcSet, getSizes } from "@/utils/image-helper";
 
 interface ImageCarouselTypes {
   src: string;
   alt: string;
+  srcSet?: string;
+  sizes?: string;
+  width?: number;
+  height?: number;
 }
 
 const heroImages: ImageCarouselTypes[] = [
   {
-    src: "/lovable-uploads/hero_1.webp",
+    src: "/optimized/hero_1.webp",
     alt: "Image 1",
+    srcSet: generateSrcSet("hero_1"),
+    sizes: getSizes(),
+    width: 1600,
+    height: 1110,
   },
   {
-    src: "/lovable-uploads/hero_2.webp",
+    src: "/optimized/hero_2.webp",
     alt: "Image 2",
+    srcSet: generateSrcSet("hero_2"),
+    sizes: getSizes(),
+    width: 1600,
+    height: 1110,
   },
   {
-    src: "/lovable-uploads/hero_3.webp",
+    src: "/optimized/hero_3.webp",
     alt: "Image 3",
+    srcSet: generateSrcSet("hero_3"),
+    sizes: getSizes(),
+    width: 1600,
+    height: 1110,
   },
   {
-    src: "/lovable-uploads/hero_4.webp",
+    src: "/optimized/hero_4.webp",
     alt: "Image 4",
+    srcSet: generateSrcSet("hero_4"),
+    sizes: getSizes(),
+    width: 1600,
+    height: 1110,
   },
   {
-    src: "/lovable-uploads/hero_5.webp",
+    src: "/optimized/hero_5.webp",
     alt: "Image 5",
+    srcSet: generateSrcSet("hero_5"),
+    sizes: getSizes(),
+    width: 1600,
+    height: 1110,
   },
 ];
 
