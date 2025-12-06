@@ -82,6 +82,7 @@ const Index = () => {
           <div className="container max-w-6xl mx-auto px-4">
             <div className="animate-on-scroll bg-white rounded-2xl shadow-xl p-8 md:p-12">
               <button
+                type="button"
                 onClick={() => setExpandTransform(!expandTransform)}
                 className="w-full flex items-center justify-between bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-6 hover:from-purple-100 hover:to-blue-100 transition-colors mb-6"
               >
