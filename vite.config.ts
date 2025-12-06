@@ -8,6 +8,8 @@ export default defineConfig(({ mode }) => {
   const isDevOnReplit = mode !== "production" && process.env.REPL_ID;
 
   return {
+    root: path.resolve(__dirname, "client"), // point to client folder
+
     plugins: [
       react(),
       runtimeErrorOverlay(),
@@ -23,8 +25,7 @@ export default defineConfig(({ mode }) => {
     },
 
     build: {
-      // output directly to dist
-      outDir: path.resolve(__dirname, "dist"),
+      outDir: path.resolve(__dirname, "dist"), // output directly to dist
       emptyOutDir: true,
     },
   };
