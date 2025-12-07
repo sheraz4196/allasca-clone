@@ -22,24 +22,24 @@ const heroImages: ImageCarouselTypes[] = [
     srcset:
       "/optimized/hero_1-400w.webp 400w, /optimized/hero_1-800w.webp 800w, /optimized/hero_1-1200w.webp 1200w, /optimized/hero_1.webp 1600w",
     alt: "Image 1",
-    width: 730, // Mobile display width
-    height: 487, // Mobile display height
+    width: 730,
+    height: 487,
   },
   {
     src: "/optimized/hero_2-400w.webp",
     srcset:
       "/optimized/hero_2-400w.webp 400w, /optimized/hero_2-800w.webp 800w, /optimized/hero_2-1200w.webp 1200w, /optimized/hero_2.webp 1600w",
     alt: "Image 2",
-    width: 730,
-    height: 487,
+    width: 634, // Changed from 730 to 634
+    height: 634, // Changed from 487 to 634 (square)
   },
   {
     src: "/optimized/hero_3-400w.webp",
     srcset:
       "/optimized/hero_3-400w.webp 400w, /optimized/hero_3-800w.webp 800w, /optimized/hero_3-1200w.webp 1200w, /optimized/hero_3.webp 1600w",
     alt: "Image 3",
-    width: 730,
-    height: 487,
+    width: 634, // Changed from 730 to 634
+    height: 634, // Changed from 487 to 634 (square)
   },
   {
     src: "/optimized/hero_4-400w.webp",
