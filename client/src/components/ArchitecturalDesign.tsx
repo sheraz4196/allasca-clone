@@ -21,6 +21,10 @@ const ArchitecturalDesign = () => {
               src="/lovable-uploads/design_1.webp"
               alt="City of Toronto permit with approved stamp on architectural drawings"
               className="w-full h-64 object-cover rounded-lg shadow-lg"
+              loading="lazy"
+              decoding="async"
+              width="400"
+              height="256"
             />
           </div>
           <div className="animate-on-scroll">
@@ -28,6 +32,10 @@ const ArchitecturalDesign = () => {
               src="/lovable-uploads/design_2.webp"
               alt="Rolled architectural blueprints showing detailed floor plans"
               className="w-full h-64 object-cover rounded-lg shadow-lg"
+              loading="lazy"
+              decoding="async"
+              width="400"
+              height="256"
             />
           </div>
           <div className="animate-on-scroll">
@@ -35,6 +43,10 @@ const ArchitecturalDesign = () => {
               src="/lovable-uploads/design_3.webp"
               alt="Detailed house floor plan with room dimensions and layout"
               className="w-full h-64 object-cover rounded-lg shadow-lg"
+              loading="lazy"
+              decoding="async"
+              width="400"
+              height="256"
             />
           </div>
         </div>
@@ -46,25 +58,25 @@ const ArchitecturalDesign = () => {
             </h3>
             <div className="space-y-4">
               <div className="flex items-start">
-                <CheckCircle2 className="h-5 w-5 text-purple-600 mt-1 mr-3" />
+                <CheckCircle2 className="h-5 w-5 text-purple-600 mt-1 mr-3 flex-shrink-0" />
                 <p className="text-gray-600">
                   Architectural Drawings for permits and construction
                 </p>
               </div>
               <div className="flex items-start">
-                <CheckCircle2 className="h-5 w-5 text-purple-600 mt-1 mr-3" />
+                <CheckCircle2 className="h-5 w-5 text-purple-600 mt-1 mr-3 flex-shrink-0" />
                 <p className="text-gray-600">
                   3D renderings and visualization services
                 </p>
               </div>
               <div className="flex items-start">
-                <CheckCircle2 className="h-5 w-5 text-purple-600 mt-1 mr-3" />
+                <CheckCircle2 className="h-5 w-5 text-purple-600 mt-1 mr-3 flex-shrink-0" />
                 <p className="text-gray-600">
                   Structural engineering and compliance documentation
                 </p>
               </div>
               <div className="flex items-start">
-                <CheckCircle2 className="h-5 w-5 text-purple-600 mt-1 mr-3" />
+                <CheckCircle2 className="h-5 w-5 text-purple-600 mt-1 mr-3 flex-shrink-0" />
                 <p className="text-gray-600">
                   Municipal permit application assistance
                 </p>
@@ -78,25 +90,25 @@ const ArchitecturalDesign = () => {
             </h3>
             <div className="space-y-4">
               <div className="flex items-start">
-                <CheckCircle2 className="h-5 w-5 text-purple-600 mt-1 mr-3" />
+                <CheckCircle2 className="h-5 w-5 text-purple-600 mt-1 mr-3 flex-shrink-0" />
                 <p className="text-gray-600">
                   Expert consultants and designers on staff
                 </p>
               </div>
               <div className="flex items-start">
-                <CheckCircle2 className="h-5 w-5 text-purple-600 mt-1 mr-3" />
+                <CheckCircle2 className="h-5 w-5 text-purple-600 mt-1 mr-3 flex-shrink-0" />
                 <p className="text-gray-600">
                   Code-compliant designs for Toronto regulations
                 </p>
               </div>
               <div className="flex items-start">
-                <CheckCircle2 className="h-5 w-5 text-purple-600 mt-1 mr-3" />
+                <CheckCircle2 className="h-5 w-5 text-purple-600 mt-1 mr-3 flex-shrink-0" />
                 <p className="text-gray-600">
                   Energy-efficient and sustainable design practices
                 </p>
               </div>
               <div className="flex items-start">
-                <CheckCircle2 className="h-5 w-5 text-purple-600 mt-1 mr-3" />
+                <CheckCircle2 className="h-5 w-5 text-purple-600 mt-1 mr-3 flex-shrink-0" />
                 <p className="text-gray-600">
                   Collaborative design process with client input
                 </p>
