@@ -66,7 +66,7 @@ const portfolioItems = [
   },
   {
     category: "construction",
-    image: "/lovable-uploads/house_28.webp",
+    image: "/lovable-uploads/house_19.webp",
     title: "Architectural Custom Home",
     description:
       "Designer home with unique architectural features and premium materials",
