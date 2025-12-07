@@ -10,29 +10,52 @@ import {
 
 interface ImageCarouselTypes {
   src: string;
+  srcset?: string;
   alt: string;
+  width: number;
+  height: number;
 }
 
 const heroImages: ImageCarouselTypes[] = [
   {
-    src: "/lovable-uploads/hero_1.webp",
+    src: "/optimized/hero_1-400w.webp",
+    srcset:
+      "/optimized/hero_1-400w.webp 400w, /optimized/hero_1-800w.webp 800w, /optimized/hero_1-1200w.webp 1200w, /optimized/hero_1.webp 1600w",
     alt: "Image 1",
+    width: 730,
+    height: 487,
   },
   {
-    src: "/lovable-uploads/hero_2.webp",
+    src: "/optimized/hero_2-400w.webp",
+    srcset:
+      "/optimized/hero_2-400w.webp 400w, /optimized/hero_2-800w.webp 800w, /optimized/hero_2-1200w.webp 1200w, /optimized/hero_2.webp 1600w",
     alt: "Image 2",
+    width: 634, // Changed from 730 to 634
+    height: 634, // Changed from 487 to 634 (square)
   },
   {
-    src: "/lovable-uploads/hero_3.webp",
+    src: "/optimized/hero_3-400w.webp",
+    srcset:
+      "/optimized/hero_3-400w.webp 400w, /optimized/hero_3-800w.webp 800w, /optimized/hero_3-1200w.webp 1200w, /optimized/hero_3.webp 1600w",
     alt: "Image 3",
+    width: 634, // Changed from 730 to 634
+    height: 634, // Changed from 487 to 634 (square)
   },
   {
-    src: "/lovable-uploads/hero_4.webp",
+    src: "/optimized/hero_4-400w.webp",
+    srcset:
+      "/optimized/hero_4-400w.webp 400w, /optimized/hero_4-800w.webp 800w, /optimized/hero_4-1200w.webp 1200w, /optimized/hero_4.webp 1600w",
     alt: "Image 4",
+    width: 730,
+    height: 487,
   },
   {
-    src: "/lovable-uploads/hero_5.webp",
+    src: "/optimized/hero_5-400w.webp",
+    srcset:
+      "/optimized/hero_5-400w.webp 400w, /optimized/hero_5-800w.webp 800w, /optimized/hero_5-1200w.webp 1200w, /optimized/hero_5.webp 1600w",
     alt: "Image 5",
+    width: 730,
+    height: 487,
   },
 ];
 
@@ -129,12 +152,13 @@ const Hero = () => {
                       <div className="p-2">
                         <img
                           src={image.src}
+                          srcSet={image.srcset}
                           alt={image.alt || `Hero Image ${index + 1}`}
                           loading={index === 0 ? "eager" : "lazy"}
                           decoding="async"
-                          width={1600}
-                          height={900}
-                          sizes="(min-width:1024px) 50vw, 100vw"
+                          width={image.width}
+                          height={image.height}
+                          sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 597px"
                           className="w-full h-[280px] sm:h-[320px] md:h-[380px] lg:h-[400px] object-cover rounded-xl border transition-transform duration-300 ease-in-out"
                           {...(index === 0 ? { fetchpriority: "high" } : {})}
                         />
