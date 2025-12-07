@@ -1,40 +1,35 @@
 import { useEffect, useRef } from "react";
-import consultationImg from "@assets/process_1.webp";
-import planningImg from "@assets/generated_images/process_2.webp";
-import materialImg from "@assets/generated_images/process_3.webp";
-import constructionImg from "@assets/generated_images/process_4.webp";
-import completionImg from "@assets/generated_images/process_5.webp";
 
 const steps = [
   {
     number: "01",
     title: "Consultation",
     description: "Understanding your vision and budget.",
-    image: consultationImg,
+    image: "/process/process_1.webp",
   },
   {
     number: "02",
     title: "Design & Planning",
     description: "Detailed designs and planning.",
-    image: planningImg,
+    image: "/process/process_2.webp",
   },
   {
     number: "03",
     title: "Material Selection",
     description: "Premium materials and finishes.",
-    image: materialImg,
+    image: "/process/process_3.webp",
   },
   {
     number: "04",
     title: "Construction",
     description: "Skilled craftsmanship in action.",
-    image: constructionImg,
+    image: "/process/process_4.webp",
   },
   {
     number: "05",
     title: "Final Walkthrough",
     description: "Quality inspection and handover.",
-    image: completionImg,
+    image: "/process/process_5.webp",
   },
 ];
 
