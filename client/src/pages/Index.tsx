@@ -89,9 +89,7 @@ const Index = () => {
           </Suspense>
         </LazyLoadInView>
 
-        <Suspense fallback={<SectionLoadingFallback />}>
-          <Services />
-        </Suspense>
+        <Services />
         <LazyLoadInView
           fallback={<LoadingFallback />}
           threshold={0.05}
@@ -102,48 +100,24 @@ const Index = () => {
           </Suspense>
         </LazyLoadInView>
 
-        <Suspense fallback={<SectionLoadingFallback />}>
-          <div id="residential-construction">
-            <ResidentialConstruction />
-          </div>
-        </Suspense>
+        <ResidentialConstruction />
 
-        <Suspense fallback={<SectionLoadingFallback />}>
-          <div id="home-renovation">
-            <HomeRenovation />
-          </div>
-        </Suspense>
+        <HomeRenovation />
 
-        <Suspense fallback={<SectionLoadingFallback />}>
-          <div id="basement-development">
-            <BasementDevelopment />
-          </div>
-        </Suspense>
+        <BasementDevelopment />
 
-        <Suspense fallback={<SectionLoadingFallback />}>
-          <div id="garden-suites">
-            <GardenSuites />
-          </div>
-        </Suspense>
+        <GardenSuites />
 
-        <Suspense fallback={<SectionLoadingFallback />}>
-          <Portfolio />
-        </Suspense>
+        <Portfolio />
 
-        <Suspense fallback={<SectionLoadingFallback />}>
-          <ArchitecturalDesign />
-        </Suspense>
+        <ArchitecturalDesign />
 
-        <Suspense fallback={<SectionLoadingFallback />}>
-          <Process />
-        </Suspense>
+        <Process />
 
-        <Suspense fallback={<SectionLoadingFallback />}>
-          <OurProjects />
-        </Suspense>
-        <LazyLoadInView fallback={<LoadingFallback />}>
-          <ExpandTransform />
-        </LazyLoadInView>
+        <OurProjects />
+
+        <ExpandTransform />
+
         <LazyLoadInView
           fallback={<LoadingFallback />}
           threshold={0.05}

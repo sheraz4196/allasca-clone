@@ -25,7 +25,7 @@ const GardenSuites = () => {
   ];
 
   return (
-    <section className="py-16 bg-casa-beige">
+    <section className="py-16 bg-casa-beige" id="garden-suites">
       <div className="container">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-sans font-bold text-casa-purple mb-4">
