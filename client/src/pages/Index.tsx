@@ -88,15 +88,10 @@ const Index = () => {
             <YoutubeVideosSection />
           </Suspense>
         </LazyLoadInView>
-        <LazyLoadInView
-          fallback={<SectionLoadingFallback />}
-          threshold={0.05}
-          rootMargin="150px"
-        >
-          <Suspense fallback={<SectionLoadingFallback />}>
-            <Services />
-          </Suspense>
-        </LazyLoadInView>
+
+        <Suspense fallback={<SectionLoadingFallback />}>
+          <Services />
+        </Suspense>
         <LazyLoadInView
           fallback={<LoadingFallback />}
           threshold={0.05}
@@ -106,86 +101,46 @@ const Index = () => {
             <UniqueApproach />
           </Suspense>
         </LazyLoadInView>
-        <LazyLoadInView
-          fallback={<SectionLoadingFallback />}
-          threshold={0.05}
-          rootMargin="150px"
-        >
-          <Suspense fallback={<SectionLoadingFallback />}>
-            <div id="residential-construction">
-              <ResidentialConstruction />
-            </div>
-          </Suspense>
-        </LazyLoadInView>
-        <LazyLoadInView
-          fallback={<SectionLoadingFallback />}
-          threshold={0.05}
-          rootMargin="150px"
-        >
-          <Suspense fallback={<SectionLoadingFallback />}>
-            <div id="home-renovation">
-              <HomeRenovation />
-            </div>
-          </Suspense>
-        </LazyLoadInView>
-        <LazyLoadInView
-          fallback={<SectionLoadingFallback />}
-          threshold={0.05}
-          rootMargin="150px"
-        >
-          <Suspense fallback={<SectionLoadingFallback />}>
-            <div id="basement-development">
-              <BasementDevelopment />
-            </div>
-          </Suspense>
-        </LazyLoadInView>
-        <LazyLoadInView
-          fallback={<SectionLoadingFallback />}
-          threshold={0.05}
-          rootMargin="150px"
-        >
-          <Suspense fallback={<SectionLoadingFallback />}>
-            <div id="garden-suites">
-              <GardenSuites />
-            </div>
-          </Suspense>
-        </LazyLoadInView>
-        <LazyLoadInView
-          fallback={<SectionLoadingFallback />}
-          threshold={0.05}
-          rootMargin="200px"
-        >
-          <Suspense fallback={<SectionLoadingFallback />}>
-            <Portfolio />
-          </Suspense>
-        </LazyLoadInView>
-        <LazyLoadInView
-          fallback={<SectionLoadingFallback />}
-          threshold={0.05}
-          rootMargin="150px"
-        >
-          <Suspense fallback={<SectionLoadingFallback />}>
-            <ArchitecturalDesign />
-          </Suspense>
-        </LazyLoadInView>
-        <LazyLoadInView
-          fallback={<SectionLoadingFallback />}
-          threshold={0.05}
-          rootMargin="150px"
-        >
-          <Suspense fallback={<SectionLoadingFallback />}>
-            <Process />
-          </Suspense>
-        </LazyLoadInView>
-        <LazyLoadInView
-          fallback={<SectionLoadingFallback />}
-          threshold={0.05}
-          rootMargin="150px"
-        >
-          <Suspense fallback={<SectionLoadingFallback />}>
-            <OurProjects />
-          </Suspense>
-        </LazyLoadInView>
+
+        <Suspense fallback={<SectionLoadingFallback />}>
+          <div id="residential-construction">
+            <ResidentialConstruction />
+          </div>
+        </Suspense>
+
+        <Suspense fallback={<SectionLoadingFallback />}>
+          <div id="home-renovation">
+            <HomeRenovation />
+          </div>
+        </Suspense>
+
+        <Suspense fallback={<SectionLoadingFallback />}>
+          <div id="basement-development">
+            <BasementDevelopment />
+          </div>
+        </Suspense>
+
+        <Suspense fallback={<SectionLoadingFallback />}>
+          <div id="garden-suites">
+            <GardenSuites />
+          </div>
+        </Suspense>
+
+        <Suspense fallback={<SectionLoadingFallback />}>
+          <Portfolio />
+        </Suspense>
+
+        <Suspense fallback={<SectionLoadingFallback />}>
+          <ArchitecturalDesign />
+        </Suspense>
+
+        <Suspense fallback={<SectionLoadingFallback />}>
+          <Process />
+        </Suspense>
+
+        <Suspense fallback={<SectionLoadingFallback />}>
+          <OurProjects />
+        </Suspense>
         <LazyLoadInView fallback={<LoadingFallback />}>
           <ExpandTransform />
         </LazyLoadInView>
