@@ -9,6 +9,8 @@ import Seo from "@/components/Seo";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import { Toaster } from "@/components/ui/sonner";
+import CommonNavbar from "@/components/CommonNavbar";
+import ExpandTransform from "@/components/ExpandTransform";
 
 // Lazy load ALL other components
 const SEOSection = lazy(() => import("@/components/SEOSection"));
@@ -47,12 +49,12 @@ const LoadingFallback = () => (
 
 // For section fallbacks
 const SectionLoadingFallback = () => (
-  <div className="h-96 bg-gradient-to-br from-gray-50 to-gray-100 animate-pulse rounded-xl my-16" />
+  <div className="h-96 bg-gradient-to-br from-gray-50 to-gray-100 animate-pulse rounded-xl my-16">
+    EROOR
+  </div>
 );
 
 const Index = () => {
-  const [expandTransform, setExpandTransform] = useState(false);
-
   useEffect(() => {
     setupScrollAnimations();
   }, []);
@@ -65,10 +67,9 @@ const Index = () => {
         canonical="https://allcasa.ca/"
         keywords="custom home construction Toronto, full home renovation Toronto, basement renovation GTA, luxury custom house builder, home builders Toronto, custom homes North York, house renovation Mississauga"
       />
-      <Navbar />
+      <CommonNavbar />
       <main>
-        <Hero /> {/* Keep Hero non-lazy for immediate visibility */}
-        {/* Lazy load SEO Section */}
+        <Hero />
         <LazyLoadInView
           fallback={<LoadingFallback />}
           threshold={0.05}
@@ -78,7 +79,6 @@ const Index = () => {
             <SEOSection />
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load YouTube Videos */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -88,7 +88,6 @@ const Index = () => {
             <YoutubeVideosSection />
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load Services */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -98,7 +97,6 @@ const Index = () => {
             <Services />
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load Unique Approach */}
         <LazyLoadInView
           fallback={<LoadingFallback />}
           threshold={0.05}
@@ -108,7 +106,6 @@ const Index = () => {
             <UniqueApproach />
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load Residential Construction */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -120,7 +117,6 @@ const Index = () => {
             </div>
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load Home Renovation */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -132,7 +128,6 @@ const Index = () => {
             </div>
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load Basement Development */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -144,7 +139,6 @@ const Index = () => {
             </div>
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load Garden Suites */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -156,7 +150,6 @@ const Index = () => {
             </div>
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load Portfolio */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -166,7 +159,6 @@ const Index = () => {
             <Portfolio />
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load Architectural Design */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -176,7 +168,6 @@ const Index = () => {
             <ArchitecturalDesign />
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load Process */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -186,7 +177,6 @@ const Index = () => {
             <Process />
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load Our Projects */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -196,124 +186,9 @@ const Index = () => {
             <OurProjects />
           </Suspense>
         </LazyLoadInView>
-        {/* Keep the expandable section inline (it's small) */}
-        <div
-          className="bg-gradient-to-br from-purple-50 to-white py-16"
-          id="services-info"
-        >
-          <div className="container max-w-6xl mx-auto px-4">
-            <div className="animate-on-scroll bg-white rounded-2xl shadow-xl p-8 md:p-12">
-              <button
-                type="button"
-                onClick={() => setExpandTransform(!expandTransform)}
-                className="w-full flex items-center justify-between bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-6 hover:from-purple-100 hover:to-blue-100 transition-colors mb-6"
-              >
-                <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy text-left">
-                  🏠 Transform Your Home with Expert Design & Construction
-                </h2>
-                <ChevronDown
-                  className={`h-8 w-8 text-casa-purple flex-shrink-0 transition-transform ${
-                    expandTransform ? "rotate-180" : ""
-                  }`}
-                />
-              </button>
-
-              {expandTransform && (
-                <>
-                  <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                    Looking for full home renovation contractors in Toronto? Our
-                    award-winning design-build team specializes in complete home
-                    renovations, custom house design, and luxury home
-                    construction. Whether you're remodeling your entire home,
-                    building a custom house, or doing major home additions, we
-                    manage everything—from architectural design and city permits
-                    to interior finishes and landscaping.
-                  </p>
-
-                  <div className="mb-8">
-                    <h3 className="text-2xl font-poppins font-semibold mb-4 text-casa-navy">
-                      We offer:
-                    </h3>
-                    <ul className="grid md:grid-cols-2 gap-3 text-gray-700">
-                      <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">✓</span>
-                        Full home renovation services in Toronto and GTA
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">✓</span>
-                        Custom home design and construction
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">✓</span>
-                        Complete house remodeling and upgrades
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">✓</span>
-                        Basement finishing and second-story additions
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">✓</span>
-                        Luxury kitchen and bathroom renovations
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">✓</span>
-                        Interior design and 3D rendering
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">✓</span>
-                        Project management, permits, and construction approvals
-                      </li>
-                    </ul>
-                  </div>
-
-                  <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                    Our experienced home renovation contractors and custom home
-                    builders ensure your project is completed on time, within
-                    budget, and with exceptional craftsmanship. Whether you need
-                    a modern home renovation, classic architectural design, or a
-                    full house makeover, we'll turn your vision into reality.
-                  </p>
-
-                  <div className="border-t border-gray-200 pt-8 mb-8">
-                    <h3 className="text-2xl font-poppins font-semibold mb-4 text-casa-navy">
-                      Service Areas
-                    </h3>
-                    <p className="text-gray-700 text-lg">
-                      Toronto | North York | Etobicoke | Scarborough | Markham |
-                      Richmond Hill | Vaughan | Mississauga | Oakville
-                    </p>
-                  </div>
-
-                  <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl p-6">
-                    <h3 className="text-2xl font-poppins font-semibold mb-4 text-casa-navy">
-                      Why Choose Us?
-                    </h3>
-                    <ul className="space-y-2 text-gray-700">
-                      <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">★</span>
-                        Licensed & Insured Renovation and Construction Company
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">★</span>
-                        In-House Architects, Designers & Contractors
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">★</span>
-                        Transparent Project Pricing
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-purple-600 mr-2">★</span>
-                        Over 15 Years of Experience in Home Renovations & Custom
-                        Builds
-                      </li>
-                    </ul>
-                  </div>
-                </>
-              )}
-            </div>
-          </div>
-        </div>
-        {/* Lazy load Inspirational Banner */}
+        <LazyLoadInView fallback={<LoadingFallback />}>
+          <ExpandTransform />
+        </LazyLoadInView>
         <LazyLoadInView
           fallback={<LoadingFallback />}
           threshold={0.05}
@@ -364,7 +239,7 @@ const Index = () => {
               <div className="container">
                 <div className="max-w-4xl mx-auto">
                   <div className="text-center mb-8">
-                    <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy mb-4">
+                    <h2 className="text-3xl md:text-4xl font-sans font-bold text-casa-navy mb-4">
                       Ready to Start Your Project?
                     </h2>
                     <p className="text-lg text-gray-600">

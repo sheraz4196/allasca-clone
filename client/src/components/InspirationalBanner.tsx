@@ -17,10 +17,10 @@ const InspirationalBanner = () => {
       {/* Content */}
       <div className="relative z-10 text-white px-4 container">
         <div className="max-w-2xl">
-          <h2 className="text-4xl md:text-6xl font-poppins font-bold mb-6 leading-tight">
+          <h2 className="text-4xl md:text-6xl font-sans font-bold mb-6 leading-tight">
             Building Homes, Crafting Memories.
           </h2>
-          <p className="text-xl md:text-2xl font-poppins leading-relaxed">
+          <p className="text-xl md:text-2xl font-sans leading-relaxed">
             AllCasa makes sure your home is built with care, precision, and a
             deep understanding of what makes a house truly yours. From the first
             consultation to the final walkthrough, we transform your vision into

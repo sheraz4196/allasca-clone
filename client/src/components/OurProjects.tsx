@@ -3,7 +3,7 @@ export default function OurProjects() {
     <div className="bg-white py-20" id="our-projects">
       <div className="container">
         <div className="text-center mb-12">
-          <h2 className="heading-gradient text-3xl md:text-4xl font-poppins font-bold mb-4">
+          <h2 className="heading-gradient text-3xl md:text-4xl font-sans font-bold mb-4">
             Our Projects
           </h2>
           <p className="text-gray-600 max-w-3xl mx-auto">

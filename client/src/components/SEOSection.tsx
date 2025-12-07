@@ -258,7 +258,7 @@ const SEOSection = () => {
             className="w-full flex items-center justify-between bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-6 hover:from-purple-100 hover:to-blue-100 transition-colors mb-6"
           >
             <h2
-              className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy text-left"
+              className="text-3xl md:text-4xl font-sans font-bold text-casa-navy text-left"
               data-testid="text-seo-heading"
             >
               Toronto's Premier Custom House Construction and Design Build

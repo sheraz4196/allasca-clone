@@ -24,7 +24,7 @@ const HomeRenovation = () => {
     <section className="py-16 bg-casa-beige">
       <div className="container">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-purple mb-4">
+          <h2 className="text-3xl md:text-4xl font-sans font-bold text-casa-purple mb-4">
             Home Renovation & Layout Alterations
           </h2>
           <p className="text-base text-casa-gray max-w-2xl mx-auto">

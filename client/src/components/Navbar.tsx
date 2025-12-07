@@ -632,13 +632,13 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-white shadow-lg absolute w-full left-0 top-full z-50 border-t">
             <div className="container py-4 flex flex-col space-y-3">
               {isHomePage ? (
                 <>
                   <button
+                    type="button"
                     onClick={() => {
                       scrollToSection("services");
                       setMobileMenuOpen(false);
@@ -649,6 +649,7 @@ const Navbar = () => {
                     Services
                   </button>
                   <button
+                    type="button"
                     onClick={() => {
                       scrollToSection("portfolio");
                       setMobileMenuOpen(false);
@@ -659,6 +660,7 @@ const Navbar = () => {
                     Portfolio
                   </button>
                   <button
+                    type="button"
                     onClick={() => {
                       scrollToSection("process");
                       setMobileMenuOpen(false);
@@ -697,21 +699,21 @@ const Navbar = () => {
               >
                 Building Permit
               </Link>
-              <button
+              <a
+                href="/building-permit#permit-services-section"
+                className="text-casa-navy hover:text-casa-purple font-medium transition-colors py-2 text-left"
+                data-testid="button-mobile-permit-services"
                 onClick={() => {
                   trackButtonClick(
                     "Navigate to Permit Services",
                     "nav-permit-services-mobile"
                   );
+
                   setMobileMenuOpen(false);
-                  window.location.href =
-                    "/building-permit#permit-services-section";
                 }}
-                className="text-casa-navy hover:text-casa-purple font-medium transition-colors py-2 text-left"
-                data-testid="button-mobile-permit-services"
               >
                 Permit Services
-              </button>
+              </a>
               <Button
                 className="bg-casa-purple hover:bg-casa-darkpurple text-white w-full"
                 onClick={() => {
