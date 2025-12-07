@@ -6,9 +6,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        poppins: ['Poppins', 'system-ui', 'sans-serif'],
-        playfair: ['Playfair Display', 'serif'],
+        sans: ["Inter", "system-ui", "sans-serif"],
+        // Removed: poppins and playfair
+        // poppins: ['Poppins', 'system-ui', 'sans-serif'],
+        // playfair: ['Playfair Display', 'serif'],
       },
       borderRadius: {
         lg: "var(--radius)",
