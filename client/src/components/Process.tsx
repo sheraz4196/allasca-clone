@@ -39,44 +39,29 @@ const Process = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry, index) => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("animate-fade-in-up");
-            // Staggered animation delay
-            const delay = 0.2 * index;
-            (entry.target as HTMLElement).style.animationDelay = `${delay}s`;
+            entry.target.classList.remove("opacity-0", "translate-y-8");
+            entry.target.classList.add("opacity-100", "translate-y-0");
           }
         });
       },
       {
         threshold: 0.2,
-        rootMargin: "0px 0px -100px 0px",
+        rootMargin: "0px 0px -50px 0px",
       }
     );
 
-    // Ensure refs are initialized before using them
-    if (stepRefs.current && Array.isArray(stepRefs.current)) {
-      stepRefs.current.forEach((step) => {
-        if (step) observer.observe(step);
-      });
-    }
+    stepRefs.current.forEach((step) => {
+      if (step) observer.observe(step);
+    });
 
-    return () => {
-      if (stepRefs.current && Array.isArray(stepRefs.current)) {
-        stepRefs.current.forEach((step) => {
-          if (step) observer.unobserve(step);
-        });
-      }
-      observer.disconnect();
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <section
-      id="process"
-      className="py-16 bg-white text-gray-900 relative overflow-hidden"
-    >
-      <div className="container relative z-10">
+    <section id="process" className="py-16 bg-white text-gray-900">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-sans font-bold mb-4">
             Our Process
@@ -91,12 +76,12 @@ const Process = () => {
             <div
               key={index}
               ref={(el) => (stepRefs.current[index] = el)}
-              className={`opacity-0 transform translate-y-8 transition-all duration-1000 ease-out flex flex-col md:flex-row items-center gap-8 ${
-                index % 2 === 1 ? "md:flex-row-reverse" : ""
-              }`}
+              className="opacity-0 translate-y-8 transition-all duration-700 ease-out flex flex-col md:flex-row items-center gap-8"
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className="flex-1 relative">
                 <img
+                  loading="lazy"
                   src={step.image}
                   alt={`${step.title} process step`}
                   className="w-full h-64 md:h-80 object-cover rounded-2xl shadow-2xl hover:scale-105 transition-transform duration-500"
