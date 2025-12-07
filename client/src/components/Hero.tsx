@@ -44,7 +44,7 @@ const Hero = () => {
           {/* Left Text Block */}
           <div className="animate-on-scroll">
             <div className="flex items-center justify-start md:pt-14 lg:pt-0 pt-6 mb-6 animate-slide-in">
-              <div className="bg-slate-800 text-white px-4 py-2 rounded-full flex items-center shadow-lg text-sm font-medium font-poppins">
+              <div className="bg-slate-800 text-white px-4 py-2 rounded-full flex items-center shadow-lg text-sm font-medium font-sans">
                 <Star
                   className="w-4 h-4 mr-2 text-yellow-300"
                   aria-hidden="true"
@@ -53,7 +53,7 @@ const Hero = () => {
               </div>
             </div>
 
-            <h1 className="font-poppins text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 animate-fade-in text-left leading-tight">
+            <h1 className="font-sans text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 animate-fade-in text-left leading-tight">
               Building Your{" "}
               <span className="text-purple-600 relative inline-block">
                 Dream Home
@@ -76,14 +76,14 @@ const Hero = () => {
             </h1>
 
             <p
-              className="text-lg md:text-xl mb-4 text-black font-normal font-poppins animate-fade-in text-left"
+              className="text-lg md:text-xl mb-4 text-black font-normal font-sans animate-fade-in text-left"
               style={{ animationDelay: "0.2s" }}
             >
               From Permit to Design to Build to Finish
             </p>
 
             <p
-              className="text-base md:text-lg mb-8 text-gray-600 font-poppins animate-fade-in text-left leading-relaxed"
+              className="text-base md:text-lg mb-8 text-gray-600 font-sans animate-fade-in text-left leading-relaxed"
               style={{ animationDelay: "0.4s" }}
             >
               Specializing in new luxury custom house design and build, full
@@ -98,7 +98,7 @@ const Hero = () => {
             >
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-casa-navy to-casa-purple hover:from-casa-purple hover:to-casa-navy text-white px-8 py-4 font-semibold font-poppins text-lg transform transition-all duration-300 hover:scale-105 hover:shadow-lg rounded-full group w-full sm:w-auto"
+                className="bg-gradient-to-r from-casa-navy to-casa-purple hover:from-casa-purple hover:to-casa-navy text-white px-8 py-4 font-semibold font-sans text-lg transform transition-all duration-300 hover:scale-105 hover:shadow-lg rounded-full group w-full sm:w-auto"
                 onClick={() =>
                   document
                     .getElementById("consultation-booking")
@@ -153,7 +153,7 @@ const Hero = () => {
               className="absolute -bottom-4 sm:-bottom-6 md:-bottom-8 -right-4 sm:-right-6 md:-right-8 z-20 bg-white rounded-xl p-3 sm:p-4 shadow-xl animate-floating flex items-center gap-2 sm:gap-3"
               style={{ animationDelay: "1s" }}
             >
-              <span className="text-casa-navy text-2xl sm:text-3xl md:text-4xl font-bold font-poppins">
+              <span className="text-casa-navy text-2xl sm:text-3xl md:text-4xl font-bold font-sans">
                 4.9
               </span>
               <div className="flex flex-col">
@@ -170,7 +170,7 @@ const Hero = () => {
                     </svg>
                   ))}
                 </div>
-                <span className="text-xs sm:text-sm text-gray-600 font-poppins">
+                <span className="text-xs sm:text-sm text-gray-600 font-sans">
                   1,000+ reviews
                 </span>
               </div>

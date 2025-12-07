@@ -61,106 +61,114 @@ const BuildingPermit = () => {
     }
   };
 
-  const schemaMarkup = useMemo(() => ({
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "LocalBusiness",
-        "@id": "https://allcasa.ca/#organization",
-        name: "AllCasa",
-        description:
-          "Expert building permit services and design-build construction in Toronto and GTA",
-        url: "https://allcasa.ca",
-        telephone: "+1-647-961-4070",
-        email: "info@allcasa.ca",
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: "7299 Yonge St",
-          addressLocality: "Thornhill",
-          addressRegion: "ON",
-          postalCode: "L3T 0C5",
-          addressCountry: "CA",
+  const schemaMarkup = useMemo(
+    () => ({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "LocalBusiness",
+          "@id": "https://allcasa.ca/#organization",
+          name: "AllCasa",
+          description:
+            "Expert building permit services and design-build construction in Toronto and GTA",
+          url: "https://allcasa.ca",
+          telephone: "+1-647-961-4070",
+          email: "info@allcasa.ca",
+          address: {
+            "@type": "PostalAddress",
+            streetAddress: "7299 Yonge St",
+            addressLocality: "Thornhill",
+            addressRegion: "ON",
+            postalCode: "L3T 0C5",
+            addressCountry: "CA",
+          },
+          areaServed: [
+            { "@type": "City", name: "Toronto" },
+            { "@type": "City", name: "North York" },
+            { "@type": "City", name: "Vaughan" },
+            { "@type": "City", name: "Mississauga" },
+            { "@type": "City", name: "Brampton" },
+          ],
+          priceRange: "$$",
+          aggregateRating: {
+            "@type": "AggregateRating",
+            ratingValue: "4.9",
+            reviewCount: "1000",
+          },
         },
-        areaServed: [
-          { "@type": "City", name: "Toronto" },
-          { "@type": "City", name: "North York" },
-          { "@type": "City", name: "Vaughan" },
-          { "@type": "City", name: "Mississauga" },
-          { "@type": "City", name: "Brampton" },
-        ],
-        priceRange: "$$",
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: "4.9",
-          reviewCount: "1000",
+        {
+          "@type": "Service",
+          "@id": "https://allcasa.ca/building-permit#service",
+          name: "Building Permit Services in Toronto",
+          description:
+            "Professional building permit application, drawings, and City of Toronto approvals for renovations, basements, and custom homes",
+          provider: { "@id": "https://allcasa.ca/#organization" },
+          areaServed: "Toronto, GTA",
+          serviceType: "Building Permit Services",
+          offers: {
+            "@type": "Offer",
+            priceCurrency: "CAD",
+            price: "500",
+            priceRange: "$500-$5000",
+          },
         },
-      },
-      {
-        "@type": "Service",
-        "@id": "https://allcasa.ca/building-permit#service",
-        name: "Building Permit Services in Toronto",
-        description:
-          "Professional building permit application, drawings, and City of Toronto approvals for renovations, basements, and custom homes",
-        provider: { "@id": "https://allcasa.ca/#organization" },
-        areaServed: "Toronto, GTA",
-        serviceType: "Building Permit Services",
-        offers: { "@type": "Offer", priceCurrency: "CAD", price: "500", priceRange: "$500-$5000" },
-      },
-      {
-        "@type": "FAQPage",
-        mainEntity: [
-          {
-            "@type": "Question",
-            name: "What is a Building Permit and why do I need one?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "A building permit is an official approval from the City that ensures your construction or renovation complies with zoning by-laws and the Ontario Building Code. It's required for most structural, plumbing, or layout changes — including basement finishes, additions, and new builds.",
+        {
+          "@type": "FAQPage",
+          mainEntity: [
+            {
+              "@type": "Question",
+              name: "What is a Building Permit and why do I need one?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "A building permit is an official approval from the City that ensures your construction or renovation complies with zoning by-laws and the Ontario Building Code. It's required for most structural, plumbing, or layout changes — including basement finishes, additions, and new builds.",
+              },
             },
-          },
-          {
-            "@type": "Question",
-            name: "How long does it take to get a building permit in Toronto?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Typical permits take 2 to 6 weeks depending on project complexity. Minor renovations may be approved faster. We handle all City coordination to minimize delays and ensure compliance on the first submission.",
+            {
+              "@type": "Question",
+              name: "How long does it take to get a building permit in Toronto?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Typical permits take 2 to 6 weeks depending on project complexity. Minor renovations may be approved faster. We handle all City coordination to minimize delays and ensure compliance on the first submission.",
+              },
             },
-          },
-          {
-            "@type": "Question",
-            name: "What happens if I build without a permit?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Building without a permit can lead to stop-work orders, fines, and potential issues when selling or insuring your property. It's always best to obtain permits to ensure safety and protect your investment.",
+            {
+              "@type": "Question",
+              name: "What happens if I build without a permit?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Building without a permit can lead to stop-work orders, fines, and potential issues when selling or insuring your property. It's always best to obtain permits to ensure safety and protect your investment.",
+              },
             },
-          },
-          {
-            "@type": "Question",
-            name: "How much does a building permit cost?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "City fees vary depending on project size and scope — usually $250 to $3,000 for residential projects. Our team provides an upfront estimate during consultation and manages all payments directly with the City.",
+            {
+              "@type": "Question",
+              name: "How much does a building permit cost?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "City fees vary depending on project size and scope — usually $250 to $3,000 for residential projects. Our team provides an upfront estimate during consultation and manages all payments directly with the City.",
+              },
             },
-          },
-          {
-            "@type": "Question",
-            name: "Can you help if my permit application was rejected?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "Yes. We specialize in fixing rejected or delayed applications. Our experts review City comments, make necessary drawing revisions, and resubmit on your behalf to get fast approval.",
+            {
+              "@type": "Question",
+              name: "Can you help if my permit application was rejected?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "Yes. We specialize in fixing rejected or delayed applications. Our experts review City comments, make necessary drawing revisions, and resubmit on your behalf to get fast approval.",
+              },
             },
-          },
-          {
-            "@type": "Question",
-            name: "Do I need a permit for interior renovations?",
-            acceptedAnswer: {
-              "@type": "Answer",
-              text: "You typically need a permit if your renovation involves structural changes, removing or adding walls, new plumbing, or basement conversions. Cosmetic changes (painting, flooring, cabinets) usually don't require one.",
+            {
+              "@type": "Question",
+              name: "Do I need a permit for interior renovations?",
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: "You typically need a permit if your renovation involves structural changes, removing or adding walls, new plumbing, or basement conversions. Cosmetic changes (painting, flooring, cabinets) usually don't require one.",
+              },
             },
-          },
-        ],
-      },
-    ]
-  }), []);
+          ],
+        },
+      ],
+    }),
+    []
+  );
 
   return (
     <div className="min-h-screen bg-white">
@@ -220,7 +228,7 @@ const BuildingPermit = () => {
                 />
                 {/* Rating Floating Box */}
                 <div className="absolute -bottom-3 -right-3 md:-bottom-4 md:-right-4 z-20 bg-white rounded-lg md:rounded-xl p-2 md:p-4 shadow-lg md:shadow-xl flex items-center gap-1.5 md:gap-3 text-xs md:text-base">
-                  <span className="text-casa-navy text-xl md:text-3xl font-bold font-poppins">
+                  <span className="text-casa-navy text-xl md:text-3xl font-bold font-sans">
                     4.9
                   </span>
                   <div className="flex flex-col">
@@ -237,7 +245,7 @@ const BuildingPermit = () => {
                         </svg>
                       ))}
                     </div>
-                    <span className="text-xs text-gray-600 font-poppins">
+                    <span className="text-xs text-gray-600 font-sans">
                       1,000+ reviews
                     </span>
                   </div>
@@ -261,7 +269,7 @@ const BuildingPermit = () => {
             <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
               <Button
                 size="lg"
-                className="h-12 md:h-14 bg-gradient-to-r from-casa-navy to-casa-purple hover:from-casa-purple hover:to-casa-navy text-white px-6 md:px-8 py-3 md:py-4 font-semibold font-poppins text-base md:text-lg transform transition-all duration-300 hover:scale-105 hover:shadow-lg rounded-full group"
+                className="h-12 md:h-14 bg-gradient-to-r from-casa-navy to-casa-purple hover:from-casa-purple hover:to-casa-navy text-white px-6 md:px-8 py-3 md:py-4 font-semibold font-sans text-base md:text-lg transform transition-all duration-300 hover:scale-105 hover:shadow-lg rounded-full group"
                 onClick={scrollToFirstConsultation}
                 data-testid="button-permit-consultation"
               >
@@ -274,17 +282,24 @@ const BuildingPermit = () => {
             </div>
           </div>
         </section>
-        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
+        <section
+          className="py-16 bg-white"
+          style={{ contentVisibility: "auto", containIntrinsicSize: "800px" }}
+        >
           <div className="container max-w-4xl mx-auto px-4">
             <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy mb-4">
+              <h2 className="text-3xl md:text-4xl font-sans font-bold text-casa-navy mb-4">
                 See How We Handle Your Building Permit
               </h2>
               <p className="text-lg text-gray-600">
                 Watch a quick overview of our building permit process
               </p>
             </div>
-            <Suspense fallback={<div className="min-h-[560px] rounded-xl bg-gray-100" />}>
+            <Suspense
+              fallback={
+                <div className="min-h-[560px] rounded-xl bg-gray-100" />
+              }
+            >
               <LiteYouTube
                 videoId="D6ygF0N1XDk"
                 title="Building Permit Services Overview"
@@ -296,10 +311,13 @@ const BuildingPermit = () => {
           </div>
         </section>
 
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
+        <section
+          className="py-16 bg-gradient-to-br from-purple-50 to-white"
+          style={{ contentVisibility: "auto", containIntrinsicSize: "800px" }}
+        >
           <div className="container max-w-6xl mx-auto px-4">
             <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12">
-              <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6 text-casa-navy">
+              <h2 className="text-3xl md:text-4xl font-sans font-bold mb-6 text-casa-navy">
                 ✅ Our Building Permit Services Include:
               </h2>
 
@@ -350,9 +368,18 @@ const BuildingPermit = () => {
 
               <div className="grid md:grid-cols-3 gap-6 mt-8">
                 {[
-                  { src: "/lovable-uploads/architectural_bluepr_743ecedb.webp", alt: "Professional architectural drawings for building permit" },
-                  { src: blueprint2, alt: "Detailed floor plans for permit application" },
-                  { src: blueprint3, alt: "Construction blueprints for city approval" }
+                  {
+                    src: "/lovable-uploads/architectural_bluepr_743ecedb.webp",
+                    alt: "Professional architectural drawings for building permit",
+                  },
+                  {
+                    src: blueprint2,
+                    alt: "Detailed floor plans for permit application",
+                  },
+                  {
+                    src: blueprint3,
+                    alt: "Construction blueprints for city approval",
+                  },
                 ].map(({ src, alt }, idx) => (
                   <div
                     key={idx}
@@ -381,7 +408,7 @@ const BuildingPermit = () => {
           className="py-16 bg-gradient-to-br from-white to-purple-50"
         >
           <div className="container max-w-6xl mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy mb-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-sans font-bold text-casa-navy mb-8 text-center">
               Comprehensive Permit Services
             </h2>
 
@@ -396,7 +423,9 @@ const BuildingPermit = () => {
                     🏠 Residential Building Permits
                   </h3>
                   <ChevronDownIcon
-                    className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.residential ? "rotate-180" : ""}`}
+                    className={`h-6 w-6 text-casa-purple transition-transform ${
+                      expandedSections.residential ? "rotate-180" : ""
+                    }`}
                   />
                 </button>
                 {expandedSections.residential && (
@@ -431,7 +460,9 @@ const BuildingPermit = () => {
                     🧱 Commercial & Industrial Permits
                   </h3>
                   <ChevronDownIcon
-                    className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.commercial ? "rotate-180" : ""}`}
+                    className={`h-6 w-6 text-casa-purple transition-transform ${
+                      expandedSections.commercial ? "rotate-180" : ""
+                    }`}
                   />
                 </button>
                 {expandedSections.commercial && (
@@ -463,7 +494,9 @@ const BuildingPermit = () => {
                     🏘️ Laneway & Garden Suites
                   </h3>
                   <ChevronDownIcon
-                    className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.laneway ? "rotate-180" : ""}`}
+                    className={`h-6 w-6 text-casa-purple transition-transform ${
+                      expandedSections.laneway ? "rotate-180" : ""
+                    }`}
                   />
                 </button>
                 {expandedSections.laneway && (
@@ -493,7 +526,9 @@ const BuildingPermit = () => {
                     🪜 Deck, Porch & Sunroom Permits
                   </h3>
                   <ChevronDownIcon
-                    className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.deck ? "rotate-180" : ""}`}
+                    className={`h-6 w-6 text-casa-purple transition-transform ${
+                      expandedSections.deck ? "rotate-180" : ""
+                    }`}
                   />
                 </button>
                 {expandedSections.deck && (
@@ -519,7 +554,9 @@ const BuildingPermit = () => {
                     🧩 Retaining Wall, Grading & Site Plans
                   </h3>
                   <ChevronDownIcon
-                    className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.retaining ? "rotate-180" : ""}`}
+                    className={`h-6 w-6 text-casa-purple transition-transform ${
+                      expandedSections.retaining ? "rotate-180" : ""
+                    }`}
                   />
                 </button>
                 {expandedSections.retaining && (
@@ -549,7 +586,9 @@ const BuildingPermit = () => {
                     🏠 Legal Basement & Secondary Suites
                   </h3>
                   <ChevronDownIcon
-                    className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.basement ? "rotate-180" : ""}`}
+                    className={`h-6 w-6 text-casa-purple transition-transform ${
+                      expandedSections.basement ? "rotate-180" : ""
+                    }`}
                   />
                 </button>
                 {expandedSections.basement && (
@@ -579,7 +618,9 @@ const BuildingPermit = () => {
                     🧾 Drafting & Architectural Design
                   </h3>
                   <ChevronDownIcon
-                    className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.drafting ? "rotate-180" : ""}`}
+                    className={`h-6 w-6 text-casa-purple transition-transform ${
+                      expandedSections.drafting ? "rotate-180" : ""
+                    }`}
                   />
                 </button>
                 {expandedSections.drafting && (
@@ -609,7 +650,9 @@ const BuildingPermit = () => {
                     🏗️ Demolition & Inspections
                   </h3>
                   <ChevronDownIcon
-                    className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.demolition ? "rotate-180" : ""}`}
+                    className={`h-6 w-6 text-casa-purple transition-transform ${
+                      expandedSections.demolition ? "rotate-180" : ""
+                    }`}
                   />
                 </button>
                 {expandedSections.demolition && (
@@ -635,7 +678,9 @@ const BuildingPermit = () => {
                     🏙️ City-Specific Permit Expertise
                   </h3>
                   <ChevronDownIcon
-                    className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.citySpecific ? "rotate-180" : ""}`}
+                    className={`h-6 w-6 text-casa-purple transition-transform ${
+                      expandedSections.citySpecific ? "rotate-180" : ""
+                    }`}
                   />
                 </button>
                 {expandedSections.citySpecific && (
@@ -662,7 +707,9 @@ const BuildingPermit = () => {
                     ⚙️ Design-Build & Construction Support
                   </h3>
                   <ChevronDownIcon
-                    className={`h-6 w-6 text-casa-purple transition-transform ${expandedSections.designBuild ? "rotate-180" : ""}`}
+                    className={`h-6 w-6 text-casa-purple transition-transform ${
+                      expandedSections.designBuild ? "rotate-180" : ""
+                    }`}
                   />
                 </button>
                 {expandedSections.designBuild && (
@@ -725,14 +772,17 @@ const BuildingPermit = () => {
         </section>
 
         {/* Legal Basement Permits Section */}
-        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
+        <section
+          className="py-16 bg-white"
+          style={{ contentVisibility: "auto", containIntrinsicSize: "800px" }}
+        >
           <div className="container max-w-6xl mx-auto px-4">
             <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-2xl shadow-xl p-8 md:p-12">
               <div className="mb-8">
-                <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy mb-2">
+                <h2 className="text-3xl md:text-4xl font-sans font-bold text-casa-navy mb-2">
                   🏘️ Legal Basement Permits
                 </h2>
-                <p className="text-xl md:text-2xl text-gray-600 font-poppins">
+                <p className="text-xl md:text-2xl text-gray-600 font-sans">
                   Legalize Your Basement for Rental Income
                 </p>
               </div>
@@ -754,7 +804,9 @@ const BuildingPermit = () => {
                       Our Process & Services
                     </h3>
                     <ChevronDownIcon
-                      className={`h-6 w-6 text-casa-purple flex-shrink-0 transition-transform ${expandedSections.basementPoints ? "rotate-180" : ""}`}
+                      className={`h-6 w-6 text-casa-purple flex-shrink-0 transition-transform ${
+                        expandedSections.basementPoints ? "rotate-180" : ""
+                      }`}
                     />
                   </button>
 
@@ -878,9 +930,12 @@ const BuildingPermit = () => {
         </section>
 
         {/* Who We Help Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
+        <section
+          className="py-16 bg-gradient-to-br from-purple-50 to-white"
+          style={{ contentVisibility: "auto", containIntrinsicSize: "800px" }}
+        >
           <div className="container max-w-6xl mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
+            <h2 className="text-3xl md:text-4xl font-sans font-bold mb-8 text-casa-navy text-center">
               🏠 Who We Help
             </h2>
 
@@ -918,9 +973,12 @@ const BuildingPermit = () => {
         </section>
 
         {/* Permit Approval Section */}
-        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
+        <section
+          className="py-16 bg-white"
+          style={{ contentVisibility: "auto", containIntrinsicSize: "800px" }}
+        >
           <div className="container max-w-6xl mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
+            <h2 className="text-3xl md:text-4xl font-sans font-bold mb-8 text-casa-navy text-center">
               ✅ Approved Building Permits
             </h2>
             <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto mb-12">
@@ -957,40 +1015,69 @@ const BuildingPermit = () => {
         </section>
 
         {/* Process Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
+        <section
+          className="py-16 bg-gradient-to-br from-purple-50 to-white"
+          style={{ contentVisibility: "auto", containIntrinsicSize: "800px" }}
+        >
           <div className="container max-w-6xl mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
+            <h2 className="text-3xl md:text-4xl font-sans font-bold mb-8 text-casa-navy text-center">
               📜 Our Process — Simple & Transparent
             </h2>
 
             <div className="space-y-6 max-w-4xl mx-auto">
               {[
-                { num: 1, title: "Free Consultation", desc: "Tell us about your project and goals." },
-                { num: 2, title: "Site Review & Design", desc: "We assess zoning and create compliant drawings." },
-                { num: 3, title: "Permit Application", desc: "We prepare all documents and submit to the City." },
-                { num: 4, title: "City Review & Response", desc: "We handle all communication with City officials." },
-                { num: 5, title: "Approval & Construction", desc: "Once approved, you can start building legally." }
+                {
+                  num: 1,
+                  title: "Free Consultation",
+                  desc: "Tell us about your project and goals.",
+                },
+                {
+                  num: 2,
+                  title: "Site Review & Design",
+                  desc: "We assess zoning and create compliant drawings.",
+                },
+                {
+                  num: 3,
+                  title: "Permit Application",
+                  desc: "We prepare all documents and submit to the City.",
+                },
+                {
+                  num: 4,
+                  title: "City Review & Response",
+                  desc: "We handle all communication with City officials.",
+                },
+                {
+                  num: 5,
+                  title: "Approval & Construction",
+                  desc: "Once approved, you can start building legally.",
+                },
               ].map(({ num, title, desc }) => (
-                <div key={num} className="flex items-start bg-gradient-to-r from-purple-50 to-white rounded-xl p-6 shadow-md">
+                <div
+                  key={num}
+                  className="flex items-start bg-gradient-to-r from-purple-50 to-white rounded-xl p-6 shadow-md"
+                >
                   <div className="bg-purple-600 text-white rounded-full w-10 h-10 flex items-center justify-center font-bold mr-4 flex-shrink-0">
                     {num}
                   </div>
                   <div>
-                    <h3 className="text-xl font-semibold text-casa-navy mb-2">{title}</h3>
+                    <h3 className="text-xl font-semibold text-casa-navy mb-2">
+                      {title}
+                    </h3>
                     <p className="text-gray-700">{desc}</p>
                   </div>
                 </div>
               ))}
-
-
             </div>
           </div>
         </section>
 
         {/* Why Choose Us Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
+        <section
+          className="py-16 bg-gradient-to-br from-purple-50 to-white"
+          style={{ contentVisibility: "auto", containIntrinsicSize: "800px" }}
+        >
           <div className="container max-w-6xl mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-8 text-casa-navy text-center">
+            <h2 className="text-3xl md:text-4xl font-sans font-bold mb-8 text-casa-navy text-center">
               ⚡ Why Choose Us?
             </h2>
 
@@ -1015,9 +1102,12 @@ const BuildingPermit = () => {
         </section>
 
         {/* Service Areas */}
-        <section className="py-16 bg-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
+        <section
+          className="py-16 bg-white"
+          style={{ contentVisibility: "auto", containIntrinsicSize: "800px" }}
+        >
           <div className="container max-w-6xl mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-6 text-casa-navy">
+            <h2 className="text-3xl md:text-4xl font-sans font-bold mb-6 text-casa-navy">
               📍 Service Areas
             </h2>
             <p className="text-xl text-gray-700">
@@ -1028,9 +1118,12 @@ const BuildingPermit = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-16 bg-gradient-to-br from-purple-50 to-white" style={{ contentVisibility: 'auto', containIntrinsicSize: '800px' }}>
+        <section
+          className="py-16 bg-gradient-to-br from-purple-50 to-white"
+          style={{ contentVisibility: "auto", containIntrinsicSize: "800px" }}
+        >
           <div className="container max-w-6xl mx-auto px-4">
-            <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-12 text-casa-navy text-center">
+            <h2 className="text-3xl md:text-4xl font-sans font-bold mb-12 text-casa-navy text-center">
               🧠 Frequently Asked Questions (FAQ)
             </h2>
 
@@ -1154,7 +1247,7 @@ const BuildingPermit = () => {
           <div className="container">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
-                <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy mb-4">
+                <h2 className="text-3xl md:text-4xl font-sans font-bold text-casa-navy mb-4">
                   Ready to Move Forward?
                 </h2>
                 <p className="text-lg text-gray-600">

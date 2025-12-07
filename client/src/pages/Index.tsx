@@ -239,7 +239,7 @@ const Index = () => {
               <div className="container">
                 <div className="max-w-4xl mx-auto">
                   <div className="text-center mb-8">
-                    <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy mb-4">
+                    <h2 className="text-3xl md:text-4xl font-sans font-bold text-casa-navy mb-4">
                       Ready to Start Your Project?
                     </h2>
                     <p className="text-lg text-gray-600">

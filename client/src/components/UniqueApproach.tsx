@@ -46,13 +46,13 @@ const UniqueApproach = () => {
     <section className="py-20 bg-white text-gray-900">
       <div className="container">
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-poppins font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-sans font-bold mb-4">
             How We're{" "}
             <span className="text-casa-purple underline decoration-2 underline-offset-4">
               Different
             </span>
           </h2>
-          <p className="text-base max-w-2xl mx-auto font-poppins text-gray-600">
+          <p className="text-base max-w-2xl mx-auto font-sans text-gray-600">
             Specialized expertise, transparent pricing, efficient project
             management.
           </p>
@@ -73,10 +73,10 @@ const UniqueApproach = () => {
                 <Shield className="h-8 w-8 text-casa-purple" />
               </div>
             </div>
-            <h3 className="text-2xl font-poppins font-bold text-center mb-3 text-gray-900">
+            <h3 className="text-2xl font-sans font-bold text-center mb-3 text-gray-900">
               Work Confidence
             </h3>
-            <p className="text-center font-poppins text-sm text-gray-600">
+            <p className="text-center font-sans text-sm text-gray-600">
               Specialized skilled workers for every task - kitchen, flooring,
               glass railing.
             </p>
@@ -86,7 +86,7 @@ const UniqueApproach = () => {
             ref={(el) => (cardRefs.current[1] = el)}
             className="animate-on-scroll bg-gray-50 p-6 rounded-lg border border-gray-200 shadow-xl transform scale-110 hover:-translate-y-1 transition-all duration-300"
           >
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-casa-purple text-white px-4 py-1 rounded-full font-bold text-sm font-poppins">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-casa-purple text-white px-4 py-1 rounded-full font-bold text-sm font-sans">
               Our Promise
             </div>
             <img
@@ -99,10 +99,10 @@ const UniqueApproach = () => {
                 <BadgeDollarSign className="h-8 w-8 text-casa-purple" />
               </div>
             </div>
-            <h3 className="text-2xl font-poppins font-bold text-center mb-3 text-gray-900">
+            <h3 className="text-2xl font-sans font-bold text-center mb-3 text-gray-900">
               Transparent Pricing
             </h3>
-            <p className="text-center font-medium font-poppins text-sm text-gray-600">
+            <p className="text-center font-medium font-sans text-sm text-gray-600">
               Clear, itemized quotes with no hidden fees.
             </p>
           </div>
@@ -121,17 +121,17 @@ const UniqueApproach = () => {
                 <Timer className="h-8 w-8 text-casa-purple" />
               </div>
             </div>
-            <h3 className="text-2xl font-poppins font-bold text-center mb-3 text-gray-900">
+            <h3 className="text-2xl font-sans font-bold text-center mb-3 text-gray-900">
               Project Timeline & Permits
             </h3>
-            <p className="text-center font-poppins text-sm text-gray-600">
+            <p className="text-center font-sans text-sm text-gray-600">
               Parallel permit processing to avoid delays.
             </p>
           </div>
         </div>
 
         <div className="mt-12 text-center">
-          <p className="inline-block bg-casa-purple/10 text-casa-purple px-6 py-3 rounded-lg font-bold text-base border-l-4 border-casa-purple animate-on-scroll font-poppins">
+          <p className="inline-block bg-casa-purple/10 text-casa-purple px-6 py-3 rounded-lg font-bold text-base border-l-4 border-casa-purple animate-on-scroll font-sans">
             No hidden costs, no surprises, smooth experience.
           </p>
         </div>

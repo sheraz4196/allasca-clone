@@ -5,7 +5,7 @@ const ArchitecturalDesign = () => {
     <section id="architectural-design" className="py-20 bg-white">
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-4 heading-gradient">
+          <h2 className="text-3xl md:text-4xl font-sans font-bold mb-4 heading-gradient">
             Permit and Design Drawings
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
@@ -41,7 +41,7 @@ const ArchitecturalDesign = () => {
 
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="animate-on-scroll">
-            <h3 className="text-2xl font-poppins font-bold mb-6 text-purple-700">
+            <h3 className="text-2xl font-sans font-bold mb-6 text-purple-700">
               Complete Design Services
             </h3>
             <div className="space-y-4">
@@ -73,7 +73,7 @@ const ArchitecturalDesign = () => {
           </div>
 
           <div className="animate-on-scroll">
-            <h3 className="text-2xl font-poppins font-bold mb-6 text-purple-700">
+            <h3 className="text-2xl font-sans font-bold mb-6 text-purple-700">
               Professional Standards
             </h3>
             <div className="space-y-4">

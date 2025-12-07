@@ -16,7 +16,7 @@ export default function ExpandTransform() {
             onClick={() => setExpandTransform(!expandTransform)}
             className="w-full flex items-center justify-between bg-gradient-to-r from-purple-50 to-blue-50 rounded-xl p-6 hover:from-purple-100 hover:to-blue-100 transition-colors mb-6"
           >
-            <h2 className="text-3xl md:text-4xl font-poppins font-bold text-casa-navy text-left">
+            <h2 className="text-3xl md:text-4xl font-sans font-bold text-casa-navy text-left">
               🏠 Transform Your Home with Expert Design & Construction
             </h2>
             <ChevronDown
@@ -39,7 +39,7 @@ export default function ExpandTransform() {
               </p>
 
               <div className="mb-8">
-                <h3 className="text-2xl font-poppins font-semibold mb-4 text-casa-navy">
+                <h3 className="text-2xl font-sans font-semibold mb-4 text-casa-navy">
                   We offer:
                 </h3>
                 <ul className="grid md:grid-cols-2 gap-3 text-gray-700">
@@ -83,7 +83,7 @@ export default function ExpandTransform() {
               </p>
 
               <div className="border-t border-gray-200 pt-8 mb-8">
-                <h3 className="text-2xl font-poppins font-semibold mb-4 text-casa-navy">
+                <h3 className="text-2xl font-sans font-semibold mb-4 text-casa-navy">
                   Service Areas
                 </h3>
                 <p className="text-gray-700 text-lg">
@@ -93,7 +93,7 @@ export default function ExpandTransform() {
               </div>
 
               <div className="bg-gradient-to-br from-purple-50 to-blue-50 rounded-xl p-6">
-                <h3 className="text-2xl font-poppins font-semibold mb-4 text-casa-navy">
+                <h3 className="text-2xl font-sans font-semibold mb-4 text-casa-navy">
                   Why Choose Us?
                 </h3>
                 <ul className="space-y-2 text-gray-700">

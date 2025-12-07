@@ -14,7 +14,7 @@ export default function FaqSection() {
   return (
     <section className="py-16 bg-gradient-to-br from-purple-50 to-white">
       <div className="container max-w-6xl mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-poppins font-bold mb-12 text-casa-navy text-center">
+        <h2 className="text-3xl md:text-4xl font-sans font-bold mb-12 text-casa-navy text-center">
           🧠 Frequently Asked Questions (FAQ)
         </h2>
 
