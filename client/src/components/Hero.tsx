@@ -158,7 +158,9 @@ const Hero = () => {
                           decoding="async"
                           width={image.width}
                           height={image.height}
-                          sizes="(max-width: 767px) 100vw, (max-width: 1023px) 50vw, 597px"
+                          sizes="(max-width: 767px) calc(100vw - 32px), 
+         (max-width: 1023px) calc(50vw - 48px),
+         634px"
                           className="w-full h-[280px] sm:h-[320px] md:h-[380px] lg:h-[400px] object-cover rounded-xl border transition-transform duration-300 ease-in-out"
                           {...(index === 0 ? { fetchpriority: "high" } : {})}
                         />
