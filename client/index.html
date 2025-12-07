@@ -10,20 +10,22 @@
     />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>
       AllCasa - Toronto Custom Home Construction & Full Home Renovation Services
     </title>
+
     <meta
       name="description"
       content="Toronto's premier custom home builders specializing in new luxury custom house design and build, full home renovation, and full basement renovation. Expert design-build services throughout the GTA. Get your free consultation today."
     />
+
     <meta
       name="robots"
       content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
     />
     <meta name="googlebot" content="index, follow" />
 
-    <!-- Open Graph / Social Media Tags -->
     <meta property="og:type" content="website" />
     <meta
       property="og:title"
@@ -35,14 +37,12 @@
     />
     <meta property="og:site_name" content="AllCasa" />
 
-    <!-- Additional SEO Keywords -->
     <meta
       name="keywords"
       content="full home renovation Toronto, full basement renovation, new luxury custom house design and build, custom home builders Toronto, design build Toronto, luxury home renovation, basement renovation GTA, custom house construction"
     />
 
-    <link rel="modulepreload" href="/src/main.tsx" />
-    <!-- Route-aware lazy Google Fonts loader to avoid critical chain on heavy route -->
+    <!-- Route-aware lazy Google Fonts -->
     <script>
       (function () {
         var href =
@@ -64,7 +64,6 @@
           document.head.appendChild(l);
         }
 
-        // Expose manual trigger for important interactions
         window.loadFontsNow = loadFonts;
 
         function idleLoadWithTimeout() {
@@ -80,7 +79,6 @@
           }
         }
 
-        // On heavy route, defer to idle only; elsewhere allow first interaction
         if (!isHeavyRoute) {
           ["scroll", "pointerdown", "keydown", "touchstart"].forEach(function (
             evt
@@ -101,11 +99,8 @@
     </script>
   </head>
   <body>
-    <!-- Google Tag Manager (noscript) -->
-
-    <!-- End Google Tag Manager (noscript) -->
-
     <div id="root"></div>
+
     <script type="module" src="/src/main.tsx"></script>
 
     <!-- Google Tag Manager - Route-aware lazy loader with Consent Mode defaults -->
@@ -120,12 +115,8 @@
         var isHeavyRoute = path === "/building-permit";
         var IDLE_TIMEOUT = isHeavyRoute ? 12000 : 4000;
 
-        if (isLocal) {
-          // Skip GTM in local development to avoid noisy third-party requests
-          return;
-        }
+        if (isLocal) return;
 
-        // Default consent: deny analytics/ads until user interacts (reduces third-party work)
         window.dataLayer = window.dataLayer || [];
         window.dataLayer.push({
           event: "default_consent",
@@ -145,6 +136,7 @@
             "gtm.start": new Date().getTime(),
             event: "gtm.js",
           });
+
           var s = document.createElement("script");
           s.async = true;
           s.src = "https://www.googletagmanager.com/gtm.js?id=" + GTM_ID;
@@ -152,7 +144,6 @@
           f.parentNode.insertBefore(s, f);
         }
 
-        // Expose manual trigger for consent-driven load
         window.loadGTMNow = loadGTM;
 
         function idleLoadWithTimeout() {
@@ -168,7 +159,6 @@
           }
         }
 
-        // Interaction triggers (disabled on heavy route to avoid early load)
         if (!isHeavyRoute) {
           ["scroll", "pointerdown", "keydown", "touchstart"].forEach(function (
             evt
@@ -184,12 +174,8 @@
           });
         }
 
-        // Fallback: after load, schedule idle load
         window.addEventListener("load", idleLoadWithTimeout, { once: true });
       })();
     </script>
-    <!-- End Google Tag Manager -->
-
-    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
   </body>
 </html>
