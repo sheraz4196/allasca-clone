@@ -26,7 +26,7 @@ const BasementDevelopment = () => {
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-white" id="basement-development">
       <div className="container">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-sans font-bold text-casa-purple mb-4">
