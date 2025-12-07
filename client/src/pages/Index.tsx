@@ -141,9 +141,9 @@ const Index = () => {
         <Suspense fallback={<SectionLoadingFallback />}>
           <OurProjects />
         </Suspense>
-        <LazyLoadInView fallback={<LoadingFallback />}>
-          <ExpandTransform />
-        </LazyLoadInView>
+
+        <ExpandTransform />
+
         <LazyLoadInView
           fallback={<LoadingFallback />}
           threshold={0.05}
