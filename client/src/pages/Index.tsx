@@ -1,12 +1,12 @@
 import { setupScrollAnimations } from "@/utils/animations";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { ChevronDown } from "lucide-react";
 import React, { lazy, Suspense } from "react";
 import LazyLoadInView from "@/components/LazyLoadInView";
+import { Button } from "@/components/ui/button";
 
 // Keep these non-lazy as they're critical for initial render
 import Seo from "@/components/Seo";
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import { Toaster } from "@/components/ui/sonner";
 import CommonNavbar from "@/components/CommonNavbar";
@@ -39,15 +39,12 @@ const InspirationalBanner = lazy(
 const FaqSection = lazy(() => import("@/components/Faq"));
 const Testimonials = lazy(() => import("@/components/Testimonials"));
 const Contact = lazy(() => import("@/components/Contact"));
-const CalendlyWidget = lazy(() => import("@/components/CalendlyWidget"));
 const Footer = lazy(() => import("@/components/Footer"));
 
-// Create a reusable fallback component
 const LoadingFallback = () => (
   <div className="h-64 bg-gradient-to-br from-gray-50 to-gray-100 animate-pulse rounded-xl my-8" />
 );
 
-// For section fallbacks
 const SectionLoadingFallback = () => (
   <div className="h-96 bg-gradient-to-br from-gray-50 to-gray-100 animate-pulse rounded-xl my-16">
     EROOR
@@ -70,15 +67,7 @@ const Index = () => {
       <CommonNavbar />
       <main>
         <Hero />
-        <LazyLoadInView
-          fallback={<LoadingFallback />}
-          threshold={0.05}
-          rootMargin="100px"
-        >
-          <Suspense fallback={<LoadingFallback />}>
-            <SEOSection />
-          </Suspense>
-        </LazyLoadInView>
+
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -127,7 +116,6 @@ const Index = () => {
             <InspirationalBanner />
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load FAQ Section */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -137,7 +125,6 @@ const Index = () => {
             <FaqSection />
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load Testimonials */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -147,7 +134,6 @@ const Index = () => {
             <Testimonials />
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load Contact */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -157,7 +143,6 @@ const Index = () => {
             <Contact />
           </Suspense>
         </LazyLoadInView>
-        {/* Lazy load Calendly Section */}
         <LazyLoadInView
           fallback={<SectionLoadingFallback />}
           threshold={0.05}
@@ -166,17 +151,31 @@ const Index = () => {
           <Suspense fallback={<SectionLoadingFallback />}>
             <section className="py-16 bg-gradient-to-br from-white to-purple-50">
               <div className="container">
-                <div className="max-w-4xl mx-auto">
-                  <div className="text-center mb-8">
+                <div className="max-w-4xl mx-auto text-center">
+                  <div className="mb-8">
                     <h2 className="text-3xl md:text-4xl font-sans font-bold text-casa-navy mb-4">
                       Ready to Start Your Project?
                     </h2>
-                    <p className="text-lg text-gray-600">
+                    <p className="text-lg text-gray-600 mb-8">
                       Schedule a free consultation with our experts to discuss
                       your renovation or construction needs.
                     </p>
                   </div>
-                  <CalendlyWidget />
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <Button
+                      asChild
+                      size="lg"
+                      className="bg-casa-blue hover:bg-casa-blue/90 text-white px-8 py-6 text-lg font-semibold rounded-lg transition-all duration-300 hover:scale-105"
+                    >
+                      <a href="/booking">
+                        Book a Free Consultation
+                        <ChevronDown className="ml-2 h-5 w-5 rotate-90" />
+                      </a>
+                    </Button>
+                  </div>
+                  <p className="mt-4 text-sm text-gray-500">
+                    Consultation typically takes 30-45 minutes
+                  </p>
                 </div>
               </div>
             </section>
@@ -184,11 +183,10 @@ const Index = () => {
         </LazyLoadInView>
       </main>
 
-      {/* Lazy load Footer */}
       <LazyLoadInView
         fallback={<div className="h-64 bg-gray-50" />}
         threshold={0}
-        rootMargin="500px" // Load footer earlier since it's at bottom
+        rootMargin="500px"
       >
         <Suspense fallback={<div className="h-64 bg-gray-50" />}>
           <Footer />
