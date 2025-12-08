@@ -9,6 +9,26 @@ import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 import { cartographer } from "@replit/vite-plugin-cartographer";
 import { ViteImageOptimizer } from "vite-plugin-image-optimizer";
 
+function inlineCssPlugin(): Plugin {
+  return {
+    name: "inline-css",
+    apply: "build",
+    transformIndexHtml(html, ctx?: IndexHtmlTransformContext) {
+      if (!ctx?.bundle) return html;
+
+      let styles = "";
+
+      for (const file of Object.values(ctx.bundle)) {
+        if (file.type === "asset" && file.fileName.endsWith(".css")) {
+          styles += `<style>${file.source}</style>`;
+        }
+      }
+
+      return html.replace("</head>", `${styles}\n</head>`);
+    },
+  };
+}
+
 export default defineConfig(({ mode }) => {
   const isDevOnReplit =
     mode !== "production" && process.env.REPL_ID !== undefined;
@@ -21,10 +41,9 @@ export default defineConfig(({ mode }) => {
       runtimeErrorOverlay(),
       ...(isDevOnReplit ? [cartographer()] : []),
       ViteImageOptimizer({
-        webp: {
-          quality: 75,
-        },
+        webp: { quality: 75 },
       }),
+      inlineCssPlugin(),
     ],
 
     resolve: {
@@ -38,7 +57,6 @@ export default defineConfig(({ mode }) => {
     build: {
       outDir: path.resolve(__dirname, "dist"),
       emptyOutDir: true,
-
       cssCodeSplit: false,
       minify: "esbuild",
     },
