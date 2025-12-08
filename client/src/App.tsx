@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -6,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, Suspense } from "react";
 import { HelmetProvider } from "react-helmet-async";
+import Booking from "./pages/Booking";
 const Index = lazy(() => import("./pages/Index"));
 
 const Admin = lazy(() => import("./pages/Admin"));
@@ -24,9 +24,16 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="animate-spin rounded-full h-12 w-12 border-b-2 border-casa-purple" /></div>}>
+          <Suspense
+            fallback={
+              <div className="min-h-screen flex items-center justify-center">
+                <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-casa-purple" />
+              </div>
+            }
+          >
             <Routes>
               <Route path="/" element={<Index />} />
+              <Route path="/booking" element={<Booking />} />
               <Route path="/admin" element={<Admin />} />
               <Route path="/privacy-policy" element={<PrivacyPolicy />} />
               <Route path="/terms-of-service" element={<TermsOfService />} />
