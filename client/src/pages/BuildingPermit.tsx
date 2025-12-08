@@ -182,11 +182,9 @@ const BuildingPermit = () => {
       <Navbar />
 
       <main className="pt-20 md:pt-28">
-        {/* Hero Section - Optimized for Mobile and Google Ads */}
         <section className="bg-gradient-to-br from-purple-50 to-white py-8 md:py-16">
           <div className="container max-w-6xl mx-auto px-4">
             <div className="text-center mb-6 md:mb-8">
-              {/* Semantic H1 for SEO */}
               <h1 className="font-sans font-bold text-casa-navy mb-4 md:mb-6">
                 <div className="text-3xl md:text-5xl mb-2">
                   Building Permit Services in Toronto
@@ -196,7 +194,6 @@ const BuildingPermit = () => {
                 </div>
               </h1>
 
-              {/* Trust Signal: Phone Number - Above the fold */}
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4 mb-6 md:mb-8 text-sm md:text-base">
                 <span className="font-semibold text-casa-navy">Call now:</span>
                 <a
@@ -226,7 +223,6 @@ const BuildingPermit = () => {
                   width={1200}
                   height={675}
                 />
-                {/* Rating Floating Box */}
                 <div className="absolute -bottom-3 -right-3 md:-bottom-4 md:-right-4 z-20 bg-white rounded-lg md:rounded-xl p-2 md:p-4 shadow-lg md:shadow-xl flex items-center gap-1.5 md:gap-3 text-xs md:text-base">
                   <span className="text-casa-navy text-xl md:text-3xl font-bold font-sans">
                     4.9
@@ -402,7 +398,6 @@ const BuildingPermit = () => {
           </div>
         </section>
 
-        {/* Permit Services Collapsible Section */}
         <section
           id="permit-services-section"
           className="py-16 bg-gradient-to-br from-white to-purple-50"
@@ -413,9 +408,9 @@ const BuildingPermit = () => {
             </h2>
 
             <div className="space-y-4">
-              {/* Residential Building Permits */}
               <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                 <button
+                  type="button"
                   onClick={() => toggleSection("residential")}
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
                 >
@@ -450,9 +445,9 @@ const BuildingPermit = () => {
                 )}
               </div>
 
-              {/* Commercial & Industrial Permits */}
               <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                 <button
+                  type="button"
                   onClick={() => toggleSection("commercial")}
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
                 >
@@ -484,9 +479,9 @@ const BuildingPermit = () => {
                 )}
               </div>
 
-              {/* Laneway & Garden Suites */}
               <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                 <button
+                  type="button"
                   onClick={() => toggleSection("laneway")}
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
                 >
@@ -516,9 +511,9 @@ const BuildingPermit = () => {
                 )}
               </div>
 
-              {/* Deck, Porch & Sunroom Permits */}
               <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                 <button
+                  type="button"
                   onClick={() => toggleSection("deck")}
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
                 >
@@ -547,6 +542,7 @@ const BuildingPermit = () => {
               {/* Retaining Wall, Grading & Site Plans */}
               <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                 <button
+                  type="button"
                   onClick={() => toggleSection("retaining")}
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
                 >
@@ -579,6 +575,7 @@ const BuildingPermit = () => {
               {/* Legal Basement & Secondary Suites */}
               <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                 <button
+                  type="button"
                   onClick={() => toggleSection("basement")}
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
                 >
@@ -643,6 +640,7 @@ const BuildingPermit = () => {
               {/* Demolition & Inspections */}
               <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                 <button
+                  type="button"
                   onClick={() => toggleSection("demolition")}
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
                 >
@@ -671,6 +669,7 @@ const BuildingPermit = () => {
               {/* City-Specific Permit Expertise */}
               <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                 <button
+                  type="button"
                   onClick={() => toggleSection("citySpecific")}
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
                 >
@@ -700,6 +699,7 @@ const BuildingPermit = () => {
               {/* Design-Build & Construction Support */}
               <div className="bg-white rounded-xl shadow-lg overflow-hidden">
                 <button
+                  type="button"
                   onClick={() => toggleSection("designBuild")}
                   className="w-full flex items-center justify-between p-6 hover:bg-purple-50 transition-colors"
                 >
@@ -797,6 +797,7 @@ const BuildingPermit = () => {
               <div className="grid md:grid-cols-2 gap-8 items-start">
                 <div>
                   <button
+                    type="button"
                     onClick={() => toggleSection("basementPoints")}
                     className="w-full flex items-center justify-between bg-white rounded-xl p-6 hover:bg-purple-50 transition-colors shadow-md mb-4 text-left"
                   >
