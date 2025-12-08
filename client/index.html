@@ -8,6 +8,7 @@
       type="image/webp"
       fetchPriority="high"
     />
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -42,7 +43,7 @@
       content="full home renovation Toronto, full basement renovation, new luxury custom house design and build, custom home builders Toronto, design build Toronto, luxury home renovation, basement renovation GTA, custom house construction"
     />
 
-    <!-- Route-aware lazy Google Fonts -->
+    <!-- Font loader (performance optimized) -->
     <script>
       (function () {
         var href =
@@ -68,12 +69,7 @@
 
         function idleLoadWithTimeout() {
           if ("requestIdleCallback" in window) {
-            requestIdleCallback(
-              function () {
-                loadFonts();
-              },
-              { timeout: IDLE_TIMEOUT }
-            );
+            requestIdleCallback(loadFonts, { timeout: IDLE_TIMEOUT });
           } else {
             setTimeout(loadFonts, IDLE_TIMEOUT);
           }
@@ -86,7 +82,7 @@
             window.addEventListener(
               evt,
               function handler() {
-                window.removeEventListener(evt, handler, { passive: true });
+                window.removeEventListener(evt, handler);
                 loadFonts();
               },
               { passive: true, once: true }
@@ -98,84 +94,10 @@
       })();
     </script>
   </head>
+
   <body>
     <div id="root"></div>
 
     <script type="module" src="/src/main.tsx"></script>
-
-    <!-- Google Tag Manager - Route-aware lazy loader with Consent Mode defaults -->
-    <script>
-      (function () {
-        var GTM_ID = "GTM-W4LSPXSW";
-        var loaded = false;
-        var isLocal = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(
-          location.hostname
-        );
-        var path = location.pathname || "/";
-        var isHeavyRoute = path === "/building-permit";
-        var IDLE_TIMEOUT = isHeavyRoute ? 12000 : 4000;
-
-        if (isLocal) return;
-
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({
-          event: "default_consent",
-          "gtm.consentDefault": {
-            ad_storage: "denied",
-            analytics_storage: "denied",
-            functionality_storage: "granted",
-            security_storage: "granted",
-          },
-        });
-
-        function loadGTM() {
-          if (loaded) return;
-          loaded = true;
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({
-            "gtm.start": new Date().getTime(),
-            event: "gtm.js",
-          });
-
-          var s = document.createElement("script");
-          s.async = true;
-          s.src = "https://www.googletagmanager.com/gtm.js?id=" + GTM_ID;
-          var f = document.getElementsByTagName("script")[0];
-          f.parentNode.insertBefore(s, f);
-        }
-
-        window.loadGTMNow = loadGTM;
-
-        function idleLoadWithTimeout() {
-          if ("requestIdleCallback" in window) {
-            requestIdleCallback(
-              function () {
-                loadGTM();
-              },
-              { timeout: IDLE_TIMEOUT }
-            );
-          } else {
-            setTimeout(loadGTM, IDLE_TIMEOUT);
-          }
-        }
-
-        if (!isHeavyRoute) {
-          ["scroll", "pointerdown", "keydown", "touchstart"].forEach(function (
-            evt
-          ) {
-            window.addEventListener(
-              evt,
-              function handler() {
-                window.removeEventListener(evt, handler, { passive: true });
-                loadGTM();
-              },
-              { passive: true, once: true }
-            );
-          });
-        }
-
-        window.addEventListener("load", idleLoadWithTimeout, { once: true });
-      })();
-    </script>
   </body>
 </html>
